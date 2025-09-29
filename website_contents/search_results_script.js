@@ -8,7 +8,7 @@ let flexIndex = null;
 
 async function loadIndex() {
   if (indexData.length) return indexData;
-  const res = await fetch('database_index.json');
+  const res = await fetch('../website_metadata/database_index.json');
   indexData = await res.json();
   // Keep only entries where allowed_in_database is true
   indexData = indexData.filter(item => item.allowed_in_database);
