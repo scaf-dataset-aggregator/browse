@@ -31,8 +31,8 @@ except Exception:
     MD_AVAILABLE = False
 
 CSV_PATH = Path('database_information.csv')
-OUT_DIR = Path('database_webpages')
-INDEX_PATH = Path('database_index.json')
+OUT_DIR = Path('website_contents', 'database_webpages')
+INDEX_PATH = Path('website_metadata', 'database_index.json')
 
 # Mapping from original headers (as provided) to normalized keys we use internally.
 # If your CSV headers differ slightly, the script will normalise column names before mapping.
