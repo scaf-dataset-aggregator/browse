@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Search results</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Optional FlexSearch and Marked.js CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.31/dist/flexsearch.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Search Results</h1>
+    <form id="search-form">
+      <input type="text" id="query" name="q" placeholder="Search datasets...">
+      <button type="submit">Search</button>
+    </form>
+    <div id="results"></div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
