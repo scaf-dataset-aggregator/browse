@@ -103,7 +103,7 @@ NORMALISED_LOOKUP = {normalise(k): v for k, v in HEADER_MAP.items()}
 
 # Make sure CSV exists
 if not CSV_PATH.exists():
-    raise SystemExit(f"CSV not found at {CSV_PATH.resolve()} — place database_information.csv in the script directory")
+    raise SystemExit(f"CSV not found at {CSV_PATH.resolve()} - place database_information.csv in top-level directory!")
 
 
 def read_csv_safely(csv_path):
