@@ -150,77 +150,79 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 index_list = []
 
-# safe HTML escape
 import html
+import re
+from pathlib import Path
+
+# Optionally: import markdown if you have it
+try:
+    import markdown
+    MD_AVAILABLE = True
+except ImportError:
+    MD_AVAILABLE = False
+
+TEMPLATE_FILE = Path("website_contents", "database_webpages", "dataset_webpage_template.html")
+OUT_DIR = Path("website_contents", "database_webpages")
+
+# safe fill_in_gaps function
+def fill_in_gaps(template_string, variables_dict):
+    class DefaultDict(dict):
+        def __missing__(self, key):
+            return "unknown"
+    safe_dict = DefaultDict(variables_dict)
+    return template_string.format_map(safe_dict)
+
+# read template
+with open(TEMPLATE_FILE, "r", encoding="utf-8") as file:
+    template_string = file.read()
 
 for index, row in df.iterrows():
-    code = f"{index + 1:04d}"  # 1-based, zero padded
+    code = f"{index + 1:05d}"  # 1-based, zero padded
     page_filename = f"{code}.html"
     page_path = OUT_DIR / page_filename
 
-    # convenient accessors (use .get where possible)
-    name = str(row.get('name', '') or '')
+    # extract values
+    name = str(row.get('name', '') or 'unknown')
     keywords_raw = str(row.get('keywords', '') or '')
-    # split keywords by common separators
-    if keywords_raw:
-        keywords = [k.strip() for k in re.split(r'[;,|\n]+', keywords_raw) if k.strip()]
-    else:
-        keywords = []
-
-    abstract = str(row.get('abstract', '') or row.get('short_summary', '') or '')
-    location = str(row.get('location', '') or '')
-    accessibility = str(row.get('accessibility', '') or row.get('isAccessibleForFree', '') or '')
+    keywords = [k.strip() for k in re.split(r'[;,|\n]+', keywords_raw) if k.strip()] if keywords_raw else []
+    abstract = str(row.get('abstract', '') or row.get('short_summary', '') or 'unknown')
+    location = str(row.get('location', '') or 'unknown')
+    accessibility = str(row.get('accessibility', '') or row.get('isAccessibleForFree', '') or 'unknown')
     allowed_in_database = str(row.get('allow?', '')) == "Allow"
     description_md = str(row.get('description_md', '') or '')
-    download_links = str(row.get('download_links', '') or '')
-    author = str(row.get('author', '') or '')
+    download_links = str(row.get('download_links', '') or 'unknown')
+    author = str(row.get('author', '') or 'unknown')
     organisation = str(row.get('organisation', '') or '')
 
-    # Convert description markdown to HTML if possible; otherwise minimal escaping with paragraphs
+    # markdown -> html
     if MD_AVAILABLE and description_md.strip():
         description_html = markdown.markdown(description_md, extensions=['fenced_code', 'tables'])
     else:
-        # very small fallback: escape and turn double newlines into paragraphs
         esc = html.escape(description_md)
         newline = "\n"
         paragraphs = ''.join(f"<p>{p.replace(newline, '<br/>')}</p>" for p in esc.split('\n\n') if p.strip())
-        description_html = paragraphs or '<p></p>'
+        description_html = paragraphs or '<p>unknown</p>'
 
-    # create a simple HTML page
-    html_content = f"""
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{html.escape(name) or 'Dataset ' + code}</title>
-  <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-  <main class="container">
-    <h1>{html.escape(name) or 'Dataset ' + code}</h1>
-    <p><strong>Dataset code:</strong> {code}</p>
-    <p><strong>Author / Organisation:</strong> {html.escape(author)} {(' - ' + html.escape(organisation)) if organisation else ''}</p>
-    <p><strong>Keywords:</strong> {', '.join(html.escape(k) for k in keywords)}</p>
-    <p><strong>Location:</strong> {html.escape(location)}</p>
-    <p><strong>Accessibility:</strong> {html.escape(accessibility)}</p>
-    <h2>Abstract</h2>
-    <p>{html.escape(abstract)}</p>
+    # prepare variables dict
+    variables = {
+        "dataset_title": html.escape(name) or f"Dataset {code}",
+        "dataset_code": code,
+        "dataset_author_organisation": html.escape(author) + ((' - ' + html.escape(organisation)) if organisation else ''),
+        "dataset_keywords": ', '.join(html.escape(k) for k in keywords) if keywords else 'unknown',
+        "dataset_location": html.escape(location),
+        "dataset_accessibility": html.escape(accessibility),
+        "dataset_abstract": html.escape(abstract),
+        "dataset_description_html": description_html,
+        "dataset_download_links": html.escape(download_links)
+    }
 
-    <h2>Long description</h2>
-    <div class="description">{description_html}</div>
+    # fill template
+    html_content = fill_in_gaps(template_string, variables)
 
-    <h2>Downloads / Links</h2>
-    <p>{html.escape(download_links)}</p>
-
-    <hr/>
-    <p><a href="/index.html">Back to index</a></p>
-  </main>
-</body>
-</html>
-"""
-
+    # write file
     page_path.write_text(html_content, encoding='utf-8')
+    print(f"Wrote the page content for dataset {code} ({name}) to {page_path}")
+
 
     # Build entry for JSON index
     index_entry = {

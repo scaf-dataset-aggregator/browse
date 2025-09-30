@@ -1,6 +1,6 @@
 [
   {
-    "id": "0001",
+    "id": "00001",
     "allowed_in_database": true,
     "name": "Breastfeeding in Scotland",
     "keywords": [
@@ -13,10 +13,10 @@
     "location": "Scotland",
     "accessibility": "Accessible",
     "index": 0,
-    "link": "database_webpages/0001.html"
+    "link": "database_webpages/00001.html"
   },
   {
-    "id": "0002",
+    "id": "00002",
     "allowed_in_database": true,
     "name": "Primary 1 BMI Distribution",
     "keywords": [
@@ -29,10 +29,10 @@
     "location": "Scotland",
     "accessibility": "Yes",
     "index": 1,
-    "link": "database_webpages/0002.html"
+    "link": "database_webpages/00002.html"
   },
   {
-    "id": "0003",
+    "id": "00003",
     "allowed_in_database": true,
     "name": "Farm Business Survey on Emissions and Nitrogen usage",
     "keywords": [
@@ -47,10 +47,10 @@
     "location": "Scotland",
     "accessibility": "Yes",
     "index": 2,
-    "link": "database_webpages/0003.html"
+    "link": "database_webpages/00003.html"
   },
   {
-    "id": "0004",
+    "id": "00004",
     "allowed_in_database": true,
     "name": "Potato Image recognition",
     "keywords": [
@@ -64,10 +64,10 @@
     "location": "South Korea?",
     "accessibility": "Yes",
     "index": 3,
-    "link": "database_webpages/0004.html"
+    "link": "database_webpages/00004.html"
   },
   {
-    "id": "0005",
+    "id": "00005",
     "allowed_in_database": true,
     "name": "Test name",
     "keywords": [
@@ -79,10 +79,10 @@
     "location": "Office",
     "accessibility": "Accessible",
     "index": 4,
-    "link": "database_webpages/0005.html"
+    "link": "database_webpages/00005.html"
   },
   {
-    "id": "0006",
+    "id": "00006",
     "allowed_in_database": true,
     "name": "Smart Food Logistics Market",
     "keywords": [
@@ -96,10 +96,10 @@
     "location": "Globally",
     "accessibility": "No",
     "index": 5,
-    "link": "database_webpages/0006.html"
+    "link": "database_webpages/00006.html"
   },
   {
-    "id": "0007",
+    "id": "00007",
     "allowed_in_database": true,
     "name": "Cattle registrations Scotland November 2015",
     "keywords": [
@@ -112,6 +112,6 @@
     "location": "England and Scotland",
     "accessibility": "Yes",
     "index": 6,
-    "link": "database_webpages/0007.html"
+    "link": "database_webpages/00007.html"
   }
 ]
