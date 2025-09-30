@@ -13,15 +13,15 @@ Usage:
 The script is robust to slightly different header punctuation/casing by normalising column names.
 """
 
-import os
-import re
 import json
-from pathlib import Path
+
+from python_scripts.paths import OUT_DIR, INDEX_PATH
+from python_scripts.read_dataset_information import get_database_information_df
 
 try:
     import pandas as pd
 except Exception as e:
-    raise SystemExit("pandas is required. Install with: pip install pandas")
+    raise SystemExit("pandas is required. In theory, github actions should do that?")
 
 # Markdown conversion for descriptions (optional)
 try:
@@ -30,120 +30,6 @@ try:
 except Exception:
     MD_AVAILABLE = False
 
-CSV_PATH = Path('database_information.csv')
-OUT_DIR = Path('website_contents', 'database_webpages')
-INDEX_PATH = Path('website_metadata', 'database_index.json')
-
-# Mapping from original headers (as provided) to normalized keys we use internally.
-# If your CSV headers differ slightly, the script will normalise column names before mapping.
-HEADER_MAP = {
-    'Id': 'id',
-    'Start time': 'start_time',
-    'Completion time': 'completion_time',
-    'Email': 'email',
-    'Allow?': "allow?",
-    'Name': 'name',
-    'Keywords': 'keywords',
-    'What is the main topic?': 'main_topic',
-    'Short summary (one line)': 'short_summary',
-    'Abstract': 'abstract',
-    'Long form description, the datacard': 'description_md',
-    'Download links': 'download_links',
-    'Version': 'version',
-    'Word Count ': 'word_count',
-    'Is this dataset part of a bigger collection? If yes, write it here': 'part_of_collection',
-    'ISSN': 'issn',
-    'Was this work used elsewhere (conference, paper etc..)': 'used_elsewhere',
-    'Intended audience ': 'intended_audience',
-    'Author': 'author',
-    'Organisation that generated this data': 'organisation',
-    'Text describing credit information': 'credit_info',
-    'Citation(s) to the original publications and webpages': 'citations',
-    'Contributor': 'contributor',
-    'Editor ': 'editor',
-    'Source of funding': 'funding_source',
-    'Language': 'language',
-    'Maintainer': 'maintainer',
-    'Publication': 'publication',
-    'Publisher': 'publisher',
-    'Sponsor ': 'sponsor',
-    'Does this work go by an alternate name?': 'alternate_name',
-    'Disambiguating description': 'disambiguating_description',
-    'What is measured in the dataset? And how?': 'measured',
-    'Where was the data recorded?': 'location',
-    'When was the data recorded?': 'recorded_when',
-    'Was the data shown at a particular event? Eg the conference': 'shown_at_event',
-    'Lifecycle Status (eg draft, incomplete, published)': 'lifecycle_status',
-    'What was the original format of the data? Microfiche, paper etc..': 'original_format',
-    'What is the file format?': 'file_format',
-    'accountablePerson ': 'accountable_person',
-    'acquireLicencePage ': 'acquireLicencePage',
-    'conditionsOfAccess ': 'conditionsOfAccess',
-    'copyrightHolder ': 'copyrightHolder',
-    'copyrightNotice ': 'copyrightNotice',
-    'copyrightYear': 'copyrightYear',
-    'isAccessibleForFree': 'isAccessibleForFree',
-    'isBasedOn ': 'isBasedOn',
-    'isFamilyFriendly ': 'isFamilyFriendly',
-    'licence ': 'licence',
-    'producer ': 'producer',
-    'provider ': 'provider',
-    'usageInfo ': 'usageInfo',
-    'Genre ': 'genre',
-    'Accessibility ': 'accessibility',
-    'expires ': 'expires',
-}
-
-# Normalise helper: strip punctuation and spaces, lowercase
-def normalise(s: str) -> str:
-    return re.sub(r"[^a-z0-9]", "", s.lower()) if isinstance(s, str) else s
-
-# Build normalised header lookup
-NORMALISED_LOOKUP = {normalise(k): v for k, v in HEADER_MAP.items()}
-
-# Make sure CSV exists
-if not CSV_PATH.exists():
-    raise SystemExit(f"CSV not found at {CSV_PATH.resolve()} - place database_information.csv in top-level directory!")
-
-
-def read_csv_safely(csv_path):
-    try:
-        df = pd.read_csv(csv_path, sep=',', encoding='utf-8-sig', dtype=str)
-    except Exception:
-        df = pd.read_csv(csv_path, encoding='utf-8', dtype=str)
-
-    # remove the BOM character
-    df.columns = df.columns.str.strip().str.replace("\ufeff", "")
-
-    # The dataframe is likely to contain many empty rows. Remove those where the id is not a number
-    # note that we use capitalised Id because we've not converted the column names yet
-    df = df[~df["Id"].isna()]
-
-    # Ensure string values and fill NaN with empty strings
-    df = df.astype(object).where(pd.notnull(df), '')
-
-    return df
-
-df = read_csv_safely(CSV_PATH)
-
-# The dataframe is likely to contain many empty rows. Remove those where the id is not a number
-# note that we use capitalised Id because we've not converted the column names yet
-df = df[~df["Id"].isna()]
-
-# Ensure string values and fill NaN with empty strings
-df = df.astype(object).where(pd.notnull(df), '')
-
-# Normalise column names and rename according to our map where possible
-new_cols = {}
-for col in df.columns:
-    key = normalise(col)
-    if key in NORMALISED_LOOKUP:
-        new_cols[col] = NORMALISED_LOOKUP[key]
-    else:
-        # fallback: use a cleaned version of the original column as a key
-        new_cols[col] = re.sub(r"[^0-9a-z_]", "_", col.strip().lower())
-
-df = df.rename(columns=new_cols)
 
 # Output directory
 OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -175,6 +61,9 @@ def fill_in_gaps(template_string, variables_dict):
 # read template
 with open(TEMPLATE_FILE, "r", encoding="utf-8") as file:
     template_string = file.read()
+
+
+df = get_database_information_df()
 
 for index, row in df.iterrows():
     code = f"{index + 1:05d}"  # 1-based, zero padded
