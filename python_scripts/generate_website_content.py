@@ -55,6 +55,11 @@ for index, row in df.iterrows():
     page_path = OUT_DIR / page_filename
     dataset_variables = dataset_df_row_to_JSON(row, dataset_code, page_path)
 
+    if not dataset_variables["allowed?"]:
+        print(f"Skipping dataset {dataset_variables['dataset_title']} because it is not allowed.")
+        continue  # avoid making the page and adding an entry to the index
+        # todo: remove the page if it exists already.
+
     # fill template
     html_content = fill_in_gaps(template_string, dataset_variables)
 
