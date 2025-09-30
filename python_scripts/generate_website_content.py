@@ -7,50 +7,32 @@ Reads `database_information.csv` and generates:
  - `database_index.json` used by the client search
 
 Usage:
- pip install pandas markdown
- python generate_webpages.py
+ It is supposed to be executed by a github action, but you can run it locally too. It just looks for that csv, and creates new files.
+ You might ned to install pandas and markdown.
 
 The script is robust to slightly different header punctuation/casing by normalising column names.
 """
 
 import json
+import html
+import re
+from pathlib import Path
 
-from python_scripts.paths import OUT_DIR, INDEX_PATH
+from python_scripts.paths import OUT_DIR, INDEX_PATH, TEMPLATE_FILE
 from python_scripts.read_dataset_information import get_database_information_df
 
 try:
     import pandas as pd
-except Exception as e:
-    raise SystemExit("pandas is required. In theory, github actions should do that?")
-
-# Markdown conversion for descriptions (optional)
-try:
     import markdown
-    MD_AVAILABLE = True
-except Exception:
-    MD_AVAILABLE = False
-
+except Exception as e:
+    raise SystemExit("pandas and markdown are required. In theory, github actions should do that?")
 
 # Output directory
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 index_list = []
-
-import html
-import re
-from pathlib import Path
-
-# Optionally: import markdown if you have it
-try:
-    import markdown
-    MD_AVAILABLE = True
-except ImportError:
-    MD_AVAILABLE = False
-
-TEMPLATE_FILE = Path("website_contents", "database_webpages", "dataset_webpage_template.html")
-OUT_DIR = Path("website_contents", "database_webpages")
-
 # safe fill_in_gaps function
+
 def fill_in_gaps(template_string, variables_dict):
     class DefaultDict(dict):
         def __missing__(self, key):
@@ -84,13 +66,7 @@ for index, row in df.iterrows():
     organisation = str(row.get('organisation', '') or '')
 
     # markdown -> html
-    if MD_AVAILABLE and description_md.strip():
-        description_html = markdown.markdown(description_md, extensions=['fenced_code', 'tables'])
-    else:
-        esc = html.escape(description_md)
-        newline = "\n"
-        paragraphs = ''.join(f"<p>{p.replace(newline, '<br/>')}</p>" for p in esc.split('\n\n') if p.strip())
-        description_html = paragraphs or '<p>unknown</p>'
+    description_html = markdown.markdown(description_md, extensions=['fenced_code', 'tables'])
 
     # prepare variables dict
     variables = {
