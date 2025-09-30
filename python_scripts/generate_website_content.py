@@ -63,7 +63,7 @@ for index, row in df.iterrows():
     # fill template
     html_content = fill_in_gaps(template_string, dataset_variables)
 
-    # write file
+    # write file for webpage
     page_path.write_text(html_content, encoding='utf-8')
     print(f"Wrote the page content for dataset {dataset_code} ({dataset_variables['dataset_title']}) to {page_path}")
 
