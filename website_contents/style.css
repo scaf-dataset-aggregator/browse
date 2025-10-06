@@ -365,3 +365,58 @@ footer {
   background: #006630;   /* dark green background */
   color: white;          /* text stays readable */
 }
+
+
+/* Centered layout for results page, same as homepage */
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background-color: white;
+  color: #222;
+}
+
+/* Result cards styling */
+.search-card {
+  background-color: #ffffff;
+  border-left: 6px solid #005197; /* dark blue accent */
+  border-radius: 8px;
+  padding: 1.2em;
+  margin: 1em 0;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+.search-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.search-card h2 a {
+  color: #005197;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.search-card h2 a:hover {
+  text-decoration: underline;
+}
+
+.search-card .meta {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 0.5em;
+}
+
+.search-card .snippet {
+  margin: 0.8em 0;
+  line-height: 1.4;
+}
+
+.search-card .result-footer {
+  font-size: 0.85em;
+  color: #006630; /* green accent for location info */
+}

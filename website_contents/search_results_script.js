@@ -62,7 +62,7 @@ function snippet(text, q, maxLen=250) {
 }
 
 function renderResults(items, container) {
-  container.innerHTML = '';
+  container.replaceChildren();
   if (!items || items.length === 0) {
     container.innerHTML = '<p>No results found.</p>';
     return;
