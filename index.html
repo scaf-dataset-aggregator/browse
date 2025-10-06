@@ -3,21 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FoodSearch</title>
+  <title>SCAF Dataset Aggregator</title>
   <link rel="stylesheet" href="website_contents/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>FoodSearch</h1>
+  <div class="center-box">
+    <img src="assets/SCAF_LOGO.svg" alt="SCAF Logo" class="logo">
+    <h1>SCAF Dataset Aggregator</h1>
+
     <form id="search-form" action="website_contents/search_results.html">
       <input type="text" id="query" name="q" placeholder="Search datasets...">
       <button type="submit">Search</button>
     </form>
-  </div>
 
-  <footer>
-    <p>This page is a test by Gian on August 2025.</p>
-    <p>To submit a dataset, please email <a href="mailto:test@stir.ac.uk">test@stir.ac.uk</a></p>
-  </footer>
+    <hr>
+
+    <nav>
+      <a href="website_contents/about_page/about_page.html">About</a> |
+      <a href="website_contents/dataset_listing/dataset_listing.html">Dataset Listing</a>
+    </nav>
+
+    <footer>
+      <p>Made by Giancarlo Catalano for SCAF, 2025</p>
+    </footer>
+  </div>
 </body>
 </html>
