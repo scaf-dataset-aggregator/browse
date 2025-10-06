@@ -19,7 +19,7 @@ import re
 from pathlib import Path
 
 from python_scripts.parse_dataset_information import dataset_df_row_to_JSON
-from python_scripts.paths import OUT_DIR, INDEX_PATH, TEMPLATE_FILE, get_webpage_path
+from python_scripts.paths import WEBPAGES_FOLDER, INDEX_PATH, TEMPLATE_FILE, get_webpage_path
 from python_scripts.read_csv_safely import get_database_information_df
 
 try:
@@ -29,7 +29,7 @@ except Exception as e:
     raise SystemExit("pandas and markdown are required. In theory, github actions should do that?")
 
 # Output directory
-OUT_DIR.mkdir(parents=True, exist_ok=True)
+WEBPAGES_FOLDER.mkdir(parents=True, exist_ok=True)
 
 index_list = []
 # safe fill_in_gaps function
@@ -81,4 +81,4 @@ for index, row in df.iterrows():
 # Write JSON index
 INDEX_PATH.write_text(json.dumps(index_list, ensure_ascii=False, indent=2), encoding='utf-8')
 
-print(f"Generated {len(index_list)} pages in '{OUT_DIR}' and index at '{INDEX_PATH}'")
+print(f"Generated {len(index_list)} pages in '{WEBPAGES_FOLDER}' and index at '{INDEX_PATH}'")

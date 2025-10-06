@@ -7,7 +7,7 @@ import pandas as pd
 
 from python_scripts.header_map import HEADER_MAP
 
-from python_scripts.paths import CSV_PATH, OUT_DIR, INDEX_PATH
+from python_scripts.paths import CSV_PATH, WEBPAGES_FOLDER, INDEX_PATH
 
 # this file is to read the csv and make it bomb proof. The only thing you should import is get_database_information_df
 

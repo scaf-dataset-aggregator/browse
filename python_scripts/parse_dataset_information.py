@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from python_scripts.paths import OUT_DIR
+from python_scripts.paths import WEBPAGES_FOLDER
 import markdown
 import re
 import html
