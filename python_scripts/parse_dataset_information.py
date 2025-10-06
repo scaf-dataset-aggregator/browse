@@ -12,6 +12,17 @@ import html
  # preparing the information to make the webpages
 
 
+def make_html_bullet_list(items: list[str]) -> str:
+    """
+    Given a list of strings, returns a string with an HTML unordered list.
+    Each item is wrapped in <li> tags.
+    """
+    if not items:
+        return ""
+    list_items = "\n".join(f"  <li>{item}</li>" for item in items)
+    return f"<ul>\n{list_items}\n</ul>"
+
+
 
 def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
@@ -21,6 +32,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     keywords_raw = html.escape(str(row.get('keywords', '') or ''))
     keywords = [html.escape(str(k.strip())) for k in re.split(r'[;,|\n]+', keywords_raw) if k.strip()] if keywords_raw else []
+    result_json["keywords_html"] = ", ".join(keywords)   # needs to be separate because we want them separate in the JSON index
     result_json["keywords"] = keywords
 
     result_json["abstract"] = html.escape(str(row.get("abstract", "Missing abstract")))
@@ -28,7 +40,10 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     result_json["authors"] = [html.escape(str(author)) for author in row.get("authors", "Missing authors").split("\n")]
     result_json["organisation"] = html.escape(str(row.get("organisation", "Not provided")))
-    result_json["links"] = [str(link) for link in row.get("links").split("\n")]
+
+    raw_links = row.get("links").split("\n")
+    html_links = [f'<a href="{link}">{link}</a>' for link in raw_links]
+    result_json["links"] = make_html_bullet_list(html_links)
 
 
     description_md = str(row.get('description_md', '') or '')

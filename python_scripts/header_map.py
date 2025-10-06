@@ -21,6 +21,7 @@ HEADER_MAP = {
     'Was this work used elsewhere (conference, paper etc..)': 'used_elsewhere',
     'Intended audience ': 'intended_audience',
     'Author': 'authors',
+    'Contact Details': 'contact details',
     'Organisation that generated this data': 'organisation',
     'Text describing credit information': 'credit_info',
     'Citation(s) to the original publications and webpages': 'citations',

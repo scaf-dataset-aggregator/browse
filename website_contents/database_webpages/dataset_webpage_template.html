@@ -8,10 +8,15 @@
 </head>
 <body>
   <main class="container">
+    <p style="margin-bottom: 1em;">
+      <a href="#" onclick="history.back(); return false;" style="text-decoration: none; color: #005197; font-weight: 600;">
+        ⭠ Back to search
+      </a>
+    </p>
+
     <h1>{dataset_title}</h1>
-    <p><strong>Dataset code:</strong> {dataset_code}</p>
     <p><strong>Author / Organisation:</strong> {organisation}</p>
-    <p><strong>Keywords:</strong> {keywords}</p>
+    <p><strong>Keywords:</strong> {keywords_html}</p>
     <p><strong>Location:</strong> {location}</p>
 
     <h2>Abstract</h2>
@@ -24,7 +29,7 @@
     <p>{links}</p>
 
     <hr/>
-    <p><a href="../../index.html">Back to index</a></p>
+    <p><a href="../../index.html">Back to Home page</a></p>
   </main>
 </body>
 </html>
