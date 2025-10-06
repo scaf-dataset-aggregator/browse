@@ -11,15 +11,23 @@ import html
  # making an entry in the index
  # preparing the information to make the webpages
 
+def is_empty_text(s: str) -> bool:
+    """Return True if the string is empty or contains only whitespace."""
+    return not s or s.strip() == ""
+
+
 
 def make_html_bullet_list(items: list[str]) -> str:
     """
     Given a list of strings, returns a string with an HTML unordered list.
     Each item is wrapped in <li> tags.
     """
+
+
+
     if not items:
         return ""
-    list_items = "\n".join(f"  <li>{item}</li>" for item in items)
+    list_items = "\n".join(f"  <li>{item}</li>" for item in items if not is_empty_text(item))
     return f"<ul>\n{list_items}\n</ul>"
 
 
