@@ -12,7 +12,7 @@ HEADER_MAP = {
     'What is the main topic?': 'main_topic',
     'Short summary (one line)': 'short_summary',
     'Abstract': 'abstract',
-    'Long form description, the datacard': 'description',
+    'Long form description, the datacard': 'description_md',
     'Download links': 'links',
     'Version': 'version',
     'Word Count ': 'word_count',
