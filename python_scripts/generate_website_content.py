@@ -52,17 +52,26 @@ for index, row in df.iterrows():
     # first, we process whatever raw text the user entered
     dataset_code = f"{index + 1:05d}"  # 1-based, zero padded
     dataset_variables = dataset_df_row_to_JSON(row, dataset_code)
+    page_path = get_webpage_path(dataset_code)
 
     if not dataset_variables["allowed?"]:
-        print(f"Skipping dataset {dataset_variables['dataset_title']} because it is not allowed.")
+        print(f"Removing dataset {dataset_variables['dataset_title']} because it is not allowed.")
+
+        try:
+            if page_path.exists():
+                print("Found that the page existed in the past, so it will be deleted.")
+                page_path.unlink()
+                print(f"Deleted old page: {page_path}")
+        except Exception as e:
+            print(f"WARNING: could not delete {page_path}: {e}")
+
         continue  # avoid making the page and adding an entry to the index
-        # todo: remove the page if it exists already.
 
     # fill template, create webpage
     html_content = fill_in_gaps(template_string, dataset_variables)
 
     # write file for webpage
-    page_path = get_webpage_path(dataset_code)
+
     page_path.write_text(html_content, encoding='utf-8')
     print(f"Wrote the page content for dataset {dataset_code} ({dataset_variables['dataset_title']}) to {page_path}")
 
