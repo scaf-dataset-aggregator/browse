@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dataset Listing – SCAF Dataset Aggregator</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="center-box listing">
+    <img src="../../assets/SCAF_LOGO.svg" alt="SCAF Logo" class="logo">
+
+    <h1>Dataset Listing</h1>
+
+    <ul id="dataset-list" style="text-align: left; padding-left: 1em;"></ul>
+
+    <footer>
+      <p><a href="../../index.html">Back to home</a></p>
+    </footer>
+  </div>
+
+  <script>
+    async function loadDatasets() {
+      try {
+        const res = await fetch('../../website_metadata/database_index.json');
+        let datasets = await res.json();
+        // Only allowed datasets
+        datasets = datasets.filter(d => d.allowed_in_database);
+
+        const list = document.getElementById('dataset-list');
+        list.innerHTML = '';
+
+        datasets.forEach(d => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = `../dataset_webpages/${d.id}.html`;
+          a.textContent = d.name || `Dataset ${d.id}`;
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+
+      } catch (err) {
+        console.error('Error loading datasets:', err);
+        document.getElementById('dataset-list').innerHTML = '<p>Failed to load datasets.</p>';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadDatasets);
+  </script>
+</body>
+</html>

@@ -40,8 +40,7 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 2em 3em;
-  max-width: 500px;
-  width: 80%;
+  width: 90%;
 }
 
 /* Container: centered and constrained */
@@ -294,7 +293,6 @@ a:focus, button:focus, input:focus {
 /* --------------- Responsive tweaks --------------- */
 @media (max-width: 640px) {
   .site-brand { gap: 0.6rem; }
-  .logo { width: 72px; }
   .search-input { width: calc(100% - 3rem); }
   .nav-links { flex-wrap: wrap; gap: 0.5rem; }
 }
@@ -420,3 +418,22 @@ footer {
   font-size: 0.85em;
   color: #006630; /* green accent for location info */
 }
+
+/* For search results page only */
+body.search-results {
+  display: block;  /* normal vertical flow */
+  text-align: center; /* center logo/search horizontally */
+  padding: 2em;
+}
+
+#search-form {
+  margin-bottom: 1.5em;
+}
+
+#results {
+  text-align: left;  /* results left-aligned */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
