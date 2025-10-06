@@ -13,14 +13,10 @@ import html
 
 
 
-def dataset_df_row_to_JSON(row, dataset_code, page_path: Path) -> dict:
-
-
-
+def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     result_json = dict()
     result_json["dataset_code"] = str(dataset_code)
-    result_json["dataset_webpage_path"] = str(page_path)
     result_json["dataset_title"] = html.escape(str(row.get("dataset_title", f"Dataset {dataset_code}")))
 
     keywords_raw = html.escape(str(row.get('keywords', '') or ''))

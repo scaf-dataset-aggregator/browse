@@ -19,7 +19,7 @@ import re
 from pathlib import Path
 
 from python_scripts.parse_dataset_information import dataset_df_row_to_JSON
-from python_scripts.paths import OUT_DIR, INDEX_PATH, TEMPLATE_FILE
+from python_scripts.paths import OUT_DIR, INDEX_PATH, TEMPLATE_FILE, get_webpage_path
 from python_scripts.read_csv_safely import get_database_information_df
 
 try:
@@ -51,19 +51,18 @@ df = get_database_information_df()
 for index, row in df.iterrows():
     # first, we process whatever raw text the user entered
     dataset_code = f"{index + 1:05d}"  # 1-based, zero padded
-    page_filename = f"{dataset_code}.html"
-    page_path = OUT_DIR / page_filename
-    dataset_variables = dataset_df_row_to_JSON(row, dataset_code, page_path)
+    dataset_variables = dataset_df_row_to_JSON(row, dataset_code)
 
     if not dataset_variables["allowed?"]:
         print(f"Skipping dataset {dataset_variables['dataset_title']} because it is not allowed.")
         continue  # avoid making the page and adding an entry to the index
         # todo: remove the page if it exists already.
 
-    # fill template
+    # fill template, create webpage
     html_content = fill_in_gaps(template_string, dataset_variables)
 
     # write file for webpage
+    page_path = get_webpage_path(dataset_code)
     page_path.write_text(html_content, encoding='utf-8')
     print(f"Wrote the page content for dataset {dataset_code} ({dataset_variables['dataset_title']}) to {page_path}")
 
@@ -74,9 +73,7 @@ for index, row in df.iterrows():
         'name': dataset_variables["dataset_title"],
         'keywords': dataset_variables["keywords"],
         'abstract': dataset_variables["abstract"],
-        'location': dataset_variables["location"],
-
-        'link': dataset_variables["dataset_webpage_path"]
+        'location': dataset_variables["location"]
     }
     # Build entry for JSON index
     index_list.append(index_entry)
