@@ -304,4 +304,14 @@ hr, hr.styled {
   .nav-links { flex-wrap: wrap; gap: 0.5rem; }
 }
 
+.centered-body {
+  display: flex;
+  justify-content: center;   /* horizontal centering */
+  align-items: center;       /* vertical centering */
+  min-height: 100vh;         /* full viewport height */
+  text-align: center;        /* center text inside */
+  padding: 1rem;             /* optional padding */
+  box-sizing: border-box;
+}
+
 
