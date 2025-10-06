@@ -81,7 +81,7 @@ function renderResults(items, container) {
     const meta = document.createElement('p');
     meta.className = 'meta';
     if (item.keywords && item.keywords.length) {
-      meta.textContent = 'Keywords: ' + item.keywords.join(', ');
+      meta.innerHTML = 'Keywords: ' + item.keywords.join(', ');
     }
 
     const abs = document.createElement('div');
@@ -90,12 +90,12 @@ function renderResults(items, container) {
     if (RENDER_MARKDOWN_CLIENT && typeof marked !== 'undefined') {
       abs.innerHTML = marked.parse(rawSnippet);
     } else {
-      abs.textContent = rawSnippet;
+      abs.innerHTML = rawSnippet;
     }
 
     const footer = document.createElement('p');
     footer.className = 'result-footer';
-    footer.textContent = item.location ? ('Location: ' + item.location) : '';
+    footer.innerHTML = item.location ? ('Location: ' + item.location) : '';
 
     card.appendChild(title);
     if (meta.textContent) card.appendChild(meta);
