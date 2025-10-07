@@ -1,9 +1,7 @@
-from pathlib import Path
-
-from python_scripts.paths import WEBPAGES_FOLDER
-import markdown
-import re
 import html
+import re
+
+import markdown
 
 
 # this file will make a little JSON for every row of the cleaned df.

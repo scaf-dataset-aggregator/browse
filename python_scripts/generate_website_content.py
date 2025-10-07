@@ -18,9 +18,9 @@ import html
 import re
 from pathlib import Path
 
-from python_scripts.parse_dataset_information import dataset_df_row_to_JSON
-from python_scripts.paths import WEBPAGES_FOLDER, INDEX_PATH, TEMPLATE_FILE, get_webpage_path
-from python_scripts.read_csv_safely import get_database_information_df
+from parse_dataset_information import dataset_df_row_to_JSON
+from paths import WEBPAGES_FOLDER, INDEX_PATH, TEMPLATE_FILE, get_webpage_path
+from read_csv_safely import get_database_information_df
 
 try:
     import pandas as pd
