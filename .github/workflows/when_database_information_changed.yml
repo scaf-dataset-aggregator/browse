@@ -26,7 +26,7 @@ jobs:
         run: pip install pandas markdown
 
       - name: Run CSV processor
-        run: python generate_website_content.py
+        run: python python_scripts/generate_website_content.py
 
       - name: Commit results
         run: |
