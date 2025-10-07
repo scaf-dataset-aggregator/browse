@@ -8,7 +8,7 @@ let flexIndex = null;
 
 async function loadIndex() {
   if (indexData.length) return indexData;
-  const res = await fetch('../website_metadata/database_index.json');
+  const res = await fetch('../../website_metadata/database_index.json');
   indexData = await res.json();
   // Keep only entries where allowed_in_database is true
   indexData = indexData.filter(item => item.allowed_in_database);
@@ -74,7 +74,7 @@ function renderResults(items, container) {
 
     const title = document.createElement('h2');
     const a = document.createElement('a')
-    a.href = item.link || (`database_webpages/${item.id}.html`);
+    a.href = `../database_webpages/${item.id}.html`;
     a.textContent = item.name || `Dataset ${item.id}`;
     title.appendChild(a);
 
