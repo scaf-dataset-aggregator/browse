@@ -49,27 +49,29 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["dataset_code"] = str(dataset_code)
     result_json["dataset_title"] = html.escape(str(row.get("dataset_title", f"Dataset {dataset_code}")))
 
-    keywords_raw = html.escape(str(row.get('keywords', '') or ''))
+    keywords_raw = html.escape(str(row.get('dataset_keywords_from_questionnaire', '') or ''))
     keywords = [html.escape(str(k.strip())) for k in re.split(r'[;,|\n]+', keywords_raw) if k.strip()] if keywords_raw else []
     result_json["keywords_html"] = ", ".join(keywords)   # needs to be separate because we want them separate in the JSON index
     result_json["keywords"] = keywords
 
     result_json["abstract"] = html.escape(str(row.get("abstract", "Missing abstract")))
-    result_json["allowed?"] = bool(row.get("allow?", "Missing").lower() in {"yes", "y", "allow", "allowed"})
+    result_json["allowed?"] = bool(row.get("allow", "Missing").lower() in {"yes", "y", "allow", "allowed"})
 
     result_json["authors"] = [html.escape(str(author)) for author in row.get("authors", "Missing authors").split("\n")]
-    result_json["organisation"] = html.escape(str(row.get("organisation", "Not provided")))
 
-    raw_links = row.get("links").split("\n")
+    raw_links = row.get("dataset_links_from_questionnaire").split("\n")
     html_links = [f'<a href="{link}">{link}</a>' for link in raw_links]
     result_json["links"] = make_html_bullet_list(html_links)
 
 
-    description_md = str(row.get('description_md', '') or '')
+    description_md = str(row.get('long_description_from_questionnaire', '') or '')
     description_html = markdown.markdown(description_md, extensions=['fenced_code', 'tables'])
     result_json["description"] = description_html
 
-    result_json["location"] = html.escape(str(row.get("location", "No location")))
+    result_json["location"] = html.escape(str(row.get("dataset_country", "No location")))
+
+    result_json["collection_start"] = row.get('data_collection_start')
+    result_json["collection_end"] = row.get('data_collection_end')
 
 
     # remove dangerous tags anywhere

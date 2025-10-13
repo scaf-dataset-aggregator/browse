@@ -18,8 +18,8 @@ def read_csv_safely(csv_path):
     df.columns = df.columns.str.strip().str.replace("\ufeff", "")
 
     # The dataframe is likely to contain many empty rows. Remove those where the id is not a number
-    # note that we use capitalised Id because we've not converted the column names yet
-    df = df[~df["Id"].isna()]
+    # note that at this stage the column names have not been replaced yet.
+    df = df[~df["Timestamp"].isna()]
 
     # Ensure string values and fill NaN with empty strings
     df = df.astype(object).where(pd.notnull(df), '')
