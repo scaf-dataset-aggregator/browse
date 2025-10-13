@@ -30,6 +30,19 @@ def make_html_bullet_list(items: list[str]) -> str:
 
 
 
+# precompiled regex to remove dangerous tags and their contents (case-insensitive)
+_DANGEROUS_TAGS_RE=re.compile(r"(?is)</?(script|iframe|object|embed|style|form|svg)[^>]*>")
+
+def remove_dangerous_tags(original_str: str) -> str:
+    # takes a string that will be pasted into the HTML, and removes tags that are dangerous
+    # the markdown should produce h3, table, thead, tr, th, tf, tbody, em, strong, a, img, old, li
+
+    return _DANGEROUS_TAGS_RE.sub("", original_str)
+
+
+
+
+
 def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     result_json = dict()
@@ -58,5 +71,15 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     result_json["location"] = html.escape(str(row.get("location", "No location")))
 
+
+    # remove dangerous tags anywhere
+    for key in result_json:
+        old_content = result_json[key]
+        if isinstance(old_content, str):
+            new_content = remove_dangerous_tags(old_content)
+            result_json[key] = new_content
+
+            if old_content != new_content:
+                print("WARNING: the page contained dangerous HTML!!!")
 
     return result_json

@@ -59,7 +59,7 @@ for index, row in df.iterrows():
 
         try:
             if page_path.exists():
-                print("Found that the page existed in the past, so it will be deleted.")
+                print("WARNING: Found that the page existed in the past, so it will be deleted.")
                 page_path.unlink()
                 print(f"Deleted old page: {page_path}")
         except Exception as e:
