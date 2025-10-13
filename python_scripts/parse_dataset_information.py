@@ -67,7 +67,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     description_md = str(row.get('description_md', '') or '')
     description_html = markdown.markdown(description_md, extensions=['fenced_code', 'tables'])
-    result_json["description"] = description_html  # TODO: do I need to escape this?
+    result_json["description"] = description_html
 
     result_json["location"] = html.escape(str(row.get("location", "No location")))
 
