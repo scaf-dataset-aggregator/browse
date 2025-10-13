@@ -4,28 +4,28 @@
 
 HEADER_MAP = {
 
-    'Timestamp' : 'submission_timestamp',
-    'Allow this dataset?' : 'allow',
-    'Consent to share' : 'consent_to_share',
-    'Permission of removal' : 'permission_of_removal',
-    'Do you know whether your data contains any personal or sensitive information?' : 'contains_sensitive',
+    'Timestamp' : 'submission_timestamp', # not used in parsing
+    'Allow this dataset?' : 'allow', # essential
+    'Consent to share' : 'consent_to_share', # not used
+    'Permission of removal' : 'permission_of_removal',  # not used
+    'Do you know whether your data contains any personal or sensitive information?' : 'contains_sensitive', # not used
     'Is the data in digital format?' : 'is_digital',
-    'Share-ability' : 'shareability',
+    'Share-ability' : 'shareability', # straight
     'Is the data already publicly available on the internet?' : 'publicly_available',
     'Please provide the links to the data' : 'dataset_links_from_questionnaire',
-    'Are you aware of the protocols you might need to follow as part of data transfers?' : '',
-    'What should the dataset title be?' : 'dataset_title',
-    'What are the keywords for the dataset?' : 'dataset_keywords_from_questionnaire',
-    'What category does the dataset fit best into?' : 'dataset_categories_from_questionnaire',
-    'What research field does the data fall into?' : 'research_fields',
-    'Who are the main contact details for this dataset?' : 'contact_details',
-    'What kind of data is present in the dataset?' : 'dataset_datatypes',
-    'Abstract' : 'abstract',
-    'In what country was the data collected?' : 'dataset_country',
-    'Start of data collection' : 'data_collection_start',
-    'End of data collection' : 'data_collection_end',
-    'At what lifecycle stage is the data?' : 'dataset_lifecycle_stage',
-    'Long description' : 'long_description_from_questionnaire',
+    'Are you aware of the protocols you might need to follow as part of data transfers?' : 'protocol_awareness', # not used
+    'What should the dataset title be?' : 'dataset_title', # added
+    'What are the keywords for the dataset?' : 'dataset_keywords_from_questionnaire', # added
+    'What category does the dataset fit best into?' : 'dataset_categories_from_questionnaire', # added
+    'What research field does the data fall into?' : 'research_fields', # added
+    'Who are the main contact details for this dataset?' : 'contact_details', # added
+    'What kind of data is present in the dataset?' : 'dataset_datatypes', # added
+    'Abstract' : 'abstract', # added
+    'In what country was the data collected?' : 'dataset_country', # added as location
+    'Start of data collection' : 'data_collection_start', # added
+    'End of data collection' : 'data_collection_end', # added
+    'At what lifecycle stage is the data?' : 'dataset_lifecycle_stage',  # lifecycle
+    'Long description' : 'long_description_from_questionnaire',  # added
     'Does this data have a copyright?' : 'copyright',
     'Are there any usage instructions?' : 'usage_instructions',
     'Do you need to acknowledge anything?' : 'acknowledgements'

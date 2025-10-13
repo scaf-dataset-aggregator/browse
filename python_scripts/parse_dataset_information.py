@@ -3,6 +3,8 @@ import re
 
 import markdown
 
+from python_scripts.category_map import CATEGORY_MAP
+
 
 # this file will make a little JSON for every row of the cleaned df.
 # the JSON is used for
@@ -70,8 +72,39 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     result_json["location"] = html.escape(str(row.get("dataset_country", "No location")))
 
-    result_json["collection_start"] = row.get('data_collection_start')
-    result_json["collection_end"] = row.get('data_collection_end')
+    result_json["collection_start"] = row.get('data_collection_start') # TODO
+    result_json["collection_end"] = row.get('data_collection_end') # TODO
+
+    result_json["shareability"] = row.get("shareability")
+
+
+    categories_set_dirty = set(row.get("dataset_categories_from_questionnaire", set()))
+    categories_set_cleaned = {CATEGORY_MAP[category_name] for category_name in categories_set_dirty}
+    categories_html = ", ".join(categories_set_cleaned)
+    result_json["categories_set"] = categories_set_cleaned
+    result_json["categories_html"] = categories_html
+
+    research_fields_set = set(row.get("research_fields", set()))
+    research_fields_html = ", ".join(research_fields_set)
+
+    result_json["research_fields_set"] = research_fields_set
+    result_json["research_fields_html"] = research_fields_html
+
+    result_json["contact_details_raw"] = row.get("contact_details")  # TODO
+    result_json["dataset_datatypes_raw"] = row.get("dataset_datatypes_raw")  # TODO
+
+
+    result_json["copyright"] = row.get("copyright")
+    result_json["usage_instructions"] = row.get("usage_instructions")
+    result_json["acknowledgements"] = row.get("acknowledgements")
+
+
+
+
+
+
+
+
 
 
     # remove dangerous tags anywhere
