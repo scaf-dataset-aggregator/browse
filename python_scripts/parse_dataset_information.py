@@ -3,7 +3,7 @@ import re
 
 import markdown
 
-from python_scripts.category_map import CATEGORY_MAP
+from category_map import CATEGORY_MAP
 
 
 # this file will make a little JSON for every row of the cleaned df.
@@ -78,16 +78,16 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["shareability"] = row.get("shareability")
 
 
-    categories_set_dirty = set(row.get("dataset_categories_from_questionnaire", set()))
-    categories_set_cleaned = {CATEGORY_MAP[category_name] for category_name in categories_set_dirty}
-    categories_html = ", ".join(categories_set_cleaned)
-    result_json["categories_set"] = categories_set_cleaned
+    categories_list_dirty = list(row.get("dataset_categories_from_questionnaire", "").split(", "))
+    categories_list_cleaned = [CATEGORY_MAP[category_name] for category_name in categories_list_dirty]
+    categories_html = ", ".join(categories_list_cleaned)
+    result_json["categories_set"] = categories_list_cleaned
     result_json["categories_html"] = categories_html
 
-    research_fields_set = set(row.get("research_fields", set()))
-    research_fields_html = ", ".join(research_fields_set)
+    research_fields_list = list(row.get("research_fields", "").split(", "))
+    research_fields_html = ", ".join(research_fields_list)
 
-    result_json["research_fields_set"] = research_fields_set
+    result_json["research_fields_list"] = research_fields_list
     result_json["research_fields_html"] = research_fields_html
 
     result_json["contact_details_raw"] = row.get("contact_details")  # TODO
