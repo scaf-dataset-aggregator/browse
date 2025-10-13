@@ -315,3 +315,28 @@ hr, hr.styled {
 }
 
 
+
+
+.dataset_categories,
+.dataset_research_fields {
+  margin-left: 1em;
+  margin-bottom: 0.8em;
+}
+
+.dataset_copyright,
+.dataset_usage,
+.dataset_acknowledgements {
+  font-size: 0.95em;
+  color: #444;
+  margin-top: 0.5em;
+}
+
+.dataset_usage strong,
+.dataset_acknowledgements strong {
+  color: #005197;
+}
+
+h2 {
+  margin-top: 1.4em;
+  color: #003d73;
+}

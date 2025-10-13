@@ -6,16 +6,15 @@
   <title>{dataset_title}</title>
   <link rel="stylesheet" href="../style.css">
 
-
   <!-- Favicon and manifest setup -->
-<link rel="apple-touch-icon" sizes="180x180" href="/browse/assets/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/browse/assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/browse/assets/favicon-16x16.png">
-<link rel="manifest" href="/browse/assets/site.webmanifest">
-<link rel="shortcut icon" href="/browse/assets/favicon.ico" type="image/x-icon">
-<meta name="theme-color" content="#ffffff">
-
+  <link rel="apple-touch-icon" sizes="180x180" href="/browse/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/browse/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/browse/assets/favicon-16x16.png">
+  <link rel="manifest" href="/browse/assets/site.webmanifest">
+  <link rel="shortcut icon" href="/browse/assets/favicon.ico" type="image/x-icon">
+  <meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
   <main class="container">
     <p style="margin-bottom: 1em;">
@@ -34,6 +33,26 @@
     <h2>Long description</h2>
     <div class="description">{description}</div>
 
+    <h2>Data collection</h2>
+    <p><strong>Collection start:</strong> {collection_start}</p>
+    <p><strong>Collection end:</strong> {collection_end}</p>
+    <p><strong>Shareability:</strong> {shareability}</p>
+
+    <h2>Dataset details</h2>
+    <p><strong>Categories:</strong></p>
+    <div class="dataset_categories">{categories_html}</div>
+
+    <p><strong>Research fields:</strong></p>
+    <div class="dataset_research_fields">{research_fields_html}</div>
+
+    <p><strong>Data types:</strong> {dataset_datatypes_raw}</p>
+
+    <h2>Contact and usage</h2>
+    <p><strong>Contact details:</strong> {contact_details_raw}</p>
+    <p class="dataset_copyright"><strong>Copyright:</strong> {copyright}</p>
+    <p class="dataset_usage"><strong>Usage instructions:</strong> {usage_instructions}</p>
+    <p class="dataset_acknowledgements"><strong>Acknowledgements:</strong> {acknowledgements}</p>
+
     <h2>Downloads / Links</h2>
     <p>{links}</p>
 
@@ -42,4 +61,3 @@
   </main>
 </body>
 </html>
-
