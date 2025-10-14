@@ -82,5 +82,30 @@
     "research_fields": [
       "Nutrition"
     ]
+  },
+  {
+    "id": "00005",
+    "allowed_in_database": true,
+    "name": "National Diet and Nutrition Survey (Scotland)",
+    "keywords": [
+      "scotland",
+      "nutrient intakes",
+      "nutritional status",
+      "adult",
+      "children"
+    ],
+    "abstract": "Dataset produced by the UK/Scottish government.\nFood consumption, nutrient intakes and nutritional status of the Scottish population - adults and children from 18 months upwards. Results are presented by age/sex sub-groups.",
+    "shareability": "Publicly shareable",
+    "authors": "Food Standards Agency, Publisher, helpline@food.gov.uk",
+    "location": "Scotland",
+    "collection_start": "01/01/2008",
+    "collection_end": "30/12/2012",
+    "categories_list": [
+      "Consumption",
+      "Nutrition"
+    ],
+    "research_fields": [
+      "Nutrition"
+    ]
   }
 ]
