@@ -43,6 +43,10 @@ def remove_dangerous_tags(original_str: str) -> str:
 
 
 
+datatypes = ["Numeric", "Textual", "Images", "Spatial", "Audio", "Video", "Archive", "Markup"]
+def get_clean_datatype_of_dataset(input_string):
+    return [datatype for datatype in datatypes if datatype in (input_string.lower())]
+
 
 
 def dataset_df_row_to_JSON(row, dataset_code) -> dict:
@@ -81,7 +85,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     categories_list_dirty = list(row.get("dataset_categories_from_questionnaire", "").split(", "))
     categories_list_cleaned = [CATEGORY_MAP[category_name] for category_name in categories_list_dirty]
     categories_html = ", ".join(categories_list_cleaned)
-    result_json["categories_set"] = categories_list_cleaned
+    result_json["categories_list"] = categories_list_cleaned
     result_json["categories_html"] = categories_html
 
     research_fields_list = list(row.get("research_fields", "").split(", "))
@@ -90,8 +94,10 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["research_fields_list"] = research_fields_list
     result_json["research_fields_html"] = research_fields_html
 
-    result_json["contact_details_raw"] = row.get("contact_details")  # TODO
-    result_json["dataset_datatypes_raw"] = row.get("dataset_datatypes_raw")  # TODO
+    contact_details_raw = row.get("contact_details")  # TODO
+
+    dataset_datatypes_raw = row.get("dataset_datatypes")  # TODO
+
 
 
     result_json["copyright"] = row.get("copyright")

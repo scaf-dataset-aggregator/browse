@@ -19,7 +19,7 @@ def read_csv_safely(csv_path):
 
     # The dataframe is likely to contain many empty rows. Remove those where the id is not a number
     # note that at this stage the column names have not been replaced yet.
-    df = df[~df["submission_timestamp"].isna()]
+    df = df[~df[df.columns[0]].isna()]
 
     # Ensure string values and fill NaN with empty strings
     df = df.astype(object).where(pd.notnull(df), '')
@@ -41,21 +41,21 @@ def get_database_information_df():
             f"CSV not found at {CSV_PATH.resolve()} - place database_information.csv in top-level directory!")
 
     # Build normalised header lookup
-    #NORMALISED_HEADER_LOOKUP = {remove_punctuation_and_make_lowercase(k): v for k, v in HEADER_MAP.items()}
+    NORMALISED_HEADER_LOOKUP = {remove_punctuation_and_make_lowercase(k): v for k, v in HEADER_MAP.items()}
 
     df = read_csv_safely(CSV_PATH)
 
-    # replace column names
-    # new_cols = {}
-    # for col in df.columns:
-    #     key = remove_punctuation_and_make_lowercase(col)
-    #     if key in NORMALISED_HEADER_LOOKUP:
-    #         new_cols[col] = NORMALISED_HEADER_LOOKUP[key]
-    #     else:
-    #         print(
-    #             f"In reading the document, the column {col} was not recognised. That's not an error, just letting you know!")
-    #
-    # df = df.rename(columns=new_cols)
+    #replace column names
+    new_cols = {}
+    for col in df.columns:
+        key = remove_punctuation_and_make_lowercase(col)
+        if key in NORMALISED_HEADER_LOOKUP:
+            new_cols[col] = NORMALISED_HEADER_LOOKUP[key]
+        else:
+            print(
+                f"In reading the document, the column {col} was not recognised. That's not an error, just letting you know!")
+
+    df = df.rename(columns=new_cols)
 
     return df
 
