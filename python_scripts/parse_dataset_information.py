@@ -68,7 +68,6 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["abstract"] = html.escape(str(row.get("abstract", "Missing abstract")))
     result_json["allowed?"] = bool(row.get("allow", "Missing").lower() in {"yes", "y", "allow", "allowed"})
 
-    result_json["authors"] = [html.escape(str(author)) for author in row.get("authors", "Missing authors").split("\n")]
 
     raw_links = row.get("dataset_links_from_questionnaire").split("\n")
     html_links = [f'<a href="{link}">{link}</a>' for link in raw_links]

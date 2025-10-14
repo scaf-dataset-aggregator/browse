@@ -82,7 +82,15 @@ for index, row in df.iterrows():
         'name': dataset_variables["dataset_title"],
         'keywords': dataset_variables["keywords"],
         'abstract': dataset_variables["abstract"],
-        'location': dataset_variables["location"]
+        'shareability': dataset_variables["shareability"],
+        'authors': dataset_variables["contact_details_html"], #TODO
+        'location': dataset_variables["location"],
+        'collection_start': dataset_variables["collection_start"],
+        'collection_end': dataset_variables["collection_end"],
+        'categories_list': dataset_variables["categories_list"],
+        'research_fields': dataset_variables["research_fields_list"]
+
+
     }
     # Build entry for JSON index
     index_list.append(index_entry)

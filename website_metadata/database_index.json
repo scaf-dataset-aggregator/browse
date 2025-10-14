@@ -9,7 +9,24 @@
       "Gamma"
     ],
     "abstract": "This is the abstract of the dataset. It should not have markdown, and even if it does it will be ignored. There is a character limit of 500 words. In theory, this dataset is open access but it&#x27;s all placeholder.",
-    "location": "Scotland"
+    "shareability": "Publicly shareable",
+    "authors": "Giancarlo Catalano, Author, giancarlo.catalano@stir.ac.uk",
+    "location": "Scotland",
+    "collection_start": "29/09/2025",
+    "collection_end": "07/11/2025",
+    "categories_list": [
+      "Plants & Crops",
+      "Soil Science / Fertilisers",
+      "Fish / Marine",
+      "Water Quality",
+      "Storage",
+      "Transport",
+      "Supply Chain"
+    ],
+    "research_fields": [
+      "Nutrition",
+      "Economy and Business"
+    ]
   },
   {
     "id": "00003",
@@ -24,7 +41,19 @@
       "obesity"
     ],
     "abstract": "This survey provides a detailed picture of the health of the Scottish population in private households and is designed to make a major contribution to the monitoring of health in Scotland.",
-    "location": "Scotland"
+    "shareability": "Publicly shareable",
+    "authors": "Population Health Directorate, Author, ceu@gov.scot\nScottish Health Survey, , scottishhealthsurvey@gov.scot",
+    "location": "Scotland",
+    "collection_start": "01/01/1995",
+    "collection_end": "",
+    "categories_list": [
+      "Consumption",
+      "Nutrition",
+      "Food Availability"
+    ],
+    "research_fields": [
+      "Nutrition"
+    ]
   },
   {
     "id": "00004",
@@ -39,6 +68,19 @@
       "eating out"
     ],
     "abstract": "Reports produced by the UK government about the consumption of food in UK families.\nThese family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.",
-    "location": "United Kingdom"
+    "shareability": "Publicly shareable",
+    "authors": "\nDepartment for Environment Food and Rural Affairs, Sponsor, familyfood@defra.gov.uk",
+    "location": "United Kingdom",
+    "collection_start": "01/01/1974",
+    "collection_end": "",
+    "categories_list": [
+      "Pricing",
+      "Consumer Behaviour",
+      "Consumption",
+      "Nutrition"
+    ],
+    "research_fields": [
+      "Nutrition"
+    ]
   }
 ]
