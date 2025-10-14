@@ -25,6 +25,27 @@ jobs:
       - name: Install dependencies
         run: pip install pandas markdown
 
+      - name: Verify correct CSV filename
+        run: |
+          echo "Checking for correct CSV filename..."
+          # Must have database_information.csv
+          if [ ! -f "database_information.csv" ]; then
+            echo "ERROR: Expected file 'database_information.csv' not found."
+            echo "Please ensure the CSV file is named exactly 'database_information.csv'."
+            exit 1
+          fi
+
+          # Check for common mistakes
+          for bad in database_info.csv Database_information.csv database_information\(1\).csv database.csv data.csv databaseinformation.csv dataset_information; do
+            if [ -f "$bad" ]; then
+              echo "⚠️ Detected suspicious file: '$bad'"
+              echo "Please remove or rename it to 'database_information.csv'."
+              exit 1
+            fi
+          done
+
+          echo "Filename check passed."
+
       - name: Run CSV processor
         run: python python_scripts/generate_website_content.py
 
