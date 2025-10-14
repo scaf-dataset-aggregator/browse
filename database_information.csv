@@ -386,3 +386,41 @@ Several different breakdowns are provided in addition to the UK averages includi
 The data is available for every year between 1974 and 2023, with the new updates to be published.
 
 This data is part of the [Food and Farming Industry](https://www.gov.uk/environment/food-and-farming-industry) collection.",Public Domain,,
+14/10/2025 12:19:53,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,"https://data.food.gov.uk/catalog/datasets/15a7c88d-10d5-4652-ac78-449e296dc4be
+http://www.food.gov.uk/scotland/researchscot/scotlandresearch/ScotlandProjectList/n10036
+https://www.data.gov.uk/dataset/c7180071-3ee3-4d41-ad67-7120768ab61e/national_diet_and_nutrition_survey_scotland",,National Diet and Nutrition Survey (Scotland),"scotland, nutrient intakes, nutritional status, adult, children","Consumption, ├──  Nutrition",Nutrition,"Food Standards Agency, Publisher, helpline@food.gov.uk","Numeric / Quantitative (.csv, .xlsx, .tsv, .ods)","Dataset produced by the UK/Scottish government.
+Food consumption, nutrient intakes and nutritional status of the Scottish population - adults and children from 18 months upwards. Results are presented by age/sex sub-groups.",Scotland,01/01/2008,30/12/2012,Complete,"The original dataset was produced by the **UK Government**, through the **Food Standards Agency (FSA)**.
+
+Although the dataset is *supposed* to be available on the **UK Open Data** website, this source does not appear to have been maintained. Instead, please consult the first link to the **Food Standards Agency** website.
+
+---
+
+### Format and Contents
+
+* **Format:** RFDA
+* **What to look for:** Entries labelled **“Excel”**
+
+The files contain **descriptive statistics** for many nutrients and other chemicals, including:
+
+* Mean
+* Median
+* Standard deviation (SD)
+* 2.5th percentile
+* 97.5th percentile
+
+---
+
+### Data Structure
+
+* Data are separated by **gender** and **age group**:
+
+  * 11–18
+  * 19–64
+  * 65+
+
+There are also several **reference tables** explaining the meaning of each term used in the dataset.
+
+---
+
+Would you like me to adapt this to your **Canvas course style** (with blue/orange boxes and inline HTML)?
+",(UK) Open Government Licence,,
