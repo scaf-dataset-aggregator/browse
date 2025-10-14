@@ -1,4 +1,4 @@
-Timestamp,Allow this dataset?,Consent to share,Permission of removal,Do you know whether your data contains any personal or sensitive information?,Is the data in digital format?,Share-ability,Is the data already publicly available on the internet? ,Please provide the links to the data,Are you aware of the protocols you might need to follow as part of data transfers?,What should the dataset title be?,What are the keywords for the dataset?,What category does the dataset fit best into?,What research field does the data fall into?,Who are the main contact details for this dataset?,What kind of data is present in the dataset?,Abstract,In what country was the data collected?,Start of data collection,End of data collection,At what lifecycle stage is the data?,Long description,Does this data have a copyright?,Are there any usage instructions?,Do you need to acknowledge anything?
+submission_timestamp,allow,consent_to_share,permission_of_removal,contains_sensitive,is_digital,shareability,publicly_available,dataset_links_from_questionnaire,protocol_awareness,dataset_title,dataset_keywords_from_questionnaire,dataset_categories_from_questionnaire,research_fields,contact_details,dataset_datatypes,abstract,dataset_country,data_collection_start,data_collection_end,dataset_lifecycle_stage,long_description_from_questionnaire,copyright,usage_instructions,acknowledgements
 13/10/2025 14:20:34,Do not Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,"google.com
 wikipedia.org",,First Entry,"Alpha, Beta, Gamma","Production, └──  Climate, │       ├──  Infant","Biology, Law, Education","Giancarlo Catalano, Author, g.a.catalano@stir.ac.uk
 Rachel Norman, Maintainer, rachel.norman@stir.ac.uk","Numeric, Textual","This is the abstract of the dataset, it should not contain markdown and it has a word limit of 150 words. This information should be shown in the search results for the dataset. ",Scotland,01/08/2025,,Incomplete,"# Features of markdown
@@ -136,7 +136,7 @@ Create and preview Markdown instantly with **GitHub Flavored Markdown (GFM)** su
 
 
 ",Unspecified,Say thanks,No fruits were harmed
-13/10/2025 16:27:28,,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://www.gov.scot/collections/scottish-health-survey/,,SHeS: Scottish Health Survey,"Health, Government, mental health, diet, food insecurity, obesity","Consumption, ├──  Nutrition, └──  Food Availability",Nutrition,"Population Health Directorate, Author, ceu@gov.scot
+13/10/2025 16:27:28,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://www.gov.scot/collections/scottish-health-survey/,,SHeS: Scottish Health Survey,"Health, Government, mental health, diet, food insecurity, obesity","Consumption, ├──  Nutrition, └──  Food Availability",Nutrition,"Population Health Directorate, Author, ceu@gov.scot
 Scottish Health Survey, , scottishhealthsurvey@gov.scot","Numeric / Quantitative (.csv, .xlsx, .tsv, .odp)",This survey provides a detailed picture of the health of the Scottish population in private households and is designed to make a major contribution to the monitoring of health in Scotland.,Scotland,01/01/1995,,Continuously updated,"Latest news
 -----------
 
@@ -371,4 +371,18 @@ In 2022/2023 combined:
 
 10 Within healthy range = BMI above 2nd percentile, below 85th percentile.
 
-11 At risk of obesity = BMI at or above 95th percentile.","Creative Commons, ISBN 9781836019602",Cite the Original Source,
+11 At risk of obesity = BMI at or above 95th percentile.",Public Domain,Cite the Original Source,
+14/10/2025 10:29:56,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://www.gov.uk/government/statistical-data-sets/family-food-datasets,,UK Government Family Food datasets ,"family, purchases, household expenditure, expenses, nutrient intake, eating out","├──  Pricing, └──  Consumer Behaviour, Consumption, ├──  Nutrition",Nutrition,"
+Department for Environment Food and Rural Affairs, Sponsor, familyfood@defra.gov.uk","Numeric / Quantitative (.csv, .xlsx, .tsv, .odp)","Reports produced by the UK government about the consumption of food in UK families.
+These family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.",United Kingdom,01/01/1974,,Continuously updated,"*   The ‘**purchases** spreadsheets give the average quantity of food and drink purchased per person per week for each food and drink category.
+    
+*   The **‘nutrient intake**’ spreadsheets give the average nutrient intake (eg energy, carbohydrates, protein, fat, fibre, minerals and vitamins) from food and drink per person per day.
+    
+*   The ‘**expenditure**’ spreadsheets give the average amount spent in pence per person per week on each type of food and drink.
+    
+
+Several different breakdowns are provided in addition to the UK averages including figures by region, income, household composition and characteristics of the household reference person.
+
+The data is available for every year between 1974 and 2023, with the new updates to be published.
+
+This data is part of the [Food and Farming Industry](https://www.gov.uk/environment/food-and-farming-industry) collection.",Public Domain,,

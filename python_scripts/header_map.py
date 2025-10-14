@@ -17,7 +17,7 @@ HEADER_MAP = {
     'What should the dataset title be?' : 'dataset_title', # added
     'What are the keywords for the dataset?' : 'dataset_keywords_from_questionnaire', # added
     'What category does the dataset fit best into?' : 'dataset_categories_from_questionnaire', # added
-    'What research field does the data fall into?' : 'research_fields', # added
+    'Does the data fall into any of these research fields?' : 'research_fields', # added
     'Who are the main contact details for this dataset?' : 'contact_details', # added
     'What kind of data is present in the dataset?' : 'dataset_datatypes', # added
     'Abstract' : 'abstract', # added

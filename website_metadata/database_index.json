@@ -10,5 +10,35 @@
     ],
     "abstract": "This is the abstract of the dataset. It should not have markdown, and even if it does it will be ignored. There is a character limit of 500 words. In theory, this dataset is open access but it&#x27;s all placeholder.",
     "location": "Scotland"
+  },
+  {
+    "id": "00003",
+    "allowed_in_database": true,
+    "name": "SHeS: Scottish Health Survey",
+    "keywords": [
+      "Health",
+      "Government",
+      "mental health",
+      "diet",
+      "food insecurity",
+      "obesity"
+    ],
+    "abstract": "This survey provides a detailed picture of the health of the Scottish population in private households and is designed to make a major contribution to the monitoring of health in Scotland.",
+    "location": "Scotland"
+  },
+  {
+    "id": "00004",
+    "allowed_in_database": true,
+    "name": "UK Government Family Food datasets ",
+    "keywords": [
+      "family",
+      "purchases",
+      "household expenditure",
+      "expenses",
+      "nutrient intake",
+      "eating out"
+    ],
+    "abstract": "Reports produced by the UK government about the consumption of food in UK families.\nThese family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.",
+    "location": "United Kingdom"
   }
 ]
