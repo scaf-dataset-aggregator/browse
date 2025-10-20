@@ -61,7 +61,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["dataset_title"] = html.escape(str(row.get("dataset_title", f"Dataset {dataset_code}")))
 
     keywords_raw = html.escape(str(row.get('dataset_keywords_from_questionnaire', '') or ''))
-    keywords = [html.escape(str(k.strip())) for k in re.split(r'[;,|\n]+', keywords_raw) if k.strip()] if keywords_raw else []
+    keywords = [html.escape(str(k.strip())).lower() for k in re.split(r'[;,|\n]+', keywords_raw) if k.strip()] if keywords_raw else []
     result_json["keywords_html"] = ", ".join(keywords)   # needs to be separate because we want them separate in the JSON index
     result_json["keywords"] = keywords
 
@@ -87,7 +87,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
 
     categories_list_dirty = list(row.get("dataset_categories_from_questionnaire", "").split(", "))
-    categories_list_cleaned = [CATEGORY_MAP[category_name] for category_name in categories_list_dirty]
+    categories_list_cleaned = [CATEGORY_MAP[category_name].lower() for category_name in categories_list_dirty]
     categories_html = ", ".join(categories_list_cleaned)
     result_json["categories_list"] = categories_list_cleaned
     result_json["categories_html"] = categories_html
