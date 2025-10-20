@@ -1,5 +1,4 @@
 // --- FLAGS ---
-const USE_FLEXSEARCH = false; // toggle true if using FlexSearch (CDN included)
 const RENDER_MARKDOWN_CLIENT = false; // toggle true if using marked.js for markdown rendering
 // -------------
 
@@ -20,24 +19,15 @@ async function doSearch(q) {
   q = (q || '').trim();
   if (!q) return data.slice(0, 50);
 
-  if (USE_FLEXSEARCH && typeof FlexSearch !== 'undefined') {
-    if (!flexIndex) {
-      flexIndex = new FlexSearch.Index({ tokenize: 'forward', cache: true });
-      data.forEach(item => {
-        const text = [item.name, (item.keywords||[]).join(' '), item.abstract, item.location].join(' ');
-        flexIndex.add(item.id, text);
-      });
-    }
-    const ids = await flexIndex.search(q, 100);
-    const hits = data.filter(d => ids.includes(d.id.toString()));
-    return hits;
-  }
-
   //if not using flex search
   const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
   const scored = data.map(item => {
     let score = 0;
-    const hay = (item.name || '') + ' ' + (item.keywords||[]).join(' ') + ' ' + (item.abstract||'') + ' ' + (item.location||'');
+    const hay =
+        (item.name || '') + ' ' +
+        (item.keywords||[]).join(' ') + ' ' +
+        (item.abstract||'') + ' ' +
+        (item.location||'');
     const haylower = hay.toLowerCase();
     tokens.forEach(t => {
       if (haylower.includes(t)) score += 1;
