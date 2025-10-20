@@ -25,7 +25,10 @@
 
     <h1>{dataset_title}</h1>
     <p><strong>Keywords:</strong> {keywords_html}</p>
-    <p><strong>Location:</strong> {location}</p>
+    <p><strong>Shareability:</strong> {shareability}</p>
+    <p><strong>Status:</strong> {dataset_lifecycle_stage}</p>
+    <p><strong>Data types:</strong> {datatypes_html}, {file_extensions}</p>
+
 
     <h2>Abstract</h2>
     <p>{abstract}</p>
@@ -34,9 +37,9 @@
     <div class="description">{description}</div>
 
     <h2>Data collection</h2>
-    <p><strong>Collection start:</strong> {collection_start}</p>
-    <p><strong>Collection end:</strong> {collection_end}</p>
-    <p><strong>Shareability:</strong> {shareability}</p>
+    <p><strong>Collection start:</strong> {collection_start}, <strong>Collection end:</strong> {collection_end}</p>
+    <strong>Location:</strong> {location}</p>
+
 
     <h2>Dataset details</h2>
     <p><strong>Categories:</strong></p>
@@ -45,10 +48,11 @@
     <p><strong>Research fields:</strong></p>
     <div class="dataset_research_fields">{research_fields_html}</div>
 
-    <p><strong>Data types:</strong> {datatypes_html}</p>
+
 
     <h2>Contact and usage</h2>
-    <p><strong>Contact details:</strong> {contact_details_html}</p>
+    <p><strong>Contact details:</strong> {author_name}, {author_contacts}</p>
+    <p> {other_contributors} </p>
     <p class="dataset_copyright"><strong>Copyright:</strong> {copyright}</p>
     <p class="dataset_usage"><strong>Usage instructions:</strong> {usage_instructions}</p>
     <p class="dataset_acknowledgements"><strong>Acknowledgements:</strong> {acknowledgements}</p>

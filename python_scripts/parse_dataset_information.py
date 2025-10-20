@@ -42,10 +42,10 @@ def remove_dangerous_tags(original_str: str) -> str:
     return _DANGEROUS_TAGS_RE.sub("", original_str)
 
 
-
-datatypes = ["Numeric", "Textual", "Images", "Spatial", "Audio", "Video", "Archive", "Markup"]
-def get_clean_datatypes_of_dataset(input_string):
-    return [datatype for datatype in datatypes if datatype in (input_string.lower())]
+#
+# datatypes = ["Numeric", "Textual", "Images", "Spatial", "Audio", "Video", "Archive", "Markup"]
+# def get_clean_datatypes_of_dataset(input_string):
+#     return [datatype for datatype in datatypes if datatype in (input_string.lower())]
 
 
 _non_alpha_trim = re.compile(r'^[^A-Za-z]+|[^A-Za-z]+$')
@@ -98,15 +98,18 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["research_fields_list"] = research_fields_list
     result_json["research_fields_html"] = research_fields_html
 
-    contact_details = row.get("contact_details")  # TODO
-    result_json["contact_details_html"] = contact_details
+    result_json["author_name"] = row.get('author_name', "Unknown Author")
+    result_json["author_contacts"] = row.get('author_contacts', "Missing author contacts")
+    result_json["other_contributors"] = row.get('other_contributors', "")
 
-    dataset_datatypes_raw = row.get("dataset_datatypes")
-    dataset_categories_cleaned = get_clean_datatypes_of_dataset(dataset_datatypes_raw)
+
+    dataset_categories_cleaned = row.get("dataset_datatypes").split(", ")
     result_json["datatypes_list"] = dataset_categories_cleaned
+    result_json["datatypes_html"] = ", ".join(dataset_categories_cleaned) # i know i know
 
-    result_json["datatypes_html"] = ", ".join(datatypes)
+    result_json["file_extensions"] = row.get("file_extensions", "unknown")
 
+    result_json["dataset_lifecycle_stage"] = row.get("dataset_lifecycle_stage")
 
 
 

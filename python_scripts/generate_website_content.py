@@ -83,7 +83,8 @@ for index, row in df.iterrows():
         'keywords': dataset_variables["keywords"],
         'abstract': dataset_variables["abstract"],
         'shareability': dataset_variables["shareability"],
-        'authors': dataset_variables["contact_details_html"], #TODO
+        'author_name': dataset_variables["author_name"],
+        'author_contacts': dataset_variables["author_contacts"],
         'location': dataset_variables["location"],
         'collection_start': dataset_variables["collection_start"],
         'collection_end': dataset_variables["collection_end"],

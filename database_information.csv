@@ -1,7 +1,6 @@
-Timestamp,allow,Consent to share,Permission of removal,Do you know whether your data contains any personal or sensitive information?,Is the data in digital format?,Share-ability,Is the data already publicly available on the internet? ,Please provide the links to the data,Are you aware of the protocols you might need to follow as part of data transfers?,What should the dataset title be?,What are the keywords for the dataset?,What category does the dataset fit best into?,Does the data fall into any of these research fields?,Who are the main contact details for this dataset?,What kind of data is present in the dataset?,Abstract,In what country was the data collected?,Start of data collection,End of data collection,At what lifecycle stage is the data?,Long description,Does this data have a copyright?,Are there any usage instructions?,Do you need to acknowledge anything?
+Timestamp,allow,Consent to share,Permission of removal,Do you know whether your data contains any personal or sensitive information?,Is the data in digital format?,Share-ability,Is the data already publicly available on the internet? ,Please provide the links to the data,Are you aware of the protocols you might need to follow as part of data transfers?,What should the dataset title be?,What are the keywords for the dataset?,What category does the dataset fit best into?,Does the data fall into any of these research fields?,Who is the author/maker of the dataset?,What kind of data is present in the dataset?,Abstract,In what country was the data collected?,Start of data collection,End of data collection,At what lifecycle stage is the data?,Long description,Does this data have a copyright?,Are there any usage instructions?,Do you need to acknowledge anything?,What file extensions does your data use?,Please write the contact information of the author above,Other contributors/responsible parties
 13/10/2025 14:20:34,Do not Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,"google.com
-wikipedia.org",,First Entry,"Alpha, Beta, Gamma","Production, └──  Climate, │       ├──  Infant","Biology, Law, Education","Giancarlo Catalano, Author, g.a.catalano@stir.ac.uk
-Rachel Norman, Maintainer, rachel.norman@stir.ac.uk","Numeric / Quantitative (.csv, .xlsx, .tsv, .ods)","This is the abstract of the dataset, it should not contain markdown and it has a word limit of 150 words. This information should be shown in the search results for the dataset. ",Scotland,01/08/2025,,Incomplete,"# Features of markdown
+wikipedia.org",,First Entry,"Alpha, Beta, Gamma","Production, └──  Climate, │       ├──  Infant","Biology, Law, Education",Giancarlo Catalano,Numeric / Quantitative,"This is the abstract of the dataset, it should not contain markdown and it has a word limit of 150 words. This information should be shown in the search results for the dataset. ",Scotland,01/08/2025,,Incomplete,"# Features of markdown
 Experience the **fastest**, *most intuitive*, and ~~hassle-free~~ Markdown editor online!  
 Create and preview Markdown instantly with **GitHub Flavored Markdown (GFM)** support.  
 
@@ -66,9 +65,9 @@ Create and preview Markdown instantly with **GitHub Flavored Markdown (GFM)** su
  (are not supported)
 
 <img src=""https://upload.wikimedia.org/wikipedia/commons/5/53/Snail-wiki-120-Zachi-Evenor.jpg"" alt=""Alt text"" width=""300"" height=""200"">
-",Unspecified,None,
+",Unspecified,None,,,g.a.catalano@stir.ac.uk,"Rachel Norman, Maintainer, rachel.norman@stir.ac.uk"
 13/10/2025 14:41:32,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,"google.com
-wikipedia.org",,First dataset,"Alpha, Beta, Gamma","├──  Plants & Crops, │       └──  Soil Science / Fertilisers, │       ├──  Fish / Marine, ├──  Water Quality, ├──  Storage, ├──  Transport, ├──  Supply Chain","Nutrition, Economy and Business","Giancarlo Catalano, Author, giancarlo.catalano@stir.ac.uk","Numeric / Quantitative (.csv, .xlsx, .tsv, .ods), Maps / Spatial, Markup (.xml, .json)","This is the abstract of the dataset. It should not have markdown, and even if it does it will be ignored. There is a character limit of 500 words. In theory, this dataset is open access but it's all placeholder.",Scotland,29/09/2025,07/11/2025,Incomplete,"# Features of markdown
+wikipedia.org",,First dataset,"Alpha, Beta, Gamma","├──  Plants & Crops, │       └──  Soil Science / Fertilisers, │       ├──  Fish / Marine, ├──  Water Quality, ├──  Storage, ├──  Transport, ├──  Supply Chain","Nutrition, Economy and Business",Giancarlo Catalano,"Numeric / Quantitative, Maps / Spatial, Markup","This is the abstract of the dataset. It should not have markdown, and even if it does it will be ignored. There is a character limit of 500 words. In theory, this dataset is open access but it's all placeholder.",Scotland,29/09/2025,07/11/2025,Incomplete,"# Features of markdown
 Experience the **fastest**, *most intuitive*, and ~~hassle-free~~ Markdown editor online!  
 Create and preview Markdown instantly with **GitHub Flavored Markdown (GFM)** support.  
 
@@ -135,9 +134,8 @@ Create and preview Markdown instantly with **GitHub Flavored Markdown (GFM)** su
 <img src=""https://upload.wikimedia.org/wikipedia/commons/5/53/Snail-wiki-120-Zachi-Evenor.jpg"" alt=""Alt text"" width=""300"" height=""200"">
 
 
-",Unspecified,Say thanks,No fruits were harmed
-13/10/2025 16:27:28,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://www.gov.scot/collections/scottish-health-survey/,,SHeS: Scottish Health Survey,"Health, Government, mental health, diet, food insecurity, obesity","Consumption, ├──  Nutrition, └──  Food Availability",Nutrition,"Population Health Directorate, Author, ceu@gov.scot
-Scottish Health Survey, , scottishhealthsurvey@gov.scot","Numeric / Quantitative (.csv, .xlsx, .tsv, .ods)",This survey provides a detailed picture of the health of the Scottish population in private households and is designed to make a major contribution to the monitoring of health in Scotland.,Scotland,01/01/1995,,Continuously updated,"Latest news
+",Unspecified,Say thanks,No fruits were harmed,,,"Rachel Norman, Maintainer, rachel.norman@stir.ac.uk"
+13/10/2025 16:27:28,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://www.gov.scot/collections/scottish-health-survey/,,SHeS: Scottish Health Survey,"Health, Government, mental health, diet, food insecurity, obesity","Consumption, ├──  Nutrition, └──  Food Availability",Nutrition,Population Health Directorate,Numeric / Quantitative,This survey provides a detailed picture of the health of the Scottish population in private households and is designed to make a major contribution to the monitoring of health in Scotland.,Scotland,01/01/1995,,Continuously updated,"Latest news
 -----------
 
 The Scottish Health Survey 2024 report will be published on the 21 October 2025.
@@ -371,9 +369,9 @@ In 2022/2023 combined:
 
 10 Within healthy range = BMI above 2nd percentile, below 85th percentile.
 
-11 At risk of obesity = BMI at or above 95th percentile.",Public Domain,Cite the Original Source,
+11 At risk of obesity = BMI at or above 95th percentile.",(UK) Open Government Licence,Cite the Original Source,,"xlsx, csv",ceu@gov.scot,"Scottish Health Survey, , scottishhealthsurvey@gov.scot"
 14/10/2025 10:29:56,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://www.gov.uk/government/statistical-data-sets/family-food-datasets,,UK Government Family Food datasets ,"family, purchases, household expenditure, expenses, nutrient intake, eating out","├──  Pricing, └──  Consumer Behaviour, Consumption, ├──  Nutrition",Nutrition,"
-Department for Environment Food and Rural Affairs, Sponsor, familyfood@defra.gov.uk","Numeric / Quantitative (.csv, .xlsx, .tsv, .ods)","Reports produced by the UK government about the consumption of food in UK families.
+Department for Environment Food and Rural Affairs",Numeric / Quantitative,"Reports produced by the UK government about the consumption of food in UK families.
 These family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.",United Kingdom,01/01/1974,,Continuously updated,"*   The ‘**purchases** spreadsheets give the average quantity of food and drink purchased per person per week for each food and drink category.
     
 *   The **‘nutrient intake**’ spreadsheets give the average nutrient intake (eg energy, carbohydrates, protein, fat, fibre, minerals and vitamins) from food and drink per person per day.
@@ -385,10 +383,10 @@ Several different breakdowns are provided in addition to the UK averages includi
 
 The data is available for every year between 1974 and 2023, with the new updates to be published.
 
-This data is part of the [Food and Farming Industry](https://www.gov.uk/environment/food-and-farming-industry) collection.",Public Domain,,
+This data is part of the [Food and Farming Industry](https://www.gov.uk/environment/food-and-farming-industry) collection.",(UK) Open Government Licence,,,"xlsx, csv",familyfood@defra.gov.uk,
 14/10/2025 12:19:53,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,"https://data.food.gov.uk/catalog/datasets/15a7c88d-10d5-4652-ac78-449e296dc4be
 http://www.food.gov.uk/scotland/researchscot/scotlandresearch/ScotlandProjectList/n10036
-https://www.data.gov.uk/dataset/c7180071-3ee3-4d41-ad67-7120768ab61e/national_diet_and_nutrition_survey_scotland",,National Diet and Nutrition Survey (Scotland),"scotland, nutrient intakes, nutritional status, adult, children","Consumption, ├──  Nutrition",Nutrition,"Food Standards Agency, Publisher, helpline@food.gov.uk","Numeric / Quantitative (.csv, .xlsx, .tsv, .ods)","Dataset produced by the UK/Scottish government.
+https://www.data.gov.uk/dataset/c7180071-3ee3-4d41-ad67-7120768ab61e/national_diet_and_nutrition_survey_scotland",,National Diet and Nutrition Survey (Scotland),"scotland, nutrient intakes, nutritional status, adult, children","Consumption, ├──  Nutrition",Nutrition,Food Standards Agency,"Numeric / Quantitative (.csv, .xlsx, .tsv, .ods)","Dataset produced by the UK/Scottish government.
 Food consumption, nutrient intakes and nutritional status of the Scottish population - adults and children from 18 months upwards. Results are presented by age/sex sub-groups.",Scotland,01/01/2008,30/12/2012,Complete,"The original dataset was produced by the **UK Government**, through the **Food Standards Agency (FSA)**.
 
 Although the dataset is *supposed* to be available on the **UK Open Data** website, this source does not appear to have been maintained. Instead, please consult the first link to the **Food Standards Agency** website.
@@ -419,8 +417,32 @@ The files contain **descriptive statistics** for many nutrients and other chemic
   * 65+
 
 There are also several **reference tables** explaining the meaning of each term used in the dataset.
+",(UK) Open Government Licence,,,"xlsx, csv", helpline@food.gov.uk,
+20/10/2025 11:40:07,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,"https://www.gov.scot/collections/economic-report-on-scottish-agriculture/
+https://www.gov.scot/collections/june-scottish-agricultural-census/",,Scottish Agricultural Census,"Land Use, Farm, Employees, Occupiers, Ownership, legal responsibility, emissions, nitrogen, manure, soil testing, fertiliser, livestock, cattle, sheet, pigs, poultry, crops, cereals, oilseed, potatoes, beans, stock feeding, vegetables, fruits, machinery, fuel, income","Production, ├──  Plants & Crops, │       └──  Soil Science / Fertilisers, ├──  Animals, │       ├──  Animal Feed, │       ├──  Land based, ├──  Machinery",,Scottish Government,"Numeric / Quantitative, Maps / Spatial","A census and report carried by the Scottish Government on farms. It contains estimates relating to almost all aspects relating to farms, from Land Use, Ownership, emissions, soil, livestock, crops, machinery and income. The data can be found on the Scottish Government website for every year.",Scotland,01/06/1999,,Continuously updated,"Provides Scotland totals from the published results of the annual June Scottish Agricultural Census.
 
----
+The latest edition of this publication is listed below and incorporates all revisions applied up to the date of publication. Details of historic revisions applicable to this and other agricultural statistics publications can be found at [revisions to agricultural statistics publications](https://webarchive.nrscotland.gov.uk/20200114064159/https://www2.gov.scot/Topics/Statistics/Browse/Agriculture-Fisheries/revisions).
 
-Would you like me to adapt this to your **Canvas course style** (with blue/orange boxes and inline HTML)?
-",(UK) Open Government Licence,,
+[Records going back to 1999 may be accessed at our online archive.](https://webarchive.nrscotland.gov.uk/20200114064159/https://www2.gov.scot/Topics/Statistics/Browse/Agriculture-Fisheries/PubFinalResultsJuneCensus)  
+
+[Scottish Agricultural Census: June 2023 Methology.](https://www.gov.scot/publications/results-from-the-scottish-agricultural-census-june-2023-methodology-report/)
+
+### **Explore Agricultural Statistics**
+
+The website itself is quite hard to navigate, but this page lays out the data quite nicely.
+Scottish Agricultural Census data and a variety of agricultural statistics and data visualisations can be explored in the [RESAS Agricultural Statistics Hub](https://scotland.shinyapps.io/sg-agric-stats-hub/).
+
+Scottish Agricultural Census: results
+-------------------------------------
+No agricultural census took place in 2022. Estimates have been published as part of the 2023 release.
+
+## Provisional results
+*   [Scottish Agricultural Census - provisional results: June 2020](https://www.gov.scot/publications/provisional-results-scottish-agricultural-census-june-2020/)
+    
+
+## Guidance
+*   [Scottish Agricultural Census - News, guidance and sample forms](https://www.gov.scot/publications/scottish-agricultural-census-how-to-guide/)
+    
+
+## Methodology reports
+*   [Results from the Scottish Agricultural Census: June 2023 Methodology Report](https://www.gov.scot/publications/results-from-the-scottish-agricultural-census-june-2023-methodology-report/)",(UK) Open Government Licence,,,"xlsx, ods",agric.stats@gov.scot,RESAS (Rural & Environment Science and Analytical Services)

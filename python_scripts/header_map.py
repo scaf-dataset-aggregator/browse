@@ -18,17 +18,20 @@ HEADER_MAP = {
     'What are the keywords for the dataset?' : 'dataset_keywords_from_questionnaire', # added
     'What category does the dataset fit best into?' : 'dataset_categories_from_questionnaire', # added
     'Does the data fall into any of these research fields?' : 'research_fields', # added
-    'Who are the main contact details for this dataset?' : 'contact_details', # added
+    'Who is the author/maker of the dataset?' : 'author_name', # todo
+    'Please write the contact information of the author above': 'author_contacts', # todo
+    'Other contributors/responsible parties': 'other_contributors', # todo
+    'What file extensions does your data use?': 'file_extensions', # todo
     'What kind of data is present in the dataset?' : 'dataset_datatypes', # added
     'Abstract' : 'abstract', # added
     'In what country was the data collected?' : 'dataset_country', # added as location
     'Start of data collection' : 'data_collection_start', # added
     'End of data collection' : 'data_collection_end', # added
-    'At what lifecycle stage is the data?' : 'dataset_lifecycle_stage',  # lifecycle
+    'At what lifecycle stage is the data?' : 'dataset_lifecycle_stage',  # added
     'Long description' : 'long_description_from_questionnaire',  # added
-    'Does this data have a copyright?' : 'copyright',
-    'Are there any usage instructions?' : 'usage_instructions',
-    'Do you need to acknowledge anything?' : 'acknowledgements'
+    'Does this data have a copyright?' : 'copyright', # added
+    'Are there any usage instructions?' : 'usage_instructions', #added
+    'Do you need to acknowledge anything?' : 'acknowledgements' #added
 
 }
 
