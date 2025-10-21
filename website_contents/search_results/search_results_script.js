@@ -19,15 +19,20 @@ async function doSearch(q) {
   q = (q || '').trim();
   if (!q) return data.slice(0, 50);
 
-  //if not using flex search
   const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
   const scored = data.map(item => {
     let score = 0;
-    const hay =
-        (item.name || '') + ' ' +
-        (item.keywords||[]).join(' ') + ' ' +
-        (item.abstract||'') + ' ' +
-        (item.location||'');
+
+    const items_to_search_through = [
+    item.name.toLowerCase(),
+    ...item.keywords,
+    item.abstract,
+    item.location,
+    item.author_name,
+    ...item.categories_list
+    ];
+
+    const hay = items_to_search_through.join(" ");
     const haylower = hay.toLowerCase();
     tokens.forEach(t => {
       if (haylower.includes(t)) score += 1;

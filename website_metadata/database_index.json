@@ -1,12 +1,12 @@
 [
   {
-    "id": "00002",
+    "id": "00001",
     "allowed_in_database": true,
     "name": "First dataset",
     "keywords": [
-      "Alpha",
-      "Beta",
-      "Gamma"
+      "alpha",
+      "beta",
+      "gamma"
     ],
     "abstract": "This is the abstract of the dataset. It should not have markdown, and even if it does it will be ignored. There is a character limit of 500 words. In theory, this dataset is open access but it&#x27;s all placeholder.",
     "shareability": "Publicly shareable",
@@ -16,13 +16,13 @@
     "collection_start": "29/09/2025",
     "collection_end": "07/11/2025",
     "categories_list": [
-      "Plants & Crops",
-      "Soil Science / Fertilisers",
-      "Fish / Marine",
-      "Water Quality",
-      "Storage",
-      "Transport",
-      "Supply Chain"
+      "plants & crops",
+      "soil science / fertilisers",
+      "fish / marine",
+      "water quality",
+      "storage",
+      "transport",
+      "supply chain"
     ],
     "research_fields": [
       "Nutrition",
@@ -30,12 +30,12 @@
     ]
   },
   {
-    "id": "00003",
+    "id": "00002",
     "allowed_in_database": true,
     "name": "SHeS: Scottish Health Survey",
     "keywords": [
-      "Health",
-      "Government",
+      "health",
+      "government",
       "mental health",
       "diet",
       "food insecurity",
@@ -49,16 +49,16 @@
     "collection_start": "01/01/1995",
     "collection_end": "",
     "categories_list": [
-      "Consumption",
-      "Nutrition",
-      "Food Availability"
+      "consumption",
+      "nutrition",
+      "food availability"
     ],
     "research_fields": [
       "Nutrition"
     ]
   },
   {
-    "id": "00004",
+    "id": "00003",
     "allowed_in_database": true,
     "name": "UK Government Family Food datasets ",
     "keywords": [
@@ -77,17 +77,17 @@
     "collection_start": "01/01/1974",
     "collection_end": "",
     "categories_list": [
-      "Pricing",
-      "Consumer Behaviour",
-      "Consumption",
-      "Nutrition"
+      "pricing",
+      "consumer behaviour",
+      "consumption",
+      "nutrition"
     ],
     "research_fields": [
       "Nutrition"
     ]
   },
   {
-    "id": "00005",
+    "id": "00004",
     "allowed_in_database": true,
     "name": "National Diet and Nutrition Survey (Scotland)",
     "keywords": [
@@ -105,23 +105,23 @@
     "collection_start": "01/01/2008",
     "collection_end": "30/12/2012",
     "categories_list": [
-      "Consumption",
-      "Nutrition"
+      "consumption",
+      "nutrition"
     ],
     "research_fields": [
       "Nutrition"
     ]
   },
   {
-    "id": "00006",
+    "id": "00005",
     "allowed_in_database": true,
     "name": "Scottish Agricultural Census",
     "keywords": [
-      "Land Use",
-      "Farm",
-      "Employees",
-      "Occupiers",
-      "Ownership",
+      "land use",
+      "farm",
+      "employees",
+      "occupiers",
+      "ownership",
       "legal responsibility",
       "emissions",
       "nitrogen",
@@ -153,13 +153,13 @@
     "collection_start": "01/06/1999",
     "collection_end": "",
     "categories_list": [
-      "Production",
-      "Plants & Crops",
-      "Soil Science / Fertilisers",
-      "Animals",
-      "Animal Feed",
-      "Land based",
-      "Machinery"
+      "production",
+      "plants & crops",
+      "soil science / fertilisers",
+      "animals",
+      "animal feed",
+      "land based",
+      "machinery"
     ],
     "research_fields": [
       ""
