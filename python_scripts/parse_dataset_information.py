@@ -56,67 +56,68 @@ def get_cleaned_categories(input_string):
 
 def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
-    result_json = dict()
+    row_dict = row.to_dict()
+    result_json = row_dict.copy()
     result_json["dataset_code"] = str(dataset_code)
-    result_json["dataset_title"] = html.escape(str(row.get("dataset_title", f"Dataset {dataset_code}")))
+    result_json["dataset_title"] = html.escape(str(row_dict.get("dataset_title", f"Dataset {dataset_code}")))
 
-    keywords_raw = html.escape(str(row.get('dataset_keywords_from_questionnaire', '') or ''))
+    keywords_raw = html.escape(str(row_dict.get('dataset_keywords_from_questionnaire', '') or ''))
     keywords = [html.escape(str(k.strip())).lower() for k in re.split(r'[;,|\n]+', keywords_raw) if k.strip()] if keywords_raw else []
     result_json["keywords_html"] = ", ".join(keywords)   # needs to be separate because we want them separate in the JSON index
     result_json["keywords"] = keywords
 
-    result_json["abstract"] = html.escape(str(row.get("abstract", "Missing abstract")))
-    result_json["allowed?"] = bool(row.get("allow", "Missing").lower() in {"yes", "y", "allow", "allowed"})
+    result_json["abstract"] = html.escape(str(row_dict.get("abstract", "Missing abstract")))
+    result_json["allowed?"] = bool(row_dict.get("allow", "Missing").lower() in {"yes", "y", "allow", "allowed"})
 
 
-    raw_links = row.get("dataset_links_from_questionnaire").split("\n")
+    raw_links = row_dict.get("dataset_links_from_questionnaire").split("\n")
     html_links = [f'<a href="{link}">{link}</a>' for link in raw_links]
     result_json["links"] = make_html_bullet_list(html_links)
 
 
-    description_md = str(row.get('long_description_from_questionnaire', '') or '')
+    description_md = str(row_dict.get('long_description_from_questionnaire', '') or '')
     description_html = markdown.markdown(description_md, extensions=['fenced_code', 'tables'])
     result_json["description"] = description_html
 
-    result_json["location"] = html.escape(str(row.get("dataset_country", "No location")))
+    result_json["location"] = html.escape(str(row_dict.get("dataset_country", "No location")))
 
-    result_json["collection_start"] = row.get('data_collection_start') # TODO
-    result_json["collection_end"] = row.get('data_collection_end') # TODO
+    result_json["collection_start"] = row_dict.get('data_collection_start') # TODO validate in some way?
+    result_json["collection_end"] = row_dict.get('data_collection_end') # TODO validate in some way ?
 
-    result_json["shareability"] = row.get("shareability")
+    result_json["shareability"] = row_dict.get("shareability")
 
 
-    categories_list_dirty = list(row.get("dataset_categories_from_questionnaire", "").split(", "))
+    categories_list_dirty = list(row_dict.get("dataset_categories_from_questionnaire", "").split(", "))
     categories_list_cleaned = [CATEGORY_MAP[category_name].lower() for category_name in categories_list_dirty]
     categories_html = ", ".join(categories_list_cleaned)
     result_json["categories_list"] = categories_list_cleaned
     result_json["categories_html"] = categories_html
 
-    research_fields_list = list(row.get("research_fields", "").split(", "))
+    research_fields_list = list(row_dict.get("research_fields", "").split(", "))
     research_fields_html = ", ".join(research_fields_list)
 
     result_json["research_fields_list"] = research_fields_list
     result_json["research_fields_html"] = research_fields_html
 
-    result_json["author_name"] = row.get('author_name', "Unknown Author")
-    result_json["author_contacts"] = row.get('author_contacts', "Missing author contacts")
-    result_json["other_contributors"] = row.get('other_contributors', "")
+    result_json["author_name"] = row_dict.get('author_name', "Unknown Author")
+    result_json["author_contacts"] = row_dict.get('author_contacts', "Missing author contacts")
+    result_json["other_contributors"] = row_dict.get('other_contributors', "")
 
 
-    dataset_categories_cleaned = row.get("dataset_datatypes").split(", ")
+    dataset_categories_cleaned = row_dict.get("dataset_datatypes").split(", ")
     result_json["datatypes_list"] = dataset_categories_cleaned
     result_json["datatypes_html"] = ", ".join(dataset_categories_cleaned) # i know i know
 
-    result_json["file_extensions"] = row.get("file_extensions", "unknown")
+    result_json["file_extensions"] = row_dict.get("file_extensions", "unknown")
 
-    result_json["dataset_lifecycle_stage"] = row.get("dataset_lifecycle_stage")
-
-
+    result_json["dataset_lifecycle_stage"] = row_dict.get("dataset_lifecycle_stage")
 
 
-    result_json["copyright"] = row.get("copyright")
-    result_json["usage_instructions"] = row.get("usage_instructions")
-    result_json["acknowledgements"] = row.get("acknowledgements")
+
+
+    result_json["copyright"] = row_dict.get("copyright")
+    result_json["usage_instructions"] = row_dict.get("usage_instructions")
+    result_json["acknowledgements"] = row_dict.get("acknowledgements")
 
 
 
