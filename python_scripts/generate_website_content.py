@@ -34,12 +34,13 @@ WEBPAGES_FOLDER.mkdir(parents=True, exist_ok=True)
 index_list = []
 # safe fill_in_gaps function
 
-def fill_in_gaps(template_string, variables_dict):
-    class DefaultDict(dict):
-        def __missing__(self, key):
-            return "unknown"
-    safe_dict = DefaultDict(variables_dict)
-    return template_string.format_map(safe_dict)
+def fill_in_gaps(template_str: str, variables_dict: dict) -> str:
+    result = template_str
+    for key, value in variables_dict.items():
+        # Replace all occurrences of {key} with its value converted to string
+        placeholder = "{" + key + "}"
+        result = result.replace(placeholder, str(value))
+    return result
 
 # read template
 with open(TEMPLATE_FILE, "r", encoding="utf-8") as file:

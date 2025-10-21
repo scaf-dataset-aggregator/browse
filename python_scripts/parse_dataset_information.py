@@ -54,6 +54,31 @@ def get_cleaned_categories(input_string):
     cleaned = [_non_alpha_trim.sub('', term.strip()) for term in terms]
     return [t for t in cleaned if t]
 
+import re
+from datetime import datetime
+
+# Matches dd/mm/yyyy where dd=01–31, mm=01–12, yyyy=0000–9999
+date_regex = re.compile(r"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$")
+
+def convert_dates_to_schema_time_range(start_date: str, end_date: str) -> str:
+    def to_iso(date_str):
+        try:
+            # Validate format first
+            if not date_regex.match(date_str):
+                return ""
+            # Convert to yyyy-mm-dd
+            return datetime.strptime(date_str, "%d/%m/%Y").strftime("%Y-%m-%d")
+        except ValueError:
+            # Covers invalid calendar dates like 31/02/2024
+            return ""
+
+    iso_start = to_iso(start_date)
+    iso_end = to_iso(end_date)
+
+    # Build the result string
+    result_str = (iso_start if iso_start else "..") + "/" + (iso_end if iso_end else "..")
+    return result_str
+
 def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     row_dict = row.to_dict()
@@ -65,6 +90,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     keywords = [html.escape(str(k.strip())).lower() for k in re.split(r'[;,|\n]+', keywords_raw) if k.strip()] if keywords_raw else []
     result_json["keywords_html"] = ", ".join(keywords)   # needs to be separate because we want them separate in the JSON index
     result_json["keywords"] = keywords
+    result_json["keywords_schema"] = "["+",\n".join(f'"{keyword}"' for keyword in keywords)+"]"
 
     result_json["abstract"] = html.escape(str(row_dict.get("abstract", "Missing abstract")))
     result_json["allowed?"] = bool(row_dict.get("allow", "Missing").lower() in {"yes", "y", "allow", "allowed"})
@@ -73,6 +99,8 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     raw_links = row_dict.get("dataset_links_from_questionnaire").split("\n")
     html_links = [f'<a href="{link}">{link}</a>' for link in raw_links]
     result_json["links"] = make_html_bullet_list(html_links)
+
+    result_json["first_link"] = raw_links[0] if len(raw_links) > 0 else "error"
 
 
     description_md = str(row_dict.get('long_description_from_questionnaire', '') or '')
@@ -83,8 +111,10 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     result_json["collection_start"] = row_dict.get('data_collection_start') # TODO validate in some way?
     result_json["collection_end"] = row_dict.get('data_collection_end') # TODO validate in some way ?
+    result_json["temporal_coverage_for_schema"] = convert_dates_to_schema_time_range(result_json["collection_start"], result_json["collection_end"])
 
     result_json["shareability"] = row_dict.get("shareability")
+    result_json["is_accessible_for_free"] = "true" if ("publicly shareable" == result_json["shareability"].lower()) else "false"
 
 
     categories_list_dirty = list(row_dict.get("dataset_categories_from_questionnaire", "").split(", "))
