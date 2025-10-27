@@ -26,9 +26,15 @@
       </a>
       <div id="search-bar-placeholder"></div>
 <script src="../shared/load_search_bar.js"></script>
+<script src="search_results_script.js"></script>
 <script>
   const pathPrefix = "../";
-  loadSearchBar(pathPrefix);
+
+  // Wait until the bar is loaded before continuing
+  loadSearchBar(pathPrefix).then(() => {
+    console.log("Search bar loaded and ready!");
+    findAndDisplayResults();
+  });
 </script>
 
       <hr>
@@ -37,6 +43,6 @@
     </div>
   </div>
 
-  <script src="search_results_script.js"></script>
+
 </body>
 </html>

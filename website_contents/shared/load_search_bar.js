@@ -80,6 +80,59 @@ function initDateIgnoreToggle() {
 }
 
 
+function collectFilters() {
+  const filters = {};
+
+  // multi-select filters
+  ["shareability", "kinds-of-data", "category", "research-field", "location"].forEach(id => {
+    const select = document.getElementById(id);
+    const selected = Array.from(select.selectedOptions).map(opt => opt.value);
+    filters[id] = selected.join(",");
+  });
+
+  // file extensions
+  filters["file-extensions"] = document.getElementById("file-extensions").value.trim();
+
+  // collection start/end
+  ["collection-start", "collection-end"].forEach(id => {
+    const type = document.getElementById(id + "-type").value;
+    const date = document.getElementById(id).value;
+    filters[id] = JSON.stringify({ type, date });
+  });
+
+  return filters;
+}
+
+function initSearchLogic(pathPrefix = '') {
+  const form = document.getElementById('search-form');
+  const input = document.getElementById('query');
+  const resultsDiv = document.getElementById('results');
+
+  form?.addEventListener('submit', e => {
+    e.preventDefault();
+    const q = input.value.trim().toLowerCase();
+    const filters = collectFilters();
+
+    // Build query string
+    const params = new URLSearchParams({ q });
+    Object.entries(filters).forEach(([key, val]) => {
+      params.set(key, val);
+    });
+
+
+    // Normalise path check and redirect
+    const currentPath = window.location.pathname;
+    const resultsPath = `${pathPrefix}website_contents/search_results/search_results.html`;
+
+    if (currentPath.endsWith('search_results.html')) {
+      doSearch(q).then(res => renderResults(res, resultsDiv));
+    } else {
+      window.location = `${resultsPath}?${params.toString()}`;
+    }
+  });
+}
+
+
 async function loadSearchBar(pathPrefix) {
   const response = await fetch(`${pathPrefix}shared/search_bar.html`);
   const html = await response.text();
@@ -91,11 +144,11 @@ async function loadSearchBar(pathPrefix) {
     form.action = `${pathPrefix}search_results/search_results.html`;
   }
 
-  // When the form exists, then we can fix the filters
+  // Initialise behaviour now that form exists
   initSelectTags();
-
   initDateIgnoreToggle();
-
-  // Now that the form exists, initialise search logic
   initSearchLogic();
+
+  // Let the caller know the bar is ready
+  return true;
 }

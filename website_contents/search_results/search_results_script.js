@@ -14,7 +14,7 @@ async function loadIndex() {
   return indexData;
 }
 
-async function doSearch(q) {
+async function doSearch(q, filters = {}) {
   const data = await loadIndex();
 
   // Clean and limit query
@@ -34,7 +34,10 @@ async function doSearch(q) {
     const location = (item.location || '').toLowerCase();
     const author = (item.author_name || '').toLowerCase();
     const categories = (item.categories_list || []).map(c => c.toLowerCase());
+    const shareability = (item.shareability || '').toLowerCase();
+    const kindsOfData = (item.kinds_of_data || []).map(s => s.toLowerCase());
 
+    // Apply search tokens scoring
     tokens.forEach(t => {
       if (name.includes(t)) score += 7;
       if (keywords.some(k => k.includes(t))) score += 5;
@@ -44,9 +47,62 @@ async function doSearch(q) {
       if (categories.some(c => c.includes(t))) score += 1;
     });
 
-    return { score, item };
+    // --- Apply filters ---
+    let passesFilters = true;
+
+    // Helper for multi-select arrays
+    const arrayFilter = (itemValues, filterValues) => {
+      if (!filterValues || !filterValues.length) return true;
+      return filterValues.some(f => itemValues.includes(f.toLowerCase()));
+    };
+
+    // Shareability
+    if (!arrayFilter(shareability, filters.shareability)) passesFilters = false;
+
+    // Kinds of data
+    if (!arrayFilter(kindsOfData, filters.kindsOfData)) passesFilters = false;
+
+    // Category
+    if (!arrayFilter(categories, filters.category)) passesFilters = false;
+
+    // Research field
+    if (!arrayFilter((item.research_field || []).map(r => r.toLowerCase()), filters.researchField)) passesFilters = false;
+
+    // Location
+    if (!arrayFilter([location], filters.location)) passesFilters = false;
+
+    // File extensions
+    if (filters.fileExtensions) {
+      const allowedExts = filters.fileExtensions.split(',').map(f => f.trim().toLowerCase());
+      const itemExts = (item.file_extensions || '').split(',').map(f => f.trim().toLowerCase());
+      if (!allowedExts.some(ext => itemExts.includes(ext))) passesFilters = false;
+    }
+
+    // Collection start / end
+    const parseDate = str => {
+      if (!str) return null;
+      const [d, m, y] = str.split('/').map(Number);
+      return new Date(y, m - 1, d);
+    };
+
+    const checkDate = (itemDateStr, filterObj) => {
+      if (!filterObj || filterObj.type === "ignore") return true;
+      const itemDate = parseDate(itemDateStr);
+      if (!itemDate) return true;
+      const filterDate = new Date(filterObj.date);
+      if (isNaN(filterDate)) return true;
+      if (filterObj.type === "after") return itemDate >= filterDate;
+      if (filterObj.type === "before") return itemDate <= filterDate;
+      return true;
+    };
+
+    if (!checkDate(item.collection_start, filters.collectionStart)) passesFilters = false;
+    if (!checkDate(item.collection_end, filters.collectionEnd)) passesFilters = false;
+
+    return { score, item, passesFilters };
   })
-  .filter(x => x.score >= 2)
+  // keep only scored >=2 AND passing filters
+  .filter(x => x.score >= 2 && x.passesFilters)
   .sort((a, b) => b.score - a.score)
   .map(x => x.item);
 
@@ -108,6 +164,34 @@ function renderResults(items, container) {
   });
 }
 
+
+function findAndDisplayResults() {
+  const form = document.getElementById('search-form');
+  const input = document.getElementById('query');
+  const resultsDiv = document.getElementById('results');
+
+  const params = new URLSearchParams(window.location.search);
+  const searchQuery = params.get('q') || '';
+
+  input.value = searchQuery;
+
+  // Parse filters from URL
+  const filters = {
+    shareability: (params.get('shareability') || '').split(',').filter(Boolean),
+    kindsOfData: (params.get('kinds-of-data') || '').split(',').filter(Boolean),
+    category: (params.get('category') || '').split(',').filter(Boolean),
+    researchField: (params.get('research-field') || '').split(',').filter(Boolean),
+    location: (params.get('location') || '').split(',').filter(Boolean),
+    fileExtensions: params.get('file-extensions') || '',
+    collectionStart: JSON.parse(params.get('collection-start') || '{"type":"ignore","date":""}'),
+    collectionEnd: JSON.parse(params.get('collection-end') || '{"type":"ignore","date":""}')
+  };
+
+  // Call search function with query and filters
+  doSearch(searchQuery.toLowerCase(), filters).then(res => renderResults(res, resultsDiv));
+}
+
+
 // DOM glue
 // document.addEventListener('DOMContentLoaded', () => {
 //   const form = document.getElementById('search-form');
@@ -133,29 +217,3 @@ function renderResults(items, container) {
 // });
 
 
-function initSearchLogic(pathPrefix = '') {
-  const form = document.getElementById('search-form');
-  const input = document.getElementById('query');
-  const resultsDiv = document.getElementById('results');
-
-  const params = new URLSearchParams(window.location.search);
-  if (params.has('q')) {
-    input.value = params.get('q');
-    doSearch(params.get('q').toLowerCase()).then(res => renderResults(res, resultsDiv));
-  }
-
-  form?.addEventListener('submit', e => {
-    e.preventDefault();
-    const q = input.value.trim().toLowerCase();
-
-    // Normalise path check and redirect
-    const currentPath = window.location.pathname;
-    const resultsPath = `${pathPrefix}website_contents/search_results/search_results.html`;
-
-    if (currentPath.endsWith('search_results.html')) {
-      doSearch(q).then(res => renderResults(res, resultsDiv));
-    } else {
-      window.location = `${resultsPath}?q=${encodeURIComponent(q)}`;
-    }
-  });
-}

@@ -21,11 +21,14 @@
     <h1>SCAF Dataset Aggregator</h1>
 
     <div id="search-bar-placeholder"></div>
-<script src="website_contents/search_results/search_results_script.js"></script>
 <script src="website_contents/shared/load_search_bar.js"></script>
 <script>
   const pathPrefix = "website_contents/";
-  loadSearchBar(pathPrefix);
+
+  // Wait until the bar is loaded before continuing
+  loadSearchBar(pathPrefix).then(() => {
+    console.log("Search bar loaded and ready!");
+  });
 </script>
 
     <hr>
