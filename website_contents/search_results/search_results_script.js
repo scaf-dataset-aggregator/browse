@@ -16,34 +16,41 @@ async function loadIndex() {
 
 async function doSearch(q) {
   const data = await loadIndex();
-  q = (q || '').trim();
-  if (!q) return data.slice(0, 50);
 
-  const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
+  // Clean and limit query
+  q = (q || '').trim().toLowerCase();
+  if (!q) return data.slice(0, 50);
+  if (q.length > 100) q = q.slice(0, 100);
+
+  const tokens = q.split(/\s+/).filter(Boolean).slice(0, 32);
+
   const scored = data.map(item => {
     let score = 0;
 
-    const items_to_search_through = [
-    item.name.toLowerCase(),
-    ...item.keywords,
-    item.abstract,
-    item.location,
-    item.author_name,
-    ...item.categories_list
-    ];
+    // Ensure fields are strings or arrays
+    const name = (item.name || '').toLowerCase();
+    const keywords = (item.keywords || []).map(k => k.toLowerCase());
+    const abstract = (item.abstract || '').toLowerCase();
+    const location = (item.location || '').toLowerCase();
+    const author = (item.author_name || '').toLowerCase();
+    const categories = (item.categories_list || []).map(c => c.toLowerCase());
 
-    const hay = items_to_search_through.join(" ");
-    const haylower = hay.toLowerCase();
     tokens.forEach(t => {
-      if (haylower.includes(t)) score += 1;
+      if (name.includes(t)) score += 7;
+      if (keywords.some(k => k.includes(t))) score += 5;
+      if (abstract.includes(t)) score += 2;
+      if (location.includes(t)) score += 3;
+      if (author.includes(t)) score += 5;
+      if (categories.some(c => c.includes(t))) score += 1;
     });
-    if ((item.name || '').toLowerCase().includes(q.toLowerCase())) score += 2;
-    return { score, item };
-  }).filter(x => x.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .map(x => x.item);
 
-  return scored.slice(0, 100);
+    return { score, item };
+  })
+  .filter(x => x.score >= 2)
+  .sort((a, b) => b.score - a.score)
+  .map(x => x.item);
+
+  return scored;
 }
 
 function snippet(text, q, maxLen=250) {
@@ -102,12 +109,34 @@ function renderResults(items, container) {
 }
 
 // DOM glue
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
+//   const form = document.getElementById('search-form');
+//   const input = document.getElementById('query');
+//   const resultsDiv = document.getElementById('results');
+//
+//   const params = new URLSearchParams(window.location.search);
+//   if (params.has('q')) {
+//     input.value = params.get('q');
+//     doSearch(params.get('q').toLowerCase()).then(res => renderResults(res, resultsDiv));
+//   }
+//
+//   form?.addEventListener('submit', e => {
+//     e.preventDefault();
+//     const q = input.value;
+//     if (window.location.pathname.endsWith('results.html')) {
+//       doSearch(q.toLowerCase()).then(res => renderResults(res, resultsDiv));
+//     } else {
+//       window.location = `results.html?q=${encodeURIComponent(q)}`;
+//     }
+//   });
+//
+// });
+
+
+function initSearchLogic(pathPrefix = '') {
   const form = document.getElementById('search-form');
   const input = document.getElementById('query');
   const resultsDiv = document.getElementById('results');
-  const filterBtn = document.getElementById('filter-btn');
-  const filterPanel = document.getElementById('filter-panel');
 
   const params = new URLSearchParams(window.location.search);
   if (params.has('q')) {
@@ -117,15 +146,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form?.addEventListener('submit', e => {
     e.preventDefault();
-    const q = input.value;
-    if (window.location.pathname.endsWith('results.html')) {
-      doSearch(q.toLowerCase()).then(res => renderResults(res, resultsDiv));
+    const q = input.value.trim().toLowerCase();
+
+    // Normalise path check and redirect
+    const currentPath = window.location.pathname;
+    const resultsPath = `${pathPrefix}website_contents/search_results/search_results.html`;
+
+    if (currentPath.endsWith('search_results.html')) {
+      doSearch(q).then(res => renderResults(res, resultsDiv));
     } else {
-      window.location = `results.html?q=${encodeURIComponent(q)}`;
+      window.location = `${resultsPath}?q=${encodeURIComponent(q)}`;
     }
   });
-
-  filterBtn?.addEventListener('click', () => {
-    filterPanel.classList.toggle('hidden');
-  });
-});
+}

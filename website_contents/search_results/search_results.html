@@ -24,10 +24,12 @@
 
         <h1>SCAF Dataset Aggregator</h1>
       </a>
-      <form id="search-form">
-        <input type="text" id="query" name="q" placeholder="Search datasets...">
-        <button type="submit">Search</button>
-      </form>
+      <div id="search-bar-placeholder"></div>
+<script src="../shared/load_search_bar.js"></script>
+<script>
+  const pathPrefix = "../";
+  loadSearchBar(pathPrefix);
+</script>
 
       <hr>
 
