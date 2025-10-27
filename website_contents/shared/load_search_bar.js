@@ -54,6 +54,31 @@ function getFilters() {
   return filters;
 }
 
+function initDateIgnoreToggle() {
+  const togglePairs = [
+    { selectId: "collection-start-type", inputId: "collection-start" },
+    { selectId: "collection-end-type", inputId: "collection-end" },
+  ];
+
+  togglePairs.forEach(pair => {
+    const select = document.getElementById(pair.selectId);
+    const input = document.getElementById(pair.inputId);
+
+    function updateInputState() {
+      if (select.value === "ignore") {
+        input.disabled = true;
+        input.style.backgroundColor = "#eee"; // greyed out
+      } else {
+        input.disabled = false;
+        input.style.backgroundColor = ""; // reset
+      }
+    }
+
+    select.addEventListener("change", updateInputState);
+    updateInputState(); // initialize on page load
+  });
+}
+
 
 async function loadSearchBar(pathPrefix) {
   const response = await fetch(`${pathPrefix}shared/search_bar.html`);
@@ -67,7 +92,9 @@ async function loadSearchBar(pathPrefix) {
   }
 
   // When the form exists, then we can fix the filters
-  initSelectTags()
+  initSelectTags();
+
+  initDateIgnoreToggle();
 
   // Now that the form exists, initialise search logic
   initSearchLogic();
