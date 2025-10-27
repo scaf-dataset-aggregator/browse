@@ -340,3 +340,55 @@ h2 {
   margin-top: 1.4em;
   color: #003d73;
 }
+
+/* Make select boxes bigger and add spacing */
+.filter select,
+.filter input[type="text"] {
+  font-size: 1.1rem; /* slightly bigger text */
+  padding: 0.5em;    /* space inside the box */
+  margin-top: 0.3em; /* gap from the label above */
+  width: 100%;       /* full width */
+  box-sizing: border-box;
+}
+
+/* Style the selected tags div */
+.filter div[id$="-selection"] {
+  margin-top: 0.2em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Style each selected tag button */
+.filter div[id$="-selection"] .selected-tag {
+  background-color: #0077cc;
+  color: white;
+  padding: 0.25em 0.6em;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.filter div[id$="-selection"] .selected-tag:hover {
+  background-color: #005fa3;
+}
+
+
+/* Make text in the last row bigger */
+.filter[data-filter="collection-start"],
+.filter[data-filter="collection-end"] {
+    font-size: 1em;
+}
+
+.filter[data-filter="collection-start"] label,
+.filter[data-filter="collection-start"] select,
+.filter[data-filter="collection-start"] input,
+.filter[data-filter="collection-end"] label,
+.filter[data-filter="collection-end"] select,
+.filter[data-filter="collection-end"] input {
+    font-size: 1em;
+}
+
+.filter label {
+    font-weight: bold;
+    font-size: 1.1em; /* adjust size as needed */
+}
