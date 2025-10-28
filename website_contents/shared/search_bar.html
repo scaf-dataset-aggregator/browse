@@ -10,18 +10,18 @@
       <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0em 1em; margin-top: 1em;">
 
   <!-- Row 1: Shareability | Kinds of Data -->
-        <div class="filter" data-filter="shareability">
-          <label for="shareability">Shareability:</label>
-          <select id="shareability" multiple size="4" style="width: 100%; ">
+        <div class="filter" data-filter="availability">
+          <label for="availability">Availability:</label>
+          <select id="availability" multiple size="4" style="width: 100%; ">
             <option>Publicly Available</option>
             <option>Shareable on request</option>
           </select>
-          <div id="shareability-selection"></div>
+          <div id="availability-selection"></div>
         </div>
 
-        <div class="filter" data-filter="kinds-of-data">
-          <label for="kinds-of-data">Kinds of Data:</label>
-          <select id="kinds-of-data" multiple size="4" style="width: 100%;">
+        <div class="filter" data-filter="dataType">
+          <label for="dataType">Kinds of Data:</label>
+          <select id="dataType" multiple size="4" style="width: 100%;">
             <option>Numeric / Quantitative</option>
             <option>Textual</option>
             <option>Images</option>
@@ -32,7 +32,7 @@
             <option>Markup</option>
             <option>Other</option>
           </select>
-          <div id="kinds-of-data-selection"></div>
+          <div id="dataType-selection"></div>
         </div>
 
         <!-- Horizontal line after row 1 -->
@@ -87,9 +87,9 @@
           <div id="category-selection"></div>
         </div>
 
-        <div class="filter" data-filter="research-field">
-          <label for="research-field">Research Field:</label>
-          <select id="research-field" multiple size="6" style="width: 100%;">
+        <div class="filter" data-filter="researchField">
+          <label for="researchField">Research Field:</label>
+          <select id="researchField" multiple size="6" style="width: 100%;">
             <option>Mathematics</option>
             <option>Computer Science</option>
             <option>Biology</option>
@@ -100,7 +100,7 @@
             <option>Education</option>
             <option>Other</option>
           </select>
-          <div id="research-field-selection"></div>
+          <div id="researchField-selection"></div>
         </div>
 
         <!-- Horizontal line after row 1 -->
@@ -316,32 +316,32 @@
   <div id="location-selection"></div>
 </div>
 
-        <div class="filter" data-filter="file-extensions">
-          <label for="file-extensions">File Extensions:</label>
-          <input type="text" id="file-extensions" placeholder="e.g., csv, xlsx, json" style="width: 100%;">
+        <div class="filter" data-filter="fileExtensions">
+          <label for="fileExtensions">File Extensions:</label>
+          <input type="text" id="fileExtensions" placeholder="e.g., csv, xlsx, json" style="width: 100%;">
         </div>
 
         <hr style="grid-column: 1 / -1; width: 100%; margin: 1em 0;">
 
         <!-- Row 4: Collection Start | Collection End -->
-        <div class="filter" data-filter="collection-start">
-          <label for="collection-start">Collection Start:</label>
-          <select id="collection-start-type" style="width: 100%;">
+        <div class="filter" data-filter="collectionStart">
+          <label for="collectionStart">Collection Start:</label>
+          <select id="collectionStart-type" style="width: 100%;">
             <option value="ignore">Ignore</option>
             <option value="after">After date</option>
             <option value="before">Before date</option>
           </select>
-          <input type="date" id="collection-start" style="width: 100%;">
+          <input type="date" id="collectionStart" style="width: 100%;">
         </div>
 
-        <div class="filter" data-filter="collection-end">
-          <label for="collection-end">Collection End:</label>
-          <select id="collection-end-type" style="width: 100%;">
+        <div class="filter" data-filter="collectionEnd">
+          <label for="collectionEnd">Collection End:</label>
+          <select id="collectionEnd-type" style="width: 100%;">
             <option value="ignore">Ignore</option>
             <option value="after">After date</option>
             <option value="before">Before date</option>
           </select>
-          <input type="date" id="collection-end" style="width: 100%;">
+          <input type="date" id="collectionEnd" style="width: 100%;">
         </div>
 
       </div>

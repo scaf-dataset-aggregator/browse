@@ -34,10 +34,12 @@ async function doSearch(q, filters = {}) {
     const location = (item.location || '').toLowerCase();
     const author = (item.author_name || '').toLowerCase();
     const categories = (item.categories_list || []).map(c => c.toLowerCase());
-    const publiclyAvailable = item.publicly_availalbe;
-    const kindsOfData = (item.kinds_of_data || []).map(s => s.toLowerCase());
+    const publiclyAvailable = item.publicly_available;
+    const dataTypes = (item.data_types || []);
+    const fileExtensions = (item.file_extensions || []);
+    const researchFields = (item.research_fields || []);
 
-    alert("The fields are "+JSON.stringify(item));
+    //alert("The fields are "+JSON.stringify(item));
 
     // Apply search tokens scoring
     tokens.forEach(t => {
@@ -53,32 +55,52 @@ async function doSearch(q, filters = {}) {
     let passesFilters = true;
 
     // Helper for multi-select arrays
-    const arrayFilter = (itemValues, filterValues) => {
+    const atLeastOnePresent = (itemValues, filterValues) => {
       if (!filterValues || !filterValues.length) return true;
       return filterValues.some(f => itemValues.includes(f.toLowerCase()));
     };
 
-    // Shareability
-    if (!arrayFilter(publiclyAvailable, filters.shareability)) passesFilters = false;
+    // // Shareability
+    // if ((filters.publiclyAvailable !== "") && (filters.publiclyAvailable !== publiclyAvailable)) {
+    //   alert("Fail at publicly available");
+    //   alert(filters.publiclyAvailable);
+    //   passesFilters = false;
+    // }
 
     // Kinds of data
-    if (!arrayFilter(kindsOfData, filters.kindsOfData)) passesFilters = false;
+    if (!atLeastOnePresent(dataTypes, filters.dataTypes)) {
+      // alert("fail at datatypes");
+      passesFilters = false;
+    }
 
     // Category
-    if (!arrayFilter(categories, filters.category)) passesFilters = false;
+    if (!atLeastOnePresent(categories, filters.category)) {
+      // alert("fail at category");
+      passesFilters = false;
+    }
 
     // Research field
-    if (!arrayFilter((item.research_field || []).map(r => r.toLowerCase()), filters.researchField)) passesFilters = false;
+    if (!atLeastOnePresent(researchFields, filters.researchField)) {
+      // alert("fail at research fields");
+      passesFilters = false;
+    }
 
     // Location
-    if (!arrayFilter([location], filters.location)) passesFilters = false;
-
-    // File extensions
-    if (filters.fileExtensions) {
-      const allowedExts = filters.fileExtensions.split(',').map(f => f.trim().toLowerCase());
-      const itemExts = (item.file_extensions || '').split(',').map(f => f.trim().toLowerCase());
-      if (!allowedExts.some(ext => itemExts.includes(ext))) passesFilters = false;
+    if (!atLeastOnePresent([location], filters.location)) {
+      // alert("fail at location");
+      passesFilters = false;
     }
+
+    // File Extensions
+    // alert("1 " + JSON.stringify(filters));
+    requiredFilterExtensions = filters.fileExtensions.split(", ");
+    // alert("2 " + requiredFilterExtensions);
+    if (!atLeastOnePresent(requiredFilterExtensions, filters.fileExtensions)) {
+      // alert("Fail at file extensions");
+      passesFilters = false;
+    }
+
+
 
     // Collection start / end
     const parseDate = str => {
@@ -97,9 +119,16 @@ async function doSearch(q, filters = {}) {
       return true;
     };
 
-    if (!checkDate(item.collection_start, filters.collectionStart)) passesFilters = false;
-    if (!checkDate(item.collection_end, filters.collectionEnd)) passesFilters = false;
+    if (!checkDate(item.collection_start, filters.collectionStart)) {
+      // alert("fail at collectionStart");
+      passesFilters = false;
+    }
+    if (!checkDate(item.collection_end, filters.collectionEnd)) {
+      // alert("fail at collectionEnd");
+      passesFilters = false;
+    }
 
+    // alert("For "+item.name + ", score = "+score +", passed = "+passesFilters);
     return { score, item, passesFilters };
   })
   // keep only scored >=2 AND passing filters

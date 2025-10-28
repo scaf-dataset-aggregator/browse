@@ -45,19 +45,19 @@ function getFilters() {
     filters[name] = selected;
   });
 
-  filters.collectionStartType = document.getElementById('collection-start-type')?.value || null;
-  filters.collectionStart = document.getElementById('collection-start')?.value || null;
-  filters.collectionEndType = document.getElementById('collection-end-type')?.value || null;
-  filters.collectionEnd = document.getElementById('collection-end')?.value || null;
-  filters.fileExtensions = document.getElementById('file-extensions')?.value.trim() || "";
+  filters.collectionStartType = document.getElementById('collectionStart-type')?.value || null;
+  filters.collectionStart = document.getElementById('collectionStart')?.value || null;
+  filters.collectionEndType = document.getElementById('collectionEnd-type')?.value || null;
+  filters.collectionEnd = document.getElementById('collectionEnd')?.value || null;
+  filters.fileExtensions = document.getElementById('fileExtensions')?.value.trim() || "";
 
   return filters;
 }
 
 function initDateIgnoreToggle() {
   const togglePairs = [
-    { selectId: "collection-start-type", inputId: "collection-start" },
-    { selectId: "collection-end-type", inputId: "collection-end" },
+    { selectId: "collectionStart-type", inputId: "collectionStart" },
+    { selectId: "collectionEnd-type", inputId: "collectionEnd" },
   ];
 
   togglePairs.forEach(pair => {
@@ -84,17 +84,29 @@ function collectFilters() {
   const filters = {};
 
   // multi-select filters
-  ["shareability", "kinds-of-data", "category", "research-field", "location"].forEach(id => {
+  ["dataType", "category", "researchField", "location"].forEach(id => {
     const select = document.getElementById(id);
     const selected = Array.from(select.selectedOptions).map(opt => opt.value);
     filters[id] = selected.join(",");
   });
 
+  //shareability
+  // if there are 0 or 2, you can ignore it.
+  const select = document.getElementById("availability");
+  const selected = Array.from(select.selectedOptions).map(opt => opt.value);
+  alert("Selected is "+selected.length);
+  if ((selected.length) !== 1) {
+    filters["publiclyAvailable"] = "";
+  }
+  else {
+    filters["publiclyAvailable"] = selected[0] === "Publicly Available";
+  }
+
   // file extensions
-  filters["file-extensions"] = document.getElementById("file-extensions").value.trim();
+  filters["fileExtensions"] = document.getElementById("fileExtensions").value.trim();
 
   // collection start/end
-  ["collection-start", "collection-end"].forEach(id => {
+  ["collectionStart", "collectionEnd"].forEach(id => {
     const type = document.getElementById(id + "-type").value;
     const date = document.getElementById(id).value;
     filters[id] = JSON.stringify({ type, date });
