@@ -138,7 +138,6 @@ function redirectToSearchResultsPageWithURLParams(e) {
 
   const q = input.value.trim().toLowerCase();
   const filters = getFilterJSONFromGUI();
-  alert("The filters obtained from getFilterJSON are "+JSON.stringify(filters));
 
   // Build query string
   const params = new URLSearchParams({ q });
@@ -146,20 +145,9 @@ function redirectToSearchResultsPageWithURLParams(e) {
     params.set(key, val);
   });
 
-  //alert("From URL search params, the params are "+JSON.stringify(params));
   // Normalise path check and redirect
   const resultsPath = `${websiteContentsPath}search_results/search_results.html`;
-  alert("Redirecting you to "+`${resultsPath}?${params.toString()}`);
   window.location = `${resultsPath}?${params.toString()}`;
-
-
-  //const currentPath = window.location.pathname;
-  // if (currentPath.endsWith('search_results.html')) {
-  //   findAndDisplayResults();
-  //   //doSearch(q).then(res => renderResults(res, resultsDiv));
-  // } else {
-  //   window.location = `${resultsPath}?${params.toString()}`;
-  // }
 }
 
 function initSearchLogic(websiteContentsPath = '') {

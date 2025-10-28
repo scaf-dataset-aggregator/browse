@@ -17,11 +17,9 @@ async function loadIndex() {
 async function doSearch(q, filters = {}) {
   const data = await loadIndex();
 
-  alert("filters are "+JSON.stringify(filters));
 
   // Clean and limit query
   q = (q || '').trim().toLowerCase();
-  if (!q) return data.slice(0, 50);
   if (q.length > 100) q = q.slice(0, 100);
 
   const tokens = q.split(/\s+/).filter(Boolean).slice(0, 32);
@@ -40,8 +38,6 @@ async function doSearch(q, filters = {}) {
     const dataTypes = (item.data_types || []);
     const fileExtensions = (item.file_extensions || []);
     const researchFields = (item.research_fields || []);
-
-    //alert("The fields are "+JSON.stringify(item));
 
     // Apply search tokens scoring
     tokens.forEach(t => {
@@ -88,17 +84,15 @@ async function doSearch(q, filters = {}) {
 
 
     // Location
-    //console.log("location = "+location + ", filters.location ="+filters.location);
-    //console.log("passes: " + (![location]) + ", " + (!filters.location.length));
+    console.log("location = "+location + ", filters.location ="+filters.location);
+    console.log("passes: " + (![location]) + ", " + (!filters.location.length));
     if (!atLeastOnePresent([location.toLowerCase()], filters.location)) {
       console.log(item.name + "fail at location");
       passesFilters = false;
     }
 
     // File Extensions
-    //alert("1 " + JSON.stringify(filters));
     requiredFilterExtensions = filters.fileExtensions.split(", ");
-    // alert("2 " + requiredFilterExtensions);
     if (!atLeastOnePresent(requiredFilterExtensions, filters.fileExtensions)) {
       console.log(item.name + "fail at file extensions");
       passesFilters = false;
@@ -132,7 +126,6 @@ async function doSearch(q, filters = {}) {
       passesFilters = false;
     }
 
-    // alert("For "+item.name + ", score = "+score +", passed = "+passesFilters);
     return { score, item, passesFilters };
   })
   // keep only scored >=2 AND passing filters
@@ -208,7 +201,6 @@ function findAndDisplayResults() {
 
   input.value = searchQuery;
 
-  //alert("The params are "+JSON.stringify(params));
 
   // Parse filters from URL
   const filters = {
