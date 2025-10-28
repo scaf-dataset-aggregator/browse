@@ -80,26 +80,39 @@ function initDateIgnoreToggle() {
 }
 
 
-function collectFilters() {
+function getSelectedItemsForFilterField(filterID) {
+  const selectionDiv = document.getElementById(`${filterID}-selection`);
+  const selectedValues = [];
+
+  if (selectionDiv) {
+    // Each selected tag is typically a <button> or similar element
+    selectionDiv.querySelectorAll("button").forEach(btn => {
+      let text = btn.textContent.trim();
+      // Remove the last 2 characters (" x")
+      if (text.length > 2) text = text.slice(0, -2);
+      selectedValues.push(text);
+    });
+  }
+
+  // Store as comma-separated string (or empty string if none)
+  return selectedValues.join(",");
+}
+function getFilterJSONFromGUI() {
   const filters = {};
 
   // multi-select filters
   ["dataType", "category", "researchField", "location"].forEach(id => {
-    const select = document.getElementById(id);
-    const selected = Array.from(select.selectedOptions).map(opt => opt.value);
-    filters[id] = selected.join(",");
+    filters[id] = getSelectedItemsForFilterField(id);
   });
 
   //shareability
   // if there are 0 or 2, you can ignore it.
-  const select = document.getElementById("availability");
-  const selected = Array.from(select.selectedOptions).map(opt => opt.value);
-  //alert("Selected is "+selected.length);
-  if ((selected.length) !== 1) {
+  availabilitySelection = getSelectedItemsForFilterField("availability").split(",");
+  if ((availabilitySelection.length) !== 1) {
     filters["publiclyAvailable"] = "";
   }
   else {
-    filters["publiclyAvailable"] = selected[0] === "Publicly Available";
+    filters["publiclyAvailable"] = availabilitySelection[0] === "Publicly Available";
   }
 
   // file extensions
@@ -115,35 +128,40 @@ function collectFilters() {
   return filters;
 }
 
+function redirectToSearchResultsPageWithURLParams(e) {
+
+  const input = document.getElementById('query');
+  e.preventDefault();
+
+  const q = input.value.trim().toLowerCase();
+  const filters = getFilterJSONFromGUI();
+  alert("The filters obtained from getFilterJSON are "+JSON.stringify(filters));
+
+  // Build query string
+  const params = new URLSearchParams({ q });
+  Object.entries(filters).forEach(([key, val]) => {
+    params.set(key, val);
+  });
+
+  //alert("From URL search params, the params are "+JSON.stringify(params));
+  // Normalise path check and redirect
+  const resultsPath = `${websiteContentsPath}search_results/search_results.html`;
+  alert("Redirecting you to "+`${resultsPath}?${params.toString()}`);
+  window.location = `${resultsPath}?${params.toString()}`;
+
+
+  //const currentPath = window.location.pathname;
+  // if (currentPath.endsWith('search_results.html')) {
+  //   findAndDisplayResults();
+  //   //doSearch(q).then(res => renderResults(res, resultsDiv));
+  // } else {
+  //   window.location = `${resultsPath}?${params.toString()}`;
+  // }
+}
+
 function initSearchLogic(websiteContentsPath = '') {
   const form = document.getElementById('search-form');
-  const input = document.getElementById('query');
-  const resultsDiv = document.getElementById('results');
-
-  form?.addEventListener('submit', e => {
-    e.preventDefault();
-    const q = input.value.trim().toLowerCase();
-    const filters = collectFilters();
-
-    // Build query string
-    const params = new URLSearchParams({ q });
-    Object.entries(filters).forEach(([key, val]) => {
-      params.set(key, val);
-    });
-
-
-    // Normalise path check and redirect
-    const currentPath = window.location.pathname;
-    const resultsPath = `${websiteContentsPath}search_results/search_results.html`;
-
-    // if (currentPath.endsWith('search_results.html')) {
-    //   findAndDisplayResults();
-    //   //doSearch(q).then(res => renderResults(res, resultsDiv));
-    // } else {
-    //   window.location = `${resultsPath}?${params.toString()}`;
-    // }
-    window.location = `${resultsPath}?${params.toString()}`;
-  });
+  form?.addEventListener('submit', redirectToSearchResultsPageWithURLParams);
 }
 
 

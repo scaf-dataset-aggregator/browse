@@ -17,6 +17,8 @@ async function loadIndex() {
 async function doSearch(q, filters = {}) {
   const data = await loadIndex();
 
+  //alert("filters are "+JSON.stringify(filters));
+
   // Clean and limit query
   q = (q || '').trim().toLowerCase();
   if (!q) return data.slice(0, 50);
@@ -60,8 +62,6 @@ async function doSearch(q, filters = {}) {
       return filterValues.some(f => itemValues.includes(f.toLowerCase()));
     };
 
-    //alert("filters are "+JSON.stringify(filters));
-
     // // Shareability
     // if ((filters.publiclyAvailable !== "") && (filters.publiclyAvailable !== publiclyAvailable)) {
     //   alert("Fail at publicly available");
@@ -95,7 +95,6 @@ async function doSearch(q, filters = {}) {
 
     // File Extensions
     //alert("1 " + JSON.stringify(filters));
-    console.log(filters);
     requiredFilterExtensions = filters.fileExtensions.split(", ");
     // alert("2 " + requiredFilterExtensions);
     if (!atLeastOnePresent(requiredFilterExtensions, filters.fileExtensions)) {
@@ -199,7 +198,6 @@ function renderResults(items, container) {
 
 
 function findAndDisplayResults() {
-  const form = document.getElementById('search-form');
   const input = document.getElementById('query');
   const resultsDiv = document.getElementById('results');
 
@@ -208,9 +206,11 @@ function findAndDisplayResults() {
 
   input.value = searchQuery;
 
+  //alert("The params are "+JSON.stringify(params));
+
   // Parse filters from URL
   const filters = {
-    availability: (params.get('availability') || '').split(',').filter(Boolean),
+    availability: (params.get('availability') || ''),
     dataTypes: (params.get('dataTypes') || '').split(',').filter(Boolean),
     category: (params.get('category') || '').split(',').filter(Boolean),
     researchField: (params.get('researchField') || '').split(',').filter(Boolean),
