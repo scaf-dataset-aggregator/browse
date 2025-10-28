@@ -94,7 +94,8 @@ async function doSearch(q, filters = {}) {
     }
 
     // File Extensions
-    // alert("1 " + JSON.stringify(filters));
+    //alert("1 " + JSON.stringify(filters));
+    console.log(filters);
     requiredFilterExtensions = filters.fileExtensions.split(", ");
     // alert("2 " + requiredFilterExtensions);
     if (!atLeastOnePresent(requiredFilterExtensions, filters.fileExtensions)) {
@@ -214,7 +215,7 @@ function findAndDisplayResults() {
     category: (params.get('category') || '').split(',').filter(Boolean),
     researchField: (params.get('researchField') || '').split(',').filter(Boolean),
     location: (params.get('location') || '').split(',').filter(Boolean),
-    fileExtensions: params.get('fileExtensions') || '',
+    fileExtensions: (params.get('fileExtensions') || ''),
     collectionStart: JSON.parse(params.get('collectionStart') || '{"type":"ignore","date":""}'),
     collectionEnd: JSON.parse(params.get('collectionEnd') || '{"type":"ignore","date":""}')
   };

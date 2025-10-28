@@ -137,7 +137,8 @@ function initSearchLogic(pathPrefix = '') {
     const resultsPath = `${pathPrefix}website_contents/search_results/search_results.html`;
 
     if (currentPath.endsWith('search_results.html')) {
-      doSearch(q).then(res => renderResults(res, resultsDiv));
+      findAndDisplayResults();
+      //doSearch(q).then(res => renderResults(res, resultsDiv));
     } else {
       window.location = `${resultsPath}?${params.toString()}`;
     }
