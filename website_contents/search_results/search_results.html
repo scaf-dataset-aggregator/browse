@@ -28,10 +28,9 @@
 <script src="../shared/load_search_bar.js"></script>
 <script src="search_results_script.js"></script>
 <script>
-  const pathPrefix = "../";
-
+  const websiteContentsPath = "../";
   // Wait until the bar is loaded before continuing
-  loadSearchBar(pathPrefix).then(() => {
+  loadSearchBar(websiteContentsPath).then(() => {
     console.log("Search bar loaded and ready!");
     findAndDisplayResults();
   });

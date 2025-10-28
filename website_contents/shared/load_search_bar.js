@@ -115,7 +115,7 @@ function collectFilters() {
   return filters;
 }
 
-function initSearchLogic(pathPrefix = '') {
+function initSearchLogic(websiteContentsPath = '') {
   const form = document.getElementById('search-form');
   const input = document.getElementById('query');
   const resultsDiv = document.getElementById('results');
@@ -134,33 +134,34 @@ function initSearchLogic(pathPrefix = '') {
 
     // Normalise path check and redirect
     const currentPath = window.location.pathname;
-    const resultsPath = `${pathPrefix}website_contents/search_results/search_results.html`;
+    const resultsPath = `${websiteContentsPath}search_results/search_results.html`;
 
-    if (currentPath.endsWith('search_results.html')) {
-      findAndDisplayResults();
-      //doSearch(q).then(res => renderResults(res, resultsDiv));
-    } else {
-      window.location = `${resultsPath}?${params.toString()}`;
-    }
+    // if (currentPath.endsWith('search_results.html')) {
+    //   findAndDisplayResults();
+    //   //doSearch(q).then(res => renderResults(res, resultsDiv));
+    // } else {
+    //   window.location = `${resultsPath}?${params.toString()}`;
+    // }
+    window.location = `${resultsPath}?${params.toString()}`;
   });
 }
 
 
-async function loadSearchBar(pathPrefix) {
-  const response = await fetch(`${pathPrefix}shared/search_bar.html`);
+async function loadSearchBar(websiteContentsPath) {
+  const response = await fetch(`${websiteContentsPath}shared/search_bar.html`);
   const html = await response.text();
   document.getElementById('search-bar-placeholder').innerHTML = html;
 
   // Fix the form's action path
   const form = document.getElementById('search-form');
   if (form) {
-    form.action = `${pathPrefix}search_results/search_results.html`;
+    form.action = `${websiteContentsPath}search_results/search_results.html`;
   }
 
   // Initialise behaviour now that form exists
   initSelectTags();
   initDateIgnoreToggle();
-  initSearchLogic();
+  initSearchLogic(websiteContentsPath);
 
   // Let the caller know the bar is ready
   return true;
