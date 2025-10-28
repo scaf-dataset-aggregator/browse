@@ -211,7 +211,7 @@ function findAndDisplayResults() {
   // Parse filters from URL
   const filters = {
     availability: (params.get('availability') || '').split(',').filter(Boolean),
-    kindsOfData: (params.get('dataTypes') || '').split(',').filter(Boolean),
+    dataTypes: (params.get('dataTypes') || '').split(',').filter(Boolean),
     category: (params.get('category') || '').split(',').filter(Boolean),
     researchField: (params.get('researchField') || '').split(',').filter(Boolean),
     location: (params.get('location') || '').split(',').filter(Boolean),
