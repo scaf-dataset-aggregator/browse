@@ -60,6 +60,8 @@ async function doSearch(q, filters = {}) {
       return filterValues.some(f => itemValues.includes(f.toLowerCase()));
     };
 
+    //alert("filters are "+JSON.stringify(filters));
+
     // // Shareability
     // if ((filters.publiclyAvailable !== "") && (filters.publiclyAvailable !== publiclyAvailable)) {
     //   alert("Fail at publicly available");
@@ -207,14 +209,14 @@ function findAndDisplayResults() {
 
   // Parse filters from URL
   const filters = {
-    shareability: (params.get('shareability') || '').split(',').filter(Boolean),
-    kindsOfData: (params.get('kinds-of-data') || '').split(',').filter(Boolean),
+    availability: (params.get('availability') || '').split(',').filter(Boolean),
+    kindsOfData: (params.get('dataTypes') || '').split(',').filter(Boolean),
     category: (params.get('category') || '').split(',').filter(Boolean),
-    researchField: (params.get('research-field') || '').split(',').filter(Boolean),
+    researchField: (params.get('researchField') || '').split(',').filter(Boolean),
     location: (params.get('location') || '').split(',').filter(Boolean),
-    fileExtensions: params.get('file-extensions') || '',
-    collectionStart: JSON.parse(params.get('collection-start') || '{"type":"ignore","date":""}'),
-    collectionEnd: JSON.parse(params.get('collection-end') || '{"type":"ignore","date":""}')
+    fileExtensions: params.get('fileExtensions') || '',
+    collectionStart: JSON.parse(params.get('collectionStart') || '{"type":"ignore","date":""}'),
+    collectionEnd: JSON.parse(params.get('collectionEnd') || '{"type":"ignore","date":""}')
   };
 
   // Call search function with query and filters

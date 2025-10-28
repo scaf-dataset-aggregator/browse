@@ -94,7 +94,7 @@ function collectFilters() {
   // if there are 0 or 2, you can ignore it.
   const select = document.getElementById("availability");
   const selected = Array.from(select.selectedOptions).map(opt => opt.value);
-  alert("Selected is "+selected.length);
+  //alert("Selected is "+selected.length);
   if ((selected.length) !== 1) {
     filters["publiclyAvailable"] = "";
   }
