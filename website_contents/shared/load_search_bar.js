@@ -107,12 +107,15 @@ function getFilterJSONFromGUI() {
 
   //shareability
   // if there are 0 or 2, you can ignore it.
-  availabilitySelection = getSelectedItemsForFilterField("availability").split(",");
-  if ((availabilitySelection.length) !== 1) {
-    filters["publiclyAvailable"] = "";
+  availabilitySelection = getSelectedItemsForFilterField("availability");
+  if (availabilitySelection === "Publicly Available") {
+    filters["publiclyAvailable"] = true;
+  }
+  else if (availabilitySelection === "Publicly Available") {
+    filters["publiclyAvailable"] = false;
   }
   else {
-    filters["publiclyAvailable"] = availabilitySelection[0] === "Publicly Available";
+    filters["publiclyAvailable"] = "";
   }
 
   // file extensions

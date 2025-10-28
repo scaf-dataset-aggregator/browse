@@ -17,7 +17,7 @@ async function loadIndex() {
 async function doSearch(q, filters = {}) {
   const data = await loadIndex();
 
-  //alert("filters are "+JSON.stringify(filters));
+  alert("filters are "+JSON.stringify(filters));
 
   // Clean and limit query
   q = (q || '').trim().toLowerCase();
@@ -62,34 +62,36 @@ async function doSearch(q, filters = {}) {
       return filterValues.some(f => itemValues.includes(f.toLowerCase()));
     };
 
-    // // Shareability
-    // if ((filters.publiclyAvailable !== "") && (filters.publiclyAvailable !== publiclyAvailable)) {
-    //   alert("Fail at publicly available");
-    //   alert(filters.publiclyAvailable);
-    //   passesFilters = false;
-    // }
+    // Shareability
+    if ((filters.publiclyAvailable !== "") && (filters.publiclyAvailable !== publiclyAvailable)) {
+      console.log(item.name + " fail at shareability, " + filters.publiclyAvailable + ", " + publiclyAvailable);
+      passesFilters = false;
+    }
 
     // Kinds of data
     if (!atLeastOnePresent(dataTypes, filters.dataTypes)) {
-      // alert("fail at datatypes");
+      console.log(item.name + "fail at kinds of data");
       passesFilters = false;
     }
 
     // Category
     if (!atLeastOnePresent(categories, filters.category)) {
-      // alert("fail at category");
+      console.log(item.name + "fail at category");
       passesFilters = false;
     }
 
     // Research field
     if (!atLeastOnePresent(researchFields, filters.researchField)) {
-      // alert("fail at research fields");
+      console.log(item.name + "fail at research field");
       passesFilters = false;
     }
 
+
     // Location
-    if (!atLeastOnePresent([location], filters.location)) {
-      // alert("fail at location");
+    //console.log("location = "+location + ", filters.location ="+filters.location);
+    //console.log("passes: " + (![location]) + ", " + (!filters.location.length));
+    if (!atLeastOnePresent([location.toLowerCase()], filters.location)) {
+      console.log(item.name + "fail at location");
       passesFilters = false;
     }
 
@@ -98,7 +100,7 @@ async function doSearch(q, filters = {}) {
     requiredFilterExtensions = filters.fileExtensions.split(", ");
     // alert("2 " + requiredFilterExtensions);
     if (!atLeastOnePresent(requiredFilterExtensions, filters.fileExtensions)) {
-      // alert("Fail at file extensions");
+      console.log(item.name + "fail at file extensions");
       passesFilters = false;
     }
 
@@ -122,11 +124,11 @@ async function doSearch(q, filters = {}) {
     };
 
     if (!checkDate(item.collection_start, filters.collectionStart)) {
-      // alert("fail at collectionStart");
+      console.log(item.name + "fail at start date");
       passesFilters = false;
     }
     if (!checkDate(item.collection_end, filters.collectionEnd)) {
-      // alert("fail at collectionEnd");
+      console.log(item.name + "fail at end date");
       passesFilters = false;
     }
 
@@ -210,7 +212,7 @@ function findAndDisplayResults() {
 
   // Parse filters from URL
   const filters = {
-    availability: (params.get('availability') || ''),
+    publiclyAvailable: (params.get('availability') || ''),
     dataTypes: (params.get('dataTypes') || '').split(',').filter(Boolean),
     category: (params.get('category') || '').split(',').filter(Boolean),
     researchField: (params.get('researchField') || '').split(',').filter(Boolean),
