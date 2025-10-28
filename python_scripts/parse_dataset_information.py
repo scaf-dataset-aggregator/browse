@@ -57,24 +57,25 @@ def get_cleaned_categories(input_string):
 import re
 from datetime import datetime
 
+
+
+
 # Matches dd/mm/yyyy where dd=01–31, mm=01–12, yyyy=0000–9999
 date_regex = re.compile(r"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$")
 
-def convert_dates_to_schema_time_range(start_date: str, end_date: str) -> str:
-    def to_iso(date_str):
-        try:
-            # Validate format first
-            if not date_regex.match(date_str):
-                return ""
-            # Convert to yyyy-mm-dd
-            return datetime.strptime(date_str, "%d/%m/%Y").strftime("%Y-%m-%d")
-        except ValueError:
-            # Covers invalid calendar dates like 31/02/2024
+def date_to_iso(date_str):
+    try:
+        # Validate format first
+        if not date_regex.match(date_str):
             return ""
+        # Convert to yyyy-mm-dd
+        return datetime.strptime(date_str, "%d/%m/%Y").strftime("%Y-%m-%d")
+    except ValueError:
+        # Covers invalid calendar dates like 31/02/2024
+        return ""
 
-    iso_start = to_iso(start_date)
-    iso_end = to_iso(end_date)
 
+def convert_dates_to_schema_time_range(iso_start: str, iso_end: str) -> str:
     # Build the result string
     result_str = (iso_start if iso_start else "..") + "/" + (iso_end if iso_end else "..")
     return result_str
@@ -109,8 +110,8 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     result_json["location"] = html.escape(str(row_dict.get("dataset_country", "No location")))
 
-    result_json["collection_start"] = row_dict.get('data_collection_start') # TODO validate in some way?
-    result_json["collection_end"] = row_dict.get('data_collection_end') # TODO validate in some way ?
+    result_json["collection_start"] = date_to_iso(row_dict.get('data_collection_start'))
+    result_json["collection_end"] = date_to_iso(row_dict.get('data_collection_end'))
     result_json["temporal_coverage_for_schema"] = convert_dates_to_schema_time_range(result_json["collection_start"], result_json["collection_end"])
 
     result_json["shareability"] = row_dict.get("shareability")
@@ -118,7 +119,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
 
     categories_list_dirty = list(row_dict.get("dataset_categories_from_questionnaire", "").split(", "))
-    categories_list_cleaned = [CATEGORY_MAP[category_name].lower() for category_name in categories_list_dirty]
+    categories_list_cleaned = [CATEGORY_MAP[category_name] for category_name in categories_list_dirty]
     categories_html = ", ".join(categories_list_cleaned)
     result_json["categories_list"] = categories_list_cleaned
     result_json["categories_html"] = categories_html
@@ -139,6 +140,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["datatypes_html"] = ", ".join(dataset_categories_cleaned) # i know i know
 
     result_json["file_extensions"] = row_dict.get("file_extensions", "unknown")
+    result_json["file_extensions_list"] = result_json["file_extensions"].split(", ")
 
     result_json["dataset_lifecycle_stage"] = row_dict.get("dataset_lifecycle_stage")
 

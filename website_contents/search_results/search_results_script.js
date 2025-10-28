@@ -34,8 +34,10 @@ async function doSearch(q, filters = {}) {
     const location = (item.location || '').toLowerCase();
     const author = (item.author_name || '').toLowerCase();
     const categories = (item.categories_list || []).map(c => c.toLowerCase());
-    const shareability = (item.shareability || '').toLowerCase();
+    const publiclyAvailable = item.publicly_availalbe;
     const kindsOfData = (item.kinds_of_data || []).map(s => s.toLowerCase());
+
+    alert("The fields are "+JSON.stringify(item));
 
     // Apply search tokens scoring
     tokens.forEach(t => {
@@ -57,7 +59,7 @@ async function doSearch(q, filters = {}) {
     };
 
     // Shareability
-    if (!arrayFilter(shareability, filters.shareability)) passesFilters = false;
+    if (!arrayFilter(publiclyAvailable, filters.shareability)) passesFilters = false;
 
     // Kinds of data
     if (!arrayFilter(kindsOfData, filters.kindsOfData)) passesFilters = false;
@@ -81,8 +83,7 @@ async function doSearch(q, filters = {}) {
     // Collection start / end
     const parseDate = str => {
       if (!str) return null;
-      const [d, m, y] = str.split('/').map(Number);
-      return new Date(y, m - 1, d);
+      return new Date(str);
     };
 
     const checkDate = (itemDateStr, filterObj) => {

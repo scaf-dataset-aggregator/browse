@@ -83,16 +83,16 @@ for index, row in df.iterrows():
         'name': dataset_variables["dataset_title"],
         'keywords': dataset_variables["keywords"],
         'abstract': dataset_variables["abstract"],
-        'shareability': dataset_variables["shareability"],
+        'publicly_available': dataset_variables["shareability"] == "Publicly shareable",
         'author_name': dataset_variables["author_name"],
         'author_contacts': dataset_variables["author_contacts"],
         'location': dataset_variables["location"],
         'collection_start': dataset_variables["collection_start"],
         'collection_end': dataset_variables["collection_end"],
         'categories_list': dataset_variables["categories_list"],
-        'research_fields': dataset_variables["research_fields_list"]
-
-
+        'research_fields': dataset_variables["research_fields_list"],
+        'data_types': dataset_variables["datatypes_list"],
+        'file_extensions': dataset_variables["file_extensions_list"]
     }
     # Build entry for JSON index
     index_list.append(index_entry)
