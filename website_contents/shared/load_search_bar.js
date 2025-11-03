@@ -106,17 +106,19 @@ function getFilterJSONFromGUI() {
   });
 
   //shareability
-  // if there are 0 or 2, you can ignore it.
+  // remember that it's a comma-separated string
   availabilitySelection = getSelectedItemsForFilterField("availability");
-  if (availabilitySelection === "Publicly Available") {
+  alert("In getFilterJSONFromGUI"+availabilitySelection);
+  if (availabilitySelection === "Publicly available") {
     filters["publiclyAvailable"] = true;
   }
-  else if (availabilitySelection === "Publicly Available") {
+  else if (availabilitySelection === "Shareable on request") {
     filters["publiclyAvailable"] = false;
   }
   else {
     filters["publiclyAvailable"] = "";
   }
+  alert("The publiclyAvailableField is now"+filters["publiclyAvailable"]);
 
   // file extensions
   filters["fileExtensions"] = document.getElementById("fileExtensions").value.trim();
@@ -139,11 +141,16 @@ function redirectToSearchResultsPageWithURLParams(e) {
   const q = input.value.trim().toLowerCase();
   const filters = getFilterJSONFromGUI();
 
+  alert("in RTSR 1: filters = "+JSON.stringify(filters));
+
+
   // Build query string
   const params = new URLSearchParams({ q });
   Object.entries(filters).forEach(([key, val]) => {
     params.set(key, val);
   });
+
+  alert("In RTSR 2: params = "+params.toString());
 
   // Normalise path check and redirect
   const resultsPath = `${websiteContentsPath}search_results/search_results.html`;
