@@ -333,8 +333,9 @@ function renderResults(items, container) {
 
 
 function getFiltersFromParams(params) {
+  const publiclyAvailable = params.get("publiclyAvailable");
   const filters = {
-    publiclyAvailable: (params.get('publiclyAvailable') || ''),
+    publiclyAvailable: publiclyAvailable === "" ? "" : publiclyAvailable === "true",
     dataType: (params.get('dataType') || '').split(',').filter(Boolean),
     category: (params.get('category') || '').split(',').filter(Boolean),
     researchField: (params.get('researchField') || '').split(',').filter(Boolean),
@@ -435,7 +436,8 @@ function updateGUIToMatchPreviousState(searchQuery, filters) {
 
     // it should be After date and before date
     if (dateFilter && dateFilter.type !== "ignore") {
-      fakeClickOnOption(label + "-type", dateFilter.type);
+      const dateFilterLabel = dateFilter.type === "after" ? "After date": "Before date";
+      fakeClickOnOption(label + "-type", dateFilterLabel);
       const dateInput = document.getElementById(label);
       if (dateInput) dateInput.value = dateFilter.date;
     }

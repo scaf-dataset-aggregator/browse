@@ -35,25 +35,6 @@ function initSelectTags() {
   });
 }
 
-
-function getFilters() {
-  const filters = {};
-  document.querySelectorAll('.filter').forEach(filterEl => {
-    const name = filterEl.dataset.filter;
-    const selected = Array.from(filterEl.querySelectorAll('.selected div'))
-      .map(tag => tag.dataset.value);
-    filters[name] = selected;
-  });
-
-  filters.collectionStartType = document.getElementById('collectionStart-type')?.value || null;
-  filters.collectionStart = document.getElementById('collectionStart')?.value || null;
-  filters.collectionEndType = document.getElementById('collectionEnd-type')?.value || null;
-  filters.collectionEnd = document.getElementById('collectionEnd')?.value || null;
-  filters.fileExtensions = document.getElementById('fileExtensions')?.value.trim() || "";
-
-  return filters;
-}
-
 function initDateIgnoreToggle() {
   const togglePairs = [
     { selectId: "collectionStart-type", inputId: "collectionStart" },
