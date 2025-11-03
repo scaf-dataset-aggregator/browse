@@ -188,7 +188,7 @@ button {
   padding: 0.6rem 1.2em;
   font-size: 1rem;
   border-radius: 6px;
-  font-weight: 700;
+  font-weight: 2em;
   cursor: pointer;
   border: none;
   box-shadow: var(--shadow);
