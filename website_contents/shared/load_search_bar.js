@@ -81,6 +81,8 @@ function getSelectedItemsForFilterField(filterID) {
 function getFilterJSONFromGUI() {
   const filters = {};
 
+  filters["mandatoryKeywords"] = document.getElementById('mandatoryKeywords').value;
+
   // multi-select filters
   ["dataType", "category", "researchField", "location"].forEach(id => {
     filters[id] = getSelectedItemsForFilterField(id);

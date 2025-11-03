@@ -82,7 +82,6 @@ function filterData(data, filters) {
 
   // --- 1. Filter: Shareability ---
   const fPublic = filters.publiclyAvailable;
-  dbg("fPublic = "+fPublic);
   if (fPublic !== "") {
     filteredResults = filteredResults.filter(item =>
       item.publicly_available === fPublic
@@ -90,6 +89,20 @@ function filterData(data, filters) {
   }
 
   dbg_lenFilteredResults("after_public");
+
+  const fMandatoryKeywords = (filters.mandatoryKeywords || '')
+    .split(', ')
+    .map(s => s.trim().toLowerCase())
+    .filter(Boolean);
+  if (isValidFilter(fMandatoryKeywords)) {
+    filteredResults = filteredResults.filter(item => {
+      const ikeywords = normalizeArray(item.keywords);
+      return fMandatoryKeywords.every(item => ikeywords.includes(item));
+    });
+  }
+
+  dbg_lenFilteredResults("after_keywords");
+
 
   // --- 2. Filter: Kinds of data ---
   const fDataTypes = normalizeArray(filters.dataType);
@@ -335,6 +348,7 @@ function renderResults(items, container) {
 function getFiltersFromParams(params) {
   const publiclyAvailable = params.get("publiclyAvailable");
   const filters = {
+    mandatoryKeywords: params.get("mandatoryKeywords"),
     publiclyAvailable: publiclyAvailable === "" ? "" : publiclyAvailable === "true",
     dataType: (params.get('dataType') || '').split(',').filter(Boolean),
     category: (params.get('category') || '').split(',').filter(Boolean),
