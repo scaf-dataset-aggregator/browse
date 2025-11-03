@@ -114,6 +114,16 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["collection_end"] = date_to_iso(row_dict.get('data_collection_end'))
     result_json["temporal_coverage_for_schema"] = convert_dates_to_schema_time_range(result_json["collection_start"], result_json["collection_end"])
 
+    def format_date_for_human(date_str: str):
+        # the non_iso_date
+        if len(date_str) < 1:
+            return "Unknown"
+        else:
+            return date_str
+
+    result_json["collection_start_html"] = format_date_for_human(row_dict.get("data_collection_start"))
+    result_json["collection_end_html"] = format_date_for_human(row_dict.get("data_collection_end"))
+
     result_json["shareability"] = row_dict.get("shareability")
     result_json["is_accessible_for_free"] = "true" if ("publicly shareable" == result_json["shareability"].lower()) else "false"
 
