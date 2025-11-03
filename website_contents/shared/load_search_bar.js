@@ -174,6 +174,10 @@ async function loadSearchBar(websiteContentsPath) {
   initDateIgnoreToggle();
   initSearchLogic(websiteContentsPath);
 
+
+
   // Let the caller know the bar is ready
   return true;
 }
+
+

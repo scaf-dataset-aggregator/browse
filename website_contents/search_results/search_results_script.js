@@ -92,7 +92,7 @@ function filterData(data, filters) {
   dbg_lenFilteredResults("after_public");
 
   // --- 2. Filter: Kinds of data ---
-  const fDataTypes = normalizeArray(filters.dataTypes);
+  const fDataTypes = normalizeArray(filters.dataType);
   if (isValidFilter(fDataTypes)) {
     filteredResults = filteredResults.filter(item => {
       const iDataTypes = normalizeArray(item.data_types);
@@ -332,10 +332,10 @@ function renderResults(items, container) {
 }
 
 
-function getFiltersFromParams(urlSearchParams) {
+function getFiltersFromParams(params) {
   const filters = {
     publiclyAvailable: (params.get('publiclyAvailable') || ''),
-    dataTypes: (params.get('dataTypes') || '').split(',').filter(Boolean),
+    dataType: (params.get('dataType') || '').split(',').filter(Boolean),
     category: (params.get('category') || '').split(',').filter(Boolean),
     researchField: (params.get('researchField') || '').split(',').filter(Boolean),
     location: (params.get('location') || '').split(',').filter(Boolean),
@@ -346,19 +346,100 @@ function getFiltersFromParams(urlSearchParams) {
   return filters;
 }
 
-function findAndDisplayResults() {
-  const input = document.getElementById('query');
+function findAndDisplayResults(searchQuery, filters) {
   const resultsDiv = document.getElementById('results');
-
-  const params = new URLSearchParams(window.location.search);
-  const searchQuery = params.get('q') || '';
-
-  input.value = searchQuery;
-
-
-  // Parse filters from URL
-  const filters = getFiltersFromParams(params);
 
   // Call search function with query and filters
   doSearch(searchQuery.toLowerCase(), filters).then(res => renderResults(res, resultsDiv));
+}
+
+
+// --- Helper: simulate clicking an option ---
+function fakeClickOnOption(filterLabel, selectedOption) {
+  // Find the select element (e.g., <select id="location">)
+  const select = document.getElementById(filterLabel);
+  if (!select) {
+    console.warn(`No select found for ${filterLabel}`);
+    return;
+  }
+
+  // Find the matching <option> by text (case-insensitive match)
+  const option = Array.from(select.options).find(opt =>
+    opt.textContent.trim().toLowerCase() === selectedOption.trim().toLowerCase()
+  );
+
+  if (!option) {
+    console.warn(`Option "${selectedOption}" not found in ${filterLabel}`);
+    return;
+  }
+
+  // Mark it as selected
+  option.selected = true;
+
+  // Manually dispatch a change event so event listeners (like initSelectTags) react
+  const event = new Event('change', { bubbles: true });
+  select.dispatchEvent(event);
+}
+
+
+// --- Main function: restore previous GUI state ---
+function updateGUIToMatchPreviousState(searchQuery, filters) {
+  console.log("Restoring GUI to match previous state...");
+
+  // --- Update search query ---
+  const input = document.getElementById('query');
+  if (input && searchQuery) input.value = searchQuery;
+
+  // --- Open the filters tab if any filters are active ---
+  const hasActiveFilters = Object.keys(filters || {}).some(key => {
+    const val = filters[key];
+    if (Array.isArray(val)) return val.length > 0;
+    if (typeof val === "object" && val !== null)
+      return Object.values(val).some(v => v && v !== "ignore" && v !== "");
+    return !!val;
+  });
+
+  if (hasActiveFilters) {
+    console.log("Attempting to open the filters");
+    const filterPanel = document.getElementsByTagName('details')[0];
+    filterPanel.open = true;
+  }
+
+  // --- Availability ---
+  if (filters.hasOwnProperty("publiclyAvailable") && filters.publiclyAvailable !== "") {
+    console.log("attempting to turn on the availability");
+    if (filters.publiclyAvailable === true) {
+      fakeClickOnOption("availability", "Publicly available");
+    } else if (filters.publiclyAvailable === false) {
+      fakeClickOnOption("availability", "Shareable on request");
+    }
+  }
+
+  // --- Main multi-select filters ---
+  ["dataType", "category", "researchField", "location"].forEach(label => {
+    if (filters[label] && Array.isArray(filters[label])) {
+      filters[label].forEach(opt => fakeClickOnOption(label, opt));
+    }
+  });
+
+  // --- File extensions ---
+  if (filters.fileExtensions) {
+    const input = document.getElementById("fileExtensions");
+    if (input) input.value = filters.fileExtensions;
+  }
+
+  // --- Collection start/end ---
+  ["collectionStart", "collectionEnd"].forEach(label => {
+    const key = label.replace("-", "");
+    const dateFilter = filters[key];
+
+    // it should be After date and before date
+    if (dateFilter && dateFilter.type !== "ignore") {
+      fakeClickOnOption(label + "-type", dateFilter.type);
+      const dateInput = document.getElementById(label);
+      if (dateInput) dateInput.value = dateFilter.date;
+    }
+  });
+
+  console.log("GUI successfully restored from previous filters!");
 }

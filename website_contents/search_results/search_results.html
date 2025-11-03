@@ -31,7 +31,16 @@
   const websiteContentsPath = "../";
   // Wait until the bar is loaded before continuing
   loadSearchBar(websiteContentsPath).then(() => {
-    findAndDisplayResults();
+
+    const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get('q') || '';
+
+    // Parse filters from URL
+    const filters = getFiltersFromParams(params);
+
+    findAndDisplayResults(searchQuery, filters);
+    updateGUIToMatchPreviousState(searchQuery, filters);
+
   });
 </script>
       <hr>
