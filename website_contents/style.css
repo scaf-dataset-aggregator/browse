@@ -73,6 +73,7 @@ p { margin: 0.75em 0; line-height: 1.5; }
   width: 70%;
 }
 
+
 .centered-viewport {
   min-height: calc(100vh - 160px);
   display: grid;
@@ -85,10 +86,10 @@ p { margin: 0.75em 0; line-height: 1.5; }
 body.home {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* start instead of center */
   min-height: 100vh;
-  text-align: center;
-  padding: 0;
+  overflow-y: auto; /* allow vertical scrolling */
+  padding-top: 5vh; /* visually centre on taller screens */
 }
 
 
