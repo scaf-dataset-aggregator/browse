@@ -46,7 +46,28 @@ def get_database_information_df():
 
     df = read_csv_safely(CSV_PATH)
 
+    df['allow'] = df['allow'].str.strip()
+
     return df
+
+
+def check_database_allow_column_is_valid(df: pd.DataFrame) -> (bool, str):
+    """Check if a DataFrame is valid based on the 'allow' column. the return type is Golang - esque"""
+    # Check if column exists
+    if 'allow' not in df.columns:
+        return False, "Missing 'allow' column"
+
+    # Check each row for invalid or empty 'allow' values
+    for i, row in df.iterrows():
+        val = str(row['allow']).strip()
+        if not val:
+            dataset_name = row.get('dataset_title', 'dataset name unavailable')
+            return False, f"Invalid 'allow' cell for dataset '{dataset_name}'"
+
+    return True, "ok"
+
+
+
 
 
 

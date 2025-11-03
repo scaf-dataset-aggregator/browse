@@ -20,7 +20,7 @@ from pathlib import Path
 
 from parse_dataset_information import dataset_df_row_to_JSON
 from paths import WEBPAGES_FOLDER, INDEX_PATH, TEMPLATE_FILE, get_webpage_path
-from read_csv_safely import get_database_information_df
+from read_csv_safely import get_database_information_df, check_database_allow_column_is_valid
 
 try:
     import pandas as pd
@@ -48,6 +48,12 @@ with open(TEMPLATE_FILE, "r", encoding="utf-8") as file:
 
 
 df = get_database_information_df()
+
+is_dataframe_valid, error_message = check_database_allow_column_is_valid(df)
+if not is_dataframe_valid:
+    raise Exception(error_message)
+
+# Note that the column "allowed?" (not allow, not Allow) is a boolean determining if the page is allowed
 
 for index, row in df.iterrows():
     # first, we process whatever raw text the user entered
