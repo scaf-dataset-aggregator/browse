@@ -14,6 +14,7 @@ async function loadIndex() {
   return indexData;
 }
 
+
 async function doSearch(q, filters = {}) {
   const data = await loadIndex();
 
@@ -53,8 +54,20 @@ async function doSearch(q, filters = {}) {
     let passesFilters = true;
 
     // Helper for multi-select arrays
+
+    const thereAreFilterValues = (filterValues)  => {
+      // Must be an array
+      if (!Array.isArray(filterValues)) return false;
+
+      // Must not be empty
+      if (filterValues.length === 0) return false;
+
+      // Must not be [""] or ["   "]
+      if (filterValues.length === 1 && String(filterValues[0]).trim() === "") return false;
+
+      return true;
+    }
     const atLeastOnePresent = (itemValues, filterValues) => {
-      if (!filterValues || !filterValues.length) return true;
       return filterValues.some(f => itemValues.includes(f.toLowerCase()));
     };
 
@@ -65,36 +78,36 @@ async function doSearch(q, filters = {}) {
     }
 
     // Kinds of data
-    if (!atLeastOnePresent(dataTypes, filters.dataTypes)) {
+    if (thereAreFilterValues(filters.dataTypes) && !atLeastOnePresent(dataTypes, filters.dataTypes)) {
       console.log(item.name + "fail at kinds of data");
       passesFilters = false;
     }
 
     // Category
-    if (!atLeastOnePresent(categories, filters.category)) {
+    if (thereAreFilterValues(filters.category) && !atLeastOnePresent(categories, filters.category)) {
       console.log(item.name + "fail at category");
       passesFilters = false;
     }
 
     // Research field
-    if (!atLeastOnePresent(researchFields, filters.researchField)) {
+    if (thereAreFilterValues(filters.researchField) && !atLeastOnePresent(researchFields, filters.researchField)) {
       console.log(item.name + "fail at research field");
       passesFilters = false;
     }
 
 
     // Location
-    console.log("location = "+location + ", filters.location ="+filters.location);
-    console.log("passes: " + (![location]) + ", " + (!filters.location.length));
-    if (!atLeastOnePresent([location.toLowerCase()], filters.location)) {
+    if (thereAreFilterValues(filters.location) && !atLeastOnePresent([location.toLowerCase()], filters.location)) {
       console.log(item.name + "fail at location");
       passesFilters = false;
     }
 
     // File Extensions
     requiredFilterExtensions = filters.fileExtensions.split(", ");
-    if (!atLeastOnePresent(requiredFilterExtensions, filters.fileExtensions)) {
+    if (thereAreFilterValues(requiredFilterExtensions) && !atLeastOnePresent(fileExtensions, requiredFilterExtensions)) {
       console.log(item.name + "fail at file extensions");
+      console.log(requiredFilterExtensions);
+      console.log(fileExtensions);
       passesFilters = false;
     }
 
