@@ -111,7 +111,7 @@ function redirectToSearchResultsPageWithURLParams(e) {
   const input = document.getElementById('query');
   e.preventDefault();
 
-  const q = input.value.trim().toLowerCase();
+  const q = input.value.trim();
   const filters = getFilterJSONFromGUI();
 
 
