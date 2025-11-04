@@ -117,7 +117,8 @@
       "nutrient intakes",
       "nutritional status",
       "adult",
-      "children"
+      "children",
+      "ndns"
     ],
     "abstract": "Dataset produced by the UK/Scottish government.\nFood consumption, nutrient intakes and nutritional status of the Scottish population - adults and children from 18 months upwards. Results are presented by age/sex sub-groups.",
     "publicly_available": true,
@@ -146,6 +147,7 @@
     "allowed_in_database": true,
     "name": "Scottish Agricultural Census",
     "keywords": [
+      "ersa",
       "land use",
       "farm",
       "employees",
@@ -200,6 +202,42 @@
     "file_extensions": [
       "xlsx",
       "ods"
+    ]
+  },
+  {
+    "id": "00006",
+    "allowed_in_database": true,
+    "name": "Scottish agriculture greenhouse gas emissions and nitrogen use: 2023-24",
+    "keywords": [
+      "scotland",
+      "agriculture",
+      "greenhouse",
+      "gas",
+      "emissions",
+      "nitrogen",
+      "ghg",
+      "sggs",
+      "farm business survey",
+      "fbs"
+    ],
+    "abstract": "This report is based on estimates of total greenhouse gas (GHG) emissions for Scottish agriculture, as reported in the Scottish Greenhouse Gas Statistics 2023 and average emission and nitrogen use estimates from the Farm Business Survey (FBS). ",
+    "publicly_available": true,
+    "author_name": "Scottish Government, Chief Economist Directorate",
+    "author_contacts": "ChiefStatistician@gov.scot",
+    "location": "Scotland",
+    "collection_start": "2023-01-01",
+    "collection_end": "2024-12-31",
+    "categories_list": [
+      "Sustainability"
+    ],
+    "research_fields": [
+      "Biology"
+    ],
+    "data_types": [
+      "Numeric / Quantitative"
+    ],
+    "file_extensions": [
+      "xlsx"
     ]
   }
 ]
