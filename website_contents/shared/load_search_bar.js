@@ -17,15 +17,7 @@ function initSelectTags() {
       const btn = document.createElement('button');
       btn.textContent = value + ' ×';
       btn.dataset.value = value;
-      btn.style.cssText = `
-        margin: 0.2em;
-        padding: 0.25em 0.5em;
-        border-radius: 8px;
-        border: 1px solid #005197;
-        background: #e0f0ff;
-        cursor: pointer;
-        font-size: 0.9em;
-      `;
+      btn.classList.add("selected-filter");
 
       btn.addEventListener('click', () => btn.remove());
 

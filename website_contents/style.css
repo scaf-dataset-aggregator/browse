@@ -74,6 +74,27 @@ p { margin: 0.75em 0; line-height: 1.5; }
   min-width: 40em;  /* for mobile */
 }
 
+@media (max-width: 800px) {
+  /* Make the main box fit smaller screens */
+  .center-box {
+    width: 95%;
+    min-width: unset;       /* remove the fixed minimum width */
+    padding: 1em 1em;       /* smaller padding for mobile */
+  }
+
+  /* Reduce the title size */
+  h1 {
+    font-size: 1.5em;       /* still readable but much smaller */
+    margin-bottom: 0.5em;   /* tighter spacing */
+  }
+
+  /* Optional: make sure logo scales nicely */
+  .logo {
+    width: 80%;
+    height: auto;
+  }
+}
+
 
 .centered-viewport {
   min-height: calc(100vh - 160px);
@@ -183,15 +204,25 @@ input[type="text"].search-input:focus {
   border-color: var(--blue);
 }
 
+input[type="date"] {
+  text-align: center;
+  font-size: 1.5em;
+}
+
 button.btn,
 button {
   padding: 0.6rem 1.2em;
   font-size: 1rem;
   border-radius: 6px;
-  font-weight: 2em;
+  font-weight: 700;
   cursor: pointer;
   border: none;
   box-shadow: var(--shadow);
+}
+
+button.search-button {
+  background-color: #006630;
+  color: white;
 }
 
 button.btn-primary { background: var(--blue); color: #fff; }
@@ -393,4 +424,65 @@ h2 {
 .filter label {
     font-weight: bold;
     font-size: 1.1em; /* adjust size as needed */
+}
+
+.two-column-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0em 1em;
+  margin-top: 1em;
+}
+
+/* On mobile, switch to a single column */
+@media (max-width: 800px) {
+  .two-column-grid {
+    grid-template-columns: 1fr; /* one column */
+    gap: 1em 0;                 /* vertical spacing */
+  }
+}
+
+.keyword-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  width: 75%;
+  margin: 1.5em auto;
+}
+
+.keyword-input label {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.keyword-input input {
+  flex: 1;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Responsive behaviour: stack vertically on small screens */
+@media (max-width: 800px) {
+  .keyword-input {
+    flex-direction: column; /* stack label above input */
+    width: 95%;
+    align-items: stretch;   /* make input fill the width */
+  }
+
+  .keyword-input label {
+    white-space: normal;    /* allow wrapping if needed */
+    text-align: left;
+  }
+}
+
+
+button.selected-filter {
+  margin: 0.2em;
+  padding: 0.25em 0.5em;
+  border-radius: 8px;
+  border: 1px solid #005197;
+  background: #e0f0ff;
+  cursor: pointer;
+  font-size: 0.9em;
 }

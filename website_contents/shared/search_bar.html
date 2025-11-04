@@ -2,21 +2,20 @@
   <form id="search-form" style="display: flex; flex-direction: column; gap: 1em;">
     <div style="display: flex; gap: 0.5em;">
       <input type="text" id="query" placeholder="Search datasets..." style="flex: 1; padding: 0.5em; font-size: 1em;">
-      <button type="submit" style="padding: 0.5em 1em;">Search</button>
+      <button class="search-button" type="submit" style="padding: 0.5em 1em;">Search</button>
     </div>
 
     <details>
       <summary style="cursor: pointer; font-weight: bold;">Filters</summary>
-        <div style="display: flex; align-items: center; justify-content: center; gap: 1em; width: 75%; margin: 1.5em auto;">
-          <label for="mandatoryKeywords" style="font-weight: bold; white-space: nowrap;">Must contain keywords:</label>
+        <div class="keyword-input">
+          <label for="mandatoryKeywords">Must contain keywords:</label>
           <input
             type="text"
             id="mandatoryKeywords"
             placeholder="e.g., cows, hay, farm"
-            style="flex: 1; padding: 0.5em; border: 1px solid #ccc; border-radius: 6px;"
           >
         </div>
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0em 1em; margin-top: 1em;">
+      <div class="two-column-grid">
 
 
   <!-- Row 1: Shareability | Kinds of Data -->
