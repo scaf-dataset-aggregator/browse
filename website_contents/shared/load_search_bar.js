@@ -15,7 +15,7 @@ function initSelectTags() {
 
       // Create button inside existing div
       const btn = document.createElement('button');
-      btn.textContent = value + ' ×';
+      btn.textContent = value.trimStart() + ' ×';
       btn.dataset.value = value;
       btn.classList.add("selected-filter");
 
