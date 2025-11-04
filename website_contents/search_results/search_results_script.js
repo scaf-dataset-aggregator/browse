@@ -399,7 +399,6 @@ function fakeClickOnOption(filterLabel, selectedOption) {
 
 // --- Main function: restore previous GUI state ---
 function updateGUIToMatchPreviousState(searchQuery, filters) {
-  console.log("Restoring GUI to match previous state...");
 
   // --- Update search query ---
   const input = document.getElementById('query');
@@ -415,14 +414,18 @@ function updateGUIToMatchPreviousState(searchQuery, filters) {
   });
 
   if (hasActiveFilters) {
-    console.log("Attempting to open the filters");
     const filterPanel = document.getElementsByTagName('details')[0];
     filterPanel.open = true;
   }
 
+  // --- Must contain keywords
+  if (filters.mandatoryKeywords !== "") {
+    const mandatoryKeywordsInput = document.getElementById('mandatoryKeywords');
+    mandatoryKeywordsInput.value = filters.mandatoryKeywords;
+  }
+
   // --- Availability ---
   if (filters.hasOwnProperty("publiclyAvailable") && filters.publiclyAvailable !== "") {
-    console.log("attempting to turn on the availability");
     if (filters.publiclyAvailable === true) {
       fakeClickOnOption("availability", "Publicly available");
     } else if (filters.publiclyAvailable === false) {
@@ -456,6 +459,4 @@ function updateGUIToMatchPreviousState(searchQuery, filters) {
       if (dateInput) dateInput.value = dateFilter.date;
     }
   });
-
-  console.log("GUI successfully restored from previous filters!");
 }
