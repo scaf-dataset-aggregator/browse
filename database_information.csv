@@ -380,7 +380,7 @@ No agricultural census took place in 2022. Estimates have been published as part
 
 ## Methodology reports
 *   [Results from the Scottish Agricultural Census: June 2023 Methodology Report](https://www.gov.scot/publications/results-from-the-scottish-agricultural-census-june-2023-methodology-report/)",(UK) Open Government Licence,,,"xlsx, ods",agric.stats@gov.scot,RESAS (Rural & Environment Science and Analytical Services),"Depends on the components in the datasets, but in general it follows https://www.gov.scot/publications/results-from-the-scottish-agricultural-census-june-2023-methodology-report/"
-04/11/2025 12:55:26,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://data.gov.scot/scottish-agriculture-greenhouse-gas-emissions-nitrogen-use-2023-24/,,Scottish agriculture greenhouse gas emissions and nitrogen use: 2023-24,"Scotland, agriculture, greenhouse, gas, emissions, nitrogen, GHG, SGGS, farm business survey, FBS",Sustainability,Biology,"Scottish Government, Chief Economist Directorate",Numeric / Quantitative,"This report is based on estimates of total greenhouse gas (GHG) emissions for Scottish agriculture, as reported in the Scottish Greenhouse Gas Statistics 2023 and average emission and nitrogen use estimates from the Farm Business Survey (FBS). ",Scotland,01/01/2023,31/12/2024,Complete,"The report includes:
+04/11/2025 12:55:26,allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://data.gov.scot/scottish-agriculture-greenhouse-gas-emissions-nitrogen-use-2023-24/,,Scottish agriculture greenhouse gas emissions and nitrogen use: 2023-24,"Scotland, agriculture, greenhouse, gas, emissions, nitrogen, GHG, SGGS, farm business survey, FBS",Sustainability,Biology,"Scottish Government, Chief Economist Directorate",Numeric / Quantitative,"This report is based on estimates of total greenhouse gas (GHG) emissions for Scottish agriculture, as reported in the Scottish Greenhouse Gas Statistics 2023 and average emission and nitrogen use estimates from the Farm Business Survey (FBS). ",Scotland,01/01/2023,31/12/2024,Complete,"The report includes:
 
 *   Results for total Scottish agriculture GHG emissions split by **agricultural subsector** (e.g. suckler beef, arable, dairy etc). These subsectors align more closely with agricultural activity and provide a different breakdown to the categories used in the Scottish Greenhouse Gas Statistics.
     
@@ -391,3 +391,17 @@ No agricultural census took place in 2022. Estimates have been published as part
 *   **Average farm level nitrogen use across different farm types.** Estimates are weighted using the same methodology described above.
     
 *   Analysis of whole farm emissions, emission intensity of agricultural outputs and nitrogen use are based on farms in the FBS. This is a survey of around 400 commercial farms (whose standard output exceeds around £20,000). The sample excludes farm types not in receipt of support payments (such as pigs, poultry and horticulture). Some results are weighted to better reflect the wider population. Some results are presented unweighted because they are based on sub-samples of data. Where the sample sizes are small, data can be more highly variable and have a wider margin of uncertainty.",(UK) Open Government Licence,,,xlsx,ChiefStatistician@gov.scot,Energy and Climate Directorate,https://data.gov.scot/scottish-agriculture-greenhouse-gas-emissions-nitrogen-use-2023-24/methodology.html
+04/11/2025 14:35:52,allow,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://www.foodstandards.gov.scot/open-data-portal/food-hygiene-information-scheme,,Food Hygiene Information Scheme (Food Standards Scotland),"food, hygiene, rating, inspection, restaurants, FSS, enforcement","└──  Food Safety, Retail",,Food Standards Scotland,"Numeric / Quantitative, Markup","Food hygiene rating or inspection results given to a business and date of inspection or visit by the local authority. Businesses include: restaurants, pubs, cafés, takeaways, hotels and other places consumers eat, as well as in supermarkets and other food shops. The data is held on behalf of Scottish local authorities participating in the FSS' national food hygiene information scheme",Scotland,28/08/2025,,Continuously updated,"Food Standards Scotland carries out various inspections and ratings for businesses. The data provided is in XML, and contains the detail of each business. The main field is ""RatingValue"", which can have values:
+
+*   Pass
+    
+*   Improvement Required
+    
+*   Awaiting Inspection
+    
+*   Exempt
+    
+
+Note that each XML file is in a single line, and is not in human-readable format.
+
+The data is available for every county in Scotland",(UK) Open Government Licence,,,xml,enquiries@fss.scot,,Inspectors for every area follow this manual: https://bryantresearch.co.uk/foodlaw/pdf/uk-11010-training-manual-scotland.pdf

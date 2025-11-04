@@ -201,5 +201,40 @@
     "file_extensions": [
       "xlsx"
     ]
+  },
+  {
+    "id": "00007",
+    "allowed_in_database": true,
+    "name": "Food Hygiene Information Scheme (Food Standards Scotland)",
+    "keywords": [
+      "food",
+      "hygiene",
+      "rating",
+      "inspection",
+      "restaurants",
+      "fss",
+      "enforcement"
+    ],
+    "abstract": "Food hygiene rating or inspection results given to a business and date of inspection or visit by the local authority. Businesses include: restaurants, pubs, cafés, takeaways, hotels and other places consumers eat, as well as in supermarkets and other food shops. The data is held on behalf of Scottish local authorities participating in the FSS&#x27; national food hygiene information scheme",
+    "publicly_available": true,
+    "author_name": "Food Standards Scotland",
+    "author_contacts": "enquiries@<a href=\"https://fss.scot\" target=\"_blank\">fss.scot</a>",
+    "location": "Scotland",
+    "collection_start": "2025-08-28",
+    "collection_end": "",
+    "categories_list": [
+      "Food Safety",
+      "Retail"
+    ],
+    "research_fields": [
+      ""
+    ],
+    "data_types": [
+      "Numeric / Quantitative",
+      "Markup"
+    ],
+    "file_extensions": [
+      "xml"
+    ]
   }
 ]

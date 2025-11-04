@@ -16,6 +16,7 @@ CATEGORY_MAP = {
     "├──  Geography & Range" : 'Geography & Range',
     "└──  Climate" : 'Climate',
     "Processing / Preparation" : 'Processing / Preparation',
+    "└──  Food Safety": 'Food Safety',
     "Transport / Logistics" : 'Transport / Logistics',
     "├──  Storage" : 'Storage',
     "├──  Transport" : 'Transport',
