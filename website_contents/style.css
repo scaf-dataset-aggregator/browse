@@ -249,6 +249,10 @@ button:hover { background-color: #003d73; }
   text-align: left;
 }
 
+.search-card h2 {
+  margin-top: 0em;
+}
+
 .dataset-item:hover, .search-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(15,23,42,0.08);
