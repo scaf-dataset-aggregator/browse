@@ -80,6 +80,24 @@ def convert_dates_to_schema_time_range(iso_start: str, iso_end: str) -> str:
     result_str = (iso_start if iso_start else "..") + "/" + (iso_end if iso_end else "..")
     return result_str
 
+# Regex to match URLs, with optional protocol
+url_pattern = re.compile(
+    r'(?:(?:https?://)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(?:/[^\s]*)?'
+)
+
+def convert_str_in_HTML_with_clickable_links(input: str):
+    """
+    Convert all URLs in a string into HTML <a> links.
+    Accepts links with or without http(s)://.
+    """
+
+    def replace_link(match):
+        url = match.group(0)
+        href = url if url.startswith(('http://', 'https://')) else 'https://' + url
+        return f'<a href="{href}" target="_blank">{url}</a>'
+
+    return url_pattern.sub(replace_link, input)
+
 def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     row_dict = row.to_dict()
@@ -108,6 +126,8 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     description_html = markdown.markdown(description_md, extensions=['fenced_code', 'tables'])
     result_json["description"] = description_html
 
+    result_json["data_collection_methodology"] = convert_str_in_HTML_with_clickable_links(row_dict.get("data_collection"))
+
     result_json["location"] = html.escape(str(row_dict.get("dataset_country", "No location")))
 
     result_json["collection_start"] = date_to_iso(row_dict.get('data_collection_start'))
@@ -120,6 +140,9 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
             return "Unknown"
         else:
             return date_str
+
+
+
 
     result_json["collection_start_html"] = format_date_for_human(row_dict.get("data_collection_start"))
     result_json["collection_end_html"] = format_date_for_human(row_dict.get("data_collection_end"))
@@ -141,7 +164,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["research_fields_html"] = research_fields_html
 
     result_json["author_name"] = row_dict.get('author_name', "Unknown Author")
-    result_json["author_contacts"] = row_dict.get('author_contacts', "Missing author contacts")
+    result_json["author_contacts"] = convert_str_in_HTML_with_clickable_links(row_dict.get('author_contacts', "Missing author contacts"))
     result_json["other_contributors"] = row_dict.get('other_contributors', "")
 
 
