@@ -1,43 +1,5 @@
 [
   {
-    "id": "00001",
-    "allowed_in_database": true,
-    "name": "First dataset",
-    "keywords": [
-      "alpha",
-      "beta",
-      "gamma"
-    ],
-    "abstract": "This is the abstract of the dataset. It should not have markdown, and even if it does it will be ignored. There is a character limit of 500 words. In theory, this dataset is open access but it&#x27;s all placeholder.",
-    "publicly_available": true,
-    "author_name": "Giancarlo Catalano",
-    "author_contacts": "",
-    "location": "Scotland",
-    "collection_start": "2025-09-29",
-    "collection_end": "2025-11-07",
-    "categories_list": [
-      "Plants & Crops",
-      "Soil Science / Fertilisers",
-      "Fish / Marine",
-      "Water Quality",
-      "Storage",
-      "Transport",
-      "Supply Chain"
-    ],
-    "research_fields": [
-      "Nutrition",
-      "Economy and Business"
-    ],
-    "data_types": [
-      "Numeric / Quantitative",
-      "Maps / Spatial",
-      "Markup"
-    ],
-    "file_extensions": [
-      ""
-    ]
-  },
-  {
     "id": "00002",
     "allowed_in_database": true,
     "name": "SHeS: Scottish Health Survey",
@@ -52,7 +14,7 @@
     "abstract": "This survey provides a detailed picture of the health of the Scottish population in private households and is designed to make a major contribution to the monitoring of health in Scotland.",
     "publicly_available": true,
     "author_name": "Population Health Directorate",
-    "author_contacts": "ceu@gov.scot",
+    "author_contacts": "ceu@<a href=\"https://gov.scot\" target=\"_blank\">gov.scot</a>",
     "location": "Scotland",
     "collection_start": "1995-01-01",
     "collection_end": "",
@@ -87,7 +49,7 @@
     "abstract": "Reports produced by the UK government about the consumption of food in UK families.\nThese family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.",
     "publicly_available": true,
     "author_name": "\nDepartment for Environment Food and Rural Affairs",
-    "author_contacts": "familyfood@defra.gov.uk",
+    "author_contacts": "familyfood@<a href=\"https://defra.gov.uk\" target=\"_blank\">defra.gov.uk</a>",
     "location": "United Kingdom",
     "collection_start": "1974-01-01",
     "collection_end": "",
@@ -123,7 +85,7 @@
     "abstract": "Dataset produced by the UK/Scottish government.\nFood consumption, nutrient intakes and nutritional status of the Scottish population - adults and children from 18 months upwards. Results are presented by age/sex sub-groups.",
     "publicly_available": true,
     "author_name": "Food Standards Agency",
-    "author_contacts": " helpline@food.gov.uk",
+    "author_contacts": " helpline@<a href=\"https://food.gov.uk\" target=\"_blank\">food.gov.uk</a>",
     "location": "Scotland",
     "collection_start": "2008-01-01",
     "collection_end": "2012-12-30",
@@ -179,7 +141,7 @@
     "abstract": "A census and report carried by the Scottish Government on farms. It contains estimates relating to almost all aspects relating to farms, from Land Use, Ownership, emissions, soil, livestock, crops, machinery and income. The data can be found on the Scottish Government website for every year.",
     "publicly_available": true,
     "author_name": "Scottish Government",
-    "author_contacts": "agric.stats@gov.scot",
+    "author_contacts": "<a href=\"https://agric.stats\" target=\"_blank\">agric.stats</a>@<a href=\"https://gov.scot\" target=\"_blank\">gov.scot</a>",
     "location": "Scotland",
     "collection_start": "1999-06-01",
     "collection_end": "",
@@ -223,7 +185,7 @@
     "abstract": "This report is based on estimates of total greenhouse gas (GHG) emissions for Scottish agriculture, as reported in the Scottish Greenhouse Gas Statistics 2023 and average emission and nitrogen use estimates from the Farm Business Survey (FBS). ",
     "publicly_available": true,
     "author_name": "Scottish Government, Chief Economist Directorate",
-    "author_contacts": "ChiefStatistician@gov.scot",
+    "author_contacts": "ChiefStatistician@<a href=\"https://gov.scot\" target=\"_blank\">gov.scot</a>",
     "location": "Scotland",
     "collection_start": "2023-01-01",
     "collection_end": "2024-12-31",

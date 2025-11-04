@@ -126,7 +126,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     description_html = markdown.markdown(description_md, extensions=['fenced_code', 'tables'])
     result_json["description"] = description_html
 
-    result_json["data_collection_methodology"] = convert_str_in_HTML_with_clickable_links(row_dict.get("data_collection"))
+    result_json["data_collection_methodology"] = convert_str_in_HTML_with_clickable_links(row_dict.get("data_collection_methodology"))
 
     result_json["location"] = html.escape(str(row_dict.get("dataset_country", "No location")))
 
