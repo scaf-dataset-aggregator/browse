@@ -14,7 +14,7 @@
     "abstract": "This survey provides a detailed picture of the health of the Scottish population in private households and is designed to make a major contribution to the monitoring of health in Scotland.",
     "publicly_available": true,
     "author_name": "Population Health Directorate",
-    "author_contacts": "ceu@<a href=\"https://gov.scot\" target=\"_blank\">gov.scot</a>",
+    "author_contacts": "ceu@gov.scot",
     "location": "Scotland",
     "collection_start": "1995-01-01",
     "collection_end": "",
@@ -49,7 +49,7 @@
     "abstract": "Reports produced by the UK government about the consumption of food in UK families.\nThese family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.",
     "publicly_available": true,
     "author_name": "\nDepartment for Environment Food and Rural Affairs",
-    "author_contacts": "familyfood@<a href=\"https://defra.gov.uk\" target=\"_blank\">defra.gov.uk</a>",
+    "author_contacts": "familyfood@defra.gov.uk",
     "location": "United Kingdom",
     "collection_start": "1974-01-01",
     "collection_end": "",
@@ -85,7 +85,7 @@
     "abstract": "Dataset produced by the UK/Scottish government.\nFood consumption, nutrient intakes and nutritional status of the Scottish population - adults and children from 18 months upwards. Results are presented by age/sex sub-groups.",
     "publicly_available": true,
     "author_name": "Food Standards Agency",
-    "author_contacts": " helpline@<a href=\"https://food.gov.uk\" target=\"_blank\">food.gov.uk</a>",
+    "author_contacts": " helpline@food.gov.uk",
     "location": "Scotland",
     "collection_start": "2008-01-01",
     "collection_end": "2012-12-30",
@@ -141,7 +141,7 @@
     "abstract": "A census and report carried by the Scottish Government on farms. It contains estimates relating to almost all aspects relating to farms, from Land Use, Ownership, emissions, soil, livestock, crops, machinery and income. The data can be found on the Scottish Government website for every year.",
     "publicly_available": true,
     "author_name": "Scottish Government",
-    "author_contacts": "<a href=\"https://agric.stats\" target=\"_blank\">agric.stats</a>@<a href=\"https://gov.scot\" target=\"_blank\">gov.scot</a>",
+    "author_contacts": "agric.stats@gov.scot",
     "location": "Scotland",
     "collection_start": "1999-06-01",
     "collection_end": "",
@@ -151,7 +151,7 @@
       "Soil Science / Fertilisers",
       "Animals",
       "Animal Feed",
-      "Land based",
+      "Land based animals",
       "Machinery"
     ],
     "research_fields": [
@@ -185,7 +185,7 @@
     "abstract": "This report is based on estimates of total greenhouse gas (GHG) emissions for Scottish agriculture, as reported in the Scottish Greenhouse Gas Statistics 2023 and average emission and nitrogen use estimates from the Farm Business Survey (FBS). ",
     "publicly_available": true,
     "author_name": "Scottish Government, Chief Economist Directorate",
-    "author_contacts": "ChiefStatistician@<a href=\"https://gov.scot\" target=\"_blank\">gov.scot</a>",
+    "author_contacts": "ChiefStatistician@gov.scot",
     "location": "Scotland",
     "collection_start": "2023-01-01",
     "collection_end": "2024-12-31",
@@ -218,7 +218,7 @@
     "abstract": "Food hygiene rating or inspection results given to a business and date of inspection or visit by the local authority. Businesses include: restaurants, pubs, cafés, takeaways, hotels and other places consumers eat, as well as in supermarkets and other food shops. The data is held on behalf of Scottish local authorities participating in the FSS&#x27; national food hygiene information scheme",
     "publicly_available": true,
     "author_name": "Food Standards Scotland",
-    "author_contacts": "enquiries@<a href=\"https://fss.scot\" target=\"_blank\">fss.scot</a>",
+    "author_contacts": "enquiries@fss.scot",
     "location": "Scotland",
     "collection_start": "2025-08-28",
     "collection_end": "",
@@ -235,6 +235,50 @@
     ],
     "file_extensions": [
       "xml"
+    ]
+  },
+  {
+    "id": "00008",
+    "allowed_in_database": true,
+    "name": "Multi-Species Ante Mortem &amp; Post Mortem Conditions (2016-2018)",
+    "keywords": [
+      "data",
+      "inspection",
+      "monitoring",
+      "processing",
+      "conditions",
+      "ante-mortem",
+      "post-mortem",
+      "disease",
+      "cattle",
+      "poultry",
+      "pig",
+      "goat",
+      "sheep"
+    ],
+    "abstract": "Data relating to diseases found in animals being processed for food, both before and after death. Data collected by Food Standards Scotland staff at approved Scottish Meat establishments. Each species is reported on an individual tab and reported by month.",
+    "publicly_available": true,
+    "author_name": "Food Standards Scotland",
+    "author_contacts": "enquiries@fss.scot",
+    "location": "Scotland",
+    "collection_start": "2016-01-01",
+    "collection_end": "2018-12-31",
+    "categories_list": [
+      "Animals",
+      "Land based animals",
+      "Disease / Pest Control",
+      "Processing / Preparation",
+      "Food Safety"
+    ],
+    "research_fields": [
+      ""
+    ],
+    "data_types": [
+      "Numeric / Quantitative",
+      "Textual"
+    ],
+    "file_extensions": [
+      "xlsx"
     ]
   }
 ]

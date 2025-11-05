@@ -353,7 +353,7 @@ The files contain **descriptive statistics** for many nutrients and other chemic
 There are also several **reference tables** explaining the meaning of each term used in the dataset.
 ",(UK) Open Government Licence,,,"xlsx, csv", helpline@food.gov.uk,,https://www.gov.uk/government/collections/national-diet-and-nutrition-survey#methods-reports (under method reports)
 20/10/2025 11:40:07,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,"https://www.gov.scot/collections/economic-report-on-scottish-agriculture/
-https://www.gov.scot/collections/june-scottish-agricultural-census/",,Scottish Agricultural Census,"ERSA, Land Use, Farm, Employees, Occupiers, Ownership, legal responsibility, emissions, nitrogen, manure, soil testing, fertiliser, livestock, cattle, sheet, pigs, poultry, crops, cereals, oilseed, potatoes, beans, stock feeding, vegetables, fruits, machinery, fuel, income","Production, ├──  Plants & Crops, │       └──  Soil Science / Fertilisers, ├──  Animals, │       ├──  Animal Feed, │       ├──  Land based, ├──  Machinery",,Scottish Government,"Numeric / Quantitative, Maps / Spatial","A census and report carried by the Scottish Government on farms. It contains estimates relating to almost all aspects relating to farms, from Land Use, Ownership, emissions, soil, livestock, crops, machinery and income. The data can be found on the Scottish Government website for every year.",Scotland,01/06/1999,,Continuously updated,"Provides Scotland totals from the published results of the annual June Scottish Agricultural Census.
+https://www.gov.scot/collections/june-scottish-agricultural-census/",,Scottish Agricultural Census,"ERSA, Land Use, Farm, Employees, Occupiers, Ownership, legal responsibility, emissions, nitrogen, manure, soil testing, fertiliser, livestock, cattle, sheet, pigs, poultry, crops, cereals, oilseed, potatoes, beans, stock feeding, vegetables, fruits, machinery, fuel, income","Production, ├──  Plants & Crops, │       └──  Soil Science / Fertilisers, ├──  Animals, │       ├──  Animal Feed, │       ├──  Land based animals, ├──  Machinery",,Scottish Government,"Numeric / Quantitative, Maps / Spatial","A census and report carried by the Scottish Government on farms. It contains estimates relating to almost all aspects relating to farms, from Land Use, Ownership, emissions, soil, livestock, crops, machinery and income. The data can be found on the Scottish Government website for every year.",Scotland,01/06/1999,,Continuously updated,"Provides Scotland totals from the published results of the annual June Scottish Agricultural Census.
 
 The latest edition of this publication is listed below and incorporates all revisions applied up to the date of publication. Details of historic revisions applicable to this and other agricultural statistics publications can be found at [revisions to agricultural statistics publications](https://webarchive.nrscotland.gov.uk/20200114064159/https://www2.gov.scot/Topics/Statistics/Browse/Agriculture-Fisheries/revisions).
 
@@ -405,3 +405,22 @@ No agricultural census took place in 2022. Estimates have been published as part
 Note that each XML file is in a single line, and is not in human-readable format.
 
 The data is available for every county in Scotland",(UK) Open Government Licence,,,xml,enquiries@fss.scot,,Inspectors for every area follow this manual: https://bryantresearch.co.uk/foodlaw/pdf/uk-11010-training-manual-scotland.pdf
+04/11/2025 16:32:14,allow,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://www.foodstandards.gov.scot/open-data-portal/multi-species-ante-mortem-post-mortem-conditions,,Multi-Species Ante Mortem & Post Mortem Conditions (2016-2018),"Data, Inspection, Monitoring, Processing, conditions, ante-mortem, post-mortem, disease, cattle, poultry, pig, goat, sheep","├──  Animals, │       ├──  Land based animals, ├──  Disease / Pest Control, Processing / Preparation, └──  Food Safety",,Food Standards Scotland,"Numeric / Quantitative, Textual","Data relating to diseases found in animals being processed for food, both before and after death. Data collected by Food Standards Scotland staff at approved Scottish Meat establishments. Each species is reported on an individual tab and reported by month.",Scotland,01/01/2016,31/12/2018,Complete,"The dataset contains information for sheep, goat, poultry, pig. For each animal kind, the diseases are recorded with the following columns:
+
+*   **Date**
+    
+*   **Species**
+    
+*   **Ante-mortem conditions** (if any) (text)
+    
+*   **Number of conditions identified** (how many times that condition was identified on that day)
+    
+*   **Number rejected at Ante-mortem**
+    
+*   **Rejection Type**
+    
+*   **Type** (of condition)
+    
+*   **Post-mortem conditions identified** (if any)
+    
+*   **Number of conditions** (of post-mortem)",(UK) Open Government Licence,,,xlsx,enquiries@fss.scot,,"Methodology was not provided, it appears to be reported by processors."

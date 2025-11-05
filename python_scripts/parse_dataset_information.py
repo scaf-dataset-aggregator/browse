@@ -164,7 +164,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["research_fields_html"] = research_fields_html
 
     result_json["author_name"] = row_dict.get('author_name', "Unknown Author")
-    result_json["author_contacts"] = convert_str_in_HTML_with_clickable_links(row_dict.get('author_contacts', "Missing author contacts"))
+    result_json["author_contacts"] = row_dict.get('author_contacts', "Missing author contacts")
     result_json["other_contributors"] = row_dict.get('other_contributors', "")
 
 

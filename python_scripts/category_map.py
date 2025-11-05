@@ -4,7 +4,7 @@ CATEGORY_MAP = {
     "│       └──  Soil Science / Fertilisers" : 'Soil Science / Fertilisers',
     "├──  Animals" : 'Animals',
     "│       ├──  Animal Feed" : 'Animal Feed',
-    "│       ├──  Land based" : 'Land based',
+    "│       ├──  Land based animals" : 'Land based animals',
     "│       ├──  Fish / Marine" : 'Fish / Marine',
     "│       └──  Animal Welfare" : 'Animal Welfare',
     "├──  Microbes" : 'Microbes',
