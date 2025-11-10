@@ -331,5 +331,58 @@
     "file_extensions": [
       "xlsx"
     ]
+  },
+  {
+    "id": "00010",
+    "allowed_in_database": true,
+    "name": "UK Biobank dataset",
+    "keywords": [
+      "uk",
+      "biobank",
+      "health",
+      "disease",
+      "illness",
+      "biomedical",
+      "imaging",
+      "biomarker",
+      "genetic",
+      "healthcare",
+      "lifestyle",
+      "environmental",
+      "sociodemographic",
+      "repeated",
+      "samples",
+      "longitudinal"
+    ],
+    "abstract": "The UK Biobank is an extremely large dataset of healthcare information relating to half a million volunteer participants, thanks to a project where many individuals from the UK agreed to be studied for 30 years. The dataset also has many fields, ranging from blood samples to lifestyle. \nThe data is accessible for health-care related researchers, after making a formal request.",
+    "publicly_available": false,
+    "author_name": "UK Biobank",
+    "author_contacts": "ukbiobank@ukbiobank.ac.uk",
+    "location": "United Kingdom",
+    "collection_start": "2006-01-01",
+    "collection_end": "",
+    "categories_list": [
+      "Genetics & Characteristics",
+      "Geography & Range",
+      "Consumer Behaviour",
+      "Consumption",
+      "Nutrition",
+      "Food Availability",
+      "Citizen Science"
+    ],
+    "research_fields": [
+      "Biology",
+      "Nutrition"
+    ],
+    "data_types": [
+      "Numeric / Quantitative",
+      "Textual",
+      "Images",
+      "Maps / Spatial",
+      "Markup"
+    ],
+    "file_extensions": [
+      ""
+    ]
   }
 ]
