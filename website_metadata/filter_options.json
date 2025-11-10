@@ -16,6 +16,7 @@
           { "name": "Land based animals",
             "subcategories": [
               {"name":  "Cattle"},
+              {"name":  "Pigs"},
               {"name":  "Poultry"}
             ]},
           { "name": "Fish / Marine" },
@@ -32,7 +33,10 @@
       { "name": "Climate" }
     ]
   },
-  { "name": "Processing / Preparation" },
+  { "name": "Processing / Preparation",
+    "subcategories": [
+      {"name": "Food Safety"}
+    ]},
   {
     "name": "Transport / Logistics",
     "subcategories": [
