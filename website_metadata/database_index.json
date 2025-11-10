@@ -293,5 +293,43 @@
     "file_extensions": [
       "xlsx"
     ]
+  },
+  {
+    "id": "00009",
+    "allowed_in_database": true,
+    "name": "Food Standards Scotland - Animal Welfare Data",
+    "keywords": [
+      "enforcement",
+      "inspection",
+      "food",
+      "standards",
+      "scotland",
+      "cattle",
+      "welfare"
+    ],
+    "abstract": "This dataset provided by the FSS includes various reports relating to violations of Animal Welfare regulations, specifically those which scores 3 or 4. It records the species, the &quot;violation score&quot;, the type of non-compliance, detailed descriptions and the actions taken. It even includes *anonymised* emails from the offending parties. The spreadsheets are also split by where the accident took place: &quot;on farm &amp; transport&quot; vs &quot;In plant&quot;.",
+    "publicly_available": true,
+    "author_name": "Food Standards Scotland",
+    "author_contacts": "enquiries@fss.scot",
+    "location": "Scotland",
+    "collection_start": "2017-01-01",
+    "collection_end": "",
+    "categories_list": [
+      "Animals",
+      "Land based animals",
+      "Cattle",
+      "Poultry",
+      "Animal Welfare",
+      "Policy"
+    ],
+    "research_fields": [
+      ""
+    ],
+    "data_types": [
+      "Textual"
+    ],
+    "file_extensions": [
+      "xlsx"
+    ]
   }
 ]
