@@ -3,8 +3,6 @@ import re
 
 import markdown
 
-from category_map import CATEGORY_MAP
-
 
 # this file will make a little JSON for every row of the cleaned df.
 # the JSON is used for
@@ -98,6 +96,15 @@ def convert_str_in_HTML_with_clickable_links(input: str):
 
     return url_pattern.sub(replace_link, input)
 
+
+
+def strip_leading_symbols(s: str) -> str:
+    """
+    Removes leading non-alphabetic characters (symbols, digits, spaces, etc.)
+    from the start of the string, leaving it starting with a letter.
+    """
+    return re.sub(r'^[^A-Za-z]+', '', s)
+
 def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     row_dict = row.to_dict()
@@ -152,7 +159,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
 
     categories_list_dirty = list(row_dict.get("dataset_categories_from_questionnaire", "").split(", "))
-    categories_list_cleaned = [CATEGORY_MAP[category_name] for category_name in categories_list_dirty]
+    categories_list_cleaned = [strip_leading_symbols(category_name) for category_name in categories_list_dirty]
     categories_html = ", ".join(categories_list_cleaned)
     result_json["categories_list"] = categories_list_cleaned
     result_json["categories_html"] = categories_html
