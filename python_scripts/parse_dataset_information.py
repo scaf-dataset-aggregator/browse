@@ -106,7 +106,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["dataset_title"] = html.escape(str(row_dict.get("dataset_title", f"Dataset {dataset_code}")))
 
     keywords_raw = html.escape(str(row_dict.get('dataset_keywords_from_questionnaire', '') or ''))
-    keywords = [html.escape(str(k.strip())).lower() for k in re.split(r'[;,|\n]+', keywords_raw) if k.strip()] if keywords_raw else []
+    keywords = [html.escape(str(k.strip())).lower() for k in re.split(r'[;,|\n\s]+', keywords_raw) if k.strip()] if keywords_raw else []
     result_json["keywords_html"] = ", ".join(keywords)   # needs to be separate because we want them separate in the JSON index
     result_json["keywords"] = keywords
     result_json["keywords_schema"] = "["+",\n".join(f'"{keyword}"' for keyword in keywords)+"]"
