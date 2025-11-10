@@ -13,7 +13,11 @@
         "name": "Animals",
         "subcategories": [
           { "name": "Animal feed" },
-          { "name": "Land based animals" },
+          { "name": "Land based animals",
+            "subcategories": [
+              {"name":  "Cattle"},
+              {"name":  "Poultry"}
+            ]},
           { "name": "Fish / Marine" },
           { "name": "Animal Welfare" }
         ]
@@ -79,14 +83,14 @@
   ],
 
   "researchField": [
-    { "name": "Mathematics" },
-    { "name": "Computer Science" },
     { "name": "Biology" },
-    { "name": "Nutrition" },
-    { "name": "Law" },
+    { "name": "Nutrition"},
+    { "name": "Education" },
     { "name": "Economy and Business" },
     { "name": "Sociology and Psychology" },
-    { "name": "Education" },
+    { "name": "Mathematics" },
+    { "name": "Computer Science" },
+    { "name": "Law" },
     { "name": "Other" }
   ],
 
