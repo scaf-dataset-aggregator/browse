@@ -424,7 +424,7 @@ The data is available for every county in Scotland",(UK) Open Government Licence
 *   **Post-mortem conditions identified** (if any)
     
 *   **Number of conditions** (of post-mortem)",(UK) Open Government Licence,,,xlsx,enquiries@fss.scot,,"Methodology was not provided, it appears to be reported by processors."
-10/11/2025 14:32:19,allow,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://www.foodstandards.gov.scot/open-data-portal/animal-welfare-data,,Food Standards Scotland - Animal Welfare Data,"Enforcement, inspection, food standards Scotland, cattle, welfare","├──  Animals, │       ├──  Land based animals, │       │             ├──  Cattle, │       │             └── Poultry, │       └──  Animal Welfare, Policy",,Food Standards Scotland,Textual,"This dataset provided by the FSS includes various reports relating to violations of Animal Welfare regulations, specifically those which scores 3 or 4. It records the species, the ""violation score"", the type of non-compliance, detailed descriptions and the actions taken. It even includes *anonymised* emails from the offending parties. The spreadsheets are also split by where the accident took place: ""on farm & transport"" vs ""In plant"".",Scotland,01/01/2017,,Continuously updated,"This dataset is made available by FSS thanks to the Freedom of Information Act. The dataset is a listing of various welfare violations relating to farm animals, with each month being its own spreadsheet. Each spreadsheet has 2 sheets: _On Farm & Transport,_ and _In Plant._
+10/11/2025 14:32:19,Allow,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://www.foodstandards.gov.scot/open-data-portal/animal-welfare-data,,Food Standards Scotland - Animal Welfare Data,"Enforcement, inspection, food standards Scotland, cattle, welfare","├──  Animals, │       ├──  Land based animals, │       │             ├──  Cattle, │       │             └── Poultry, │       └──  Animal Welfare, Policy",,Food Standards Scotland,Textual,"This dataset provided by the FSS includes various reports relating to violations of Animal Welfare regulations, specifically those which scores 3 or 4. It records the species, the ""violation score"", the type of non-compliance, detailed descriptions and the actions taken. It even includes *anonymised* emails from the offending parties. The spreadsheets are also split by where the accident took place: ""on farm & transport"" vs ""In plant"".",Scotland,01/01/2017,,Continuously updated,"This dataset is made available by FSS thanks to the Freedom of Information Act. The dataset is a listing of various welfare violations relating to farm animals, with each month being its own spreadsheet. Each spreadsheet has 2 sheets: _On Farm & Transport,_ and _In Plant._
 
 Each sheet contains the following columns:
 
@@ -469,3 +469,51 @@ Each sheet contains the following columns:
 *   **Feedback text:** Format of reply, usually “email”
     
 *   **Feedback**: the reply from the farm / plant, usually with plenty of detail.",(UK) Open Government Licence,,,xlsx,enquiries@fss.scot,,"Recorded by FSS, but methodology could not be found."
+10/11/2025 15:31:36,,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information",Yes,Shared upon request (following protocols),,,"Yes, I am aware of the transfer protocols",UK Biobank dataset,"UK, biobank, health, disease, illness, biomedical, imaging, biomarker, genetic, healthcare, lifestyle, environmental, sociodemographic, repeated samples, longitudinal","├──  Genetics & Characteristics, ├──  Geography & Range, └──  Consumer Behaviour, Consumption, ├──  Nutrition, └──  Food Availability, Citizen Science","Biology, Nutrition",UK Biobank,"Numeric / Quantitative, Textual, Images, Maps / Spatial, Markup","The UK Biobank is an extremely large dataset of healthcare information relating to half a million volunteer participants, thanks to a project where many individuals from the UK agreed to be studied for 30 years. The dataset also has many fields, ranging from blood samples to lifestyle. 
+The data is accessible for health-care related researchers, after making a formal request.",United Kingdom,01/01/2006,,Continuously updated,"Here’s a clean, comprehensive Markdown introduction to the UK Biobank dataset, written in an academic but 
+
+UK Biobank
+
+Overview
+
+UK Biobank is a large-scale, long-term prospective cohort study that collects and provides access to extensive biological and health-related data from around 500,000 participants across the United Kingdom.
+
+Participants, aged 40 to 69 years, were recruited between 2006 and 2010, and have consented to share their health data and be followed for at least 30 years. The aim of the project is to enable research into the prevention, diagnosis, and treatment of disease, supporting discoveries across biomedical and population health sciences.
+
+UK Biobank is widely recognised as an unprecedented open-access research resource, described by Nature as “an unprecedented open access database.”
+
+⸻
+
+Data Collected
+
+UK Biobank holds more than 10,000 variables on its half-million participants, covering a vast range of data types:
+	•	Biological samples (including blood, urine, and saliva)
+	•	Physical and physiological measurements (e.g., height, weight, blood pressure, bone density, lung capacity)
+	•	Imaging data (body and brain imaging, bone density, and eye scans)
+	•	Activity tracking and lifestyle questionnaires
+	•	Genetic and proteomic data
+
+Over 15 million biological samples are stored, and the online database exceeds 30 petabytes. UK Biobank’s genome sequencing, proteomic, and imaging datasets are among the largest in the world.
+
+⸻
+
+Study Design
+
+Participants attended one of several assessment centres, where they:
+	•	Completed questionnaires on lifestyle, medical history, and diet
+	•	Underwent physical measurements
+	•	Provided biological samples for long-term storage and DNA extraction
+
+The study links these data with participants’ electronic health records through the UK National Health Service (NHS), enabling longitudinal tracking of disease events, prescriptions, and mortality over time.
+
+Researchers do not have direct access to participants, and volunteers remain strictly anonymous. Feedback to participants is limited to basic metrics (e.g., BMI, blood pressure), while results from research findings (such as genetic risk factors) are not disclosed to individuals.
+
+⸻
+
+Access for Researchers
+
+Since 2012, approved researchers worldwide can apply to use the UK Biobank resource for health-related research that is in the public interest.
+
+Typical studies use a case–control design, comparing participants with and without specific conditions (e.g., cancer, heart disease, diabetes, Alzheimer’s) to explore associations between genetics, lifestyle, medication, and health outcomes.
+
+By 2017, the database included genetic information, and participants had collectively recorded approximately 1.3 million hospitalisations, 40,000 cancer diagnoses, and 14,000 deaths.",Restricted / Proprietary (All Rights Reserved),"There are some caveats relating to how the data should be used responsibly. The reasoning given when applying to receive the data should be maintained, and the data itself should not be shared and it should be stored in secure places. The data is anonymised, and you are not allowed to attempt to re-identify participants. When you obtain data, you need to send it (along with code) to BioBank within 6 or 12 months. There are annual reports to be made, relating to how the data is used. The research produced should be ethically sound, and any publications are to be notified to biobank. An introduction video can be found at https://www.youtube.com/watch?v=rvm6olcElcM&t=686s","Funding comes from many places, mainly Wellcome, MRC, Cancer Research UK, British Heart foundation and Care Research. Additionally, Amazon Web services has contributed to the infrastructure. A UKRI infrastructure fund was also awarded.",,ukbiobank@ukbiobank.ac.uk,,"The volunteers answer questionnaires and do visits in which various samples are collected. The methodology varies based on the data being collected, but a summary page is found here: https://www.ukbiobank.ac.uk/about-our-data/our-participants/"
