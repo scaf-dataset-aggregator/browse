@@ -424,3 +424,48 @@ The data is available for every county in Scotland",(UK) Open Government Licence
 *   **Post-mortem conditions identified** (if any)
     
 *   **Number of conditions** (of post-mortem)",(UK) Open Government Licence,,,xlsx,enquiries@fss.scot,,"Methodology was not provided, it appears to be reported by processors."
+10/11/2025 14:32:19,allow,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://www.foodstandards.gov.scot/open-data-portal/animal-welfare-data,,Food Standards Scotland - Animal Welfare Data,"Enforcement, inspection, food standards Scotland, cattle, welfare","├──  Animals, │       ├──  Land based animals, │       │             ├──  Cattle, │       │             └── Poultry, │       └──  Animal Welfare, Policy",,Food Standards Scotland,Textual,"This dataset provided by the FSS includes various reports relating to violations of Animal Welfare regulations, specifically those which scores 3 or 4. It records the species, the ""violation score"", the type of non-compliance, detailed descriptions and the actions taken. It even includes *anonymised* emails from the offending parties. The spreadsheets are also split by where the accident took place: ""on farm & transport"" vs ""In plant"".",Scotland,01/01/2017,,Continuously updated,"This dataset is made available by FSS thanks to the Freedom of Information Act. The dataset is a listing of various welfare violations relating to farm animals, with each month being its own spreadsheet. Each spreadsheet has 2 sheets: _On Farm & Transport,_ and _In Plant._
+
+Each sheet contains the following columns:
+
+*   **Date of incident**
+    
+*   **Species**:
+    
+    *   Poultry
+        
+    *   Sheep
+        
+    *   Pigs
+        
+    *   Cattle
+        
+*   **Score**: either 3 or 4
+    
+    *   3 – Potential Risk to animal welfare with no evidence of pain and suffering
+        
+    *   4 – Imminent Risk to animal welfare and evidence of pain and suffering
+        
+*   **Non-compliance group**
+    
+    *   On farm welfare
+        
+    *   Welfare on transport
+        
+    *   Captive bold / concussion …
+        
+    *   etc..
+        
+*   **Non-compliance type**: more detail on the non-compliance group
+    
+*   **Non-compliance**: even more detail on the non-compliance
+    
+*   Description: the text report written by the inspector, anonymised
+    
+*   **Action**: the action taken to resolve the situation
+    
+*   **Date feedback received**: when the complaint was acknowledged by the offending party
+    
+*   **Feedback text:** Format of reply, usually “email”
+    
+*   **Feedback**: the reply from the farm / plant, usually with plenty of detail.",(UK) Open Government Licence,,,xlsx,enquiries@fss.scot,,"Recorded by FSS, but methodology could not be found."
