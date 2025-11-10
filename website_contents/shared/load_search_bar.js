@@ -133,6 +133,54 @@ function initSearchLogic(websiteContentsPath = '') {
 }
 
 
+
+async function loadCategories(websiteContentsPath = '') {
+  try {
+    // Load the JSON file
+    const response = await fetch(`${websiteContentsPath}../website_metadata/category_tree.json`);
+    if (!response.ok) throw new Error("Could not load category_tree.json");
+    const categories = await response.json();
+
+    // Find the <select> element
+    const selectElement = document.getElementById("category");
+    if (!selectElement) {
+      console.error("No element with id='category' found.");
+      return;
+    }
+
+    // Clear any existing options
+    selectElement.innerHTML = '';
+
+    // Recursive function to flatten the category tree
+    function addCategoriesToList(list, categories, depth = 0) {
+      categories.forEach(category => {
+        // Create label with indentation
+        const label = `${'&nbsp;&nbsp;'.repeat(depth)}${category.name}`;
+        list.push(label);
+
+        // If there are subcategories, recurse
+        if (category.subcategories) {
+          addCategoriesToList(list, category.subcategories, depth + 1);
+        }
+      });
+    }
+
+    // Flatten the category tree into a list of labels
+    const menuEntries = [];
+    addCategoriesToList(menuEntries, categories);
+
+    // Add options to the select element
+    menuEntries.forEach(entry => {
+      const option = document.createElement("option");
+      option.innerHTML = entry; // use innerHTML to render &nbsp;
+      selectElement.appendChild(option);
+    });
+
+  } catch (error) {
+    console.error("Error loading categories:", error);
+  }
+}
+
 async function loadSearchBar(websiteContentsPath) {
   const response = await fetch(`${websiteContentsPath}shared/search_bar.html`);
   const html = await response.text();
@@ -145,6 +193,8 @@ async function loadSearchBar(websiteContentsPath) {
   }
 
   // Initialise behaviour now that form exists
+  loadCategories(websiteContentsPath);
+
   initSelectTags();
   initDateIgnoreToggle();
   initSearchLogic(websiteContentsPath);
