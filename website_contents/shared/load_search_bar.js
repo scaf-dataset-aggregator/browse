@@ -134,51 +134,98 @@ function initSearchLogic(websiteContentsPath = '') {
 
 
 
-async function loadCategories(websiteContentsPath = '') {
-  try {
-    // Load the JSON file
-    const response = await fetch(`${websiteContentsPath}../website_metadata/category_tree.json`);
-    if (!response.ok) throw new Error("Could not load category_tree.json");
-    const categories = await response.json();
-
-    // Find the <select> element
-    const selectElement = document.getElementById("category");
-    if (!selectElement) {
-      console.error("No element with id='category' found.");
-      return;
-    }
-
-    // Clear any existing options
-    selectElement.innerHTML = '';
-
-    // Recursive function to flatten the category tree
-    function addCategoriesToList(list, categories, depth = 0) {
-      categories.forEach(category => {
-        // Create label with indentation
-        const label = `${'&nbsp;&nbsp;'.repeat(depth)}${category.name}`;
-        list.push(label);
-
-        // If there are subcategories, recurse
-        if (category.subcategories) {
-          addCategoriesToList(list, category.subcategories, depth + 1);
-        }
-      });
-    }
-
-    // Flatten the category tree into a list of labels
-    const menuEntries = [];
-    addCategoriesToList(menuEntries, categories);
-
-    // Add options to the select element
-    menuEntries.forEach(entry => {
-      const option = document.createElement("option");
-      option.innerHTML = entry; // use innerHTML to render &nbsp;
-      selectElement.appendChild(option);
-    });
-
-  } catch (error) {
-    console.error("Error loading categories:", error);
+function loadFilterOptionsForFilter(json_data, filter_name) {
+  // Find the select element
+  const selectElement = document.getElementById(filter_name);
+  if (!selectElement) {
+    console.error(`No element with id='${filter_name}' found.`);
+    return;
   }
+
+  // Clear existing options
+  selectElement.innerHTML = '';
+
+  // Recursive helper to flatten hierarchical data
+  function addOptionsToList(list, items, depth = 0) {
+    items.forEach(item => {
+      const label = `${'&nbsp;&nbsp;'.repeat(depth)}${item.name}`;
+      list.push(label);
+
+      if (item.subcategories) {
+        addOptionsToList(list, item.subcategories, depth + 1);
+      }
+    });
+  }
+
+  // Build a flat list of entries
+  const menuEntries = [];
+  addOptionsToList(menuEntries, json_data);
+
+  // Append options to the select element
+  menuEntries.forEach(entry => {
+    const option = document.createElement("option");
+    option.innerHTML = entry; // use innerHTML so &nbsp; is rendered
+    selectElement.appendChild(option);
+  });
+}
+
+/**
+ * Load all filters dynamically from a JSON file.
+ * The JSON should look like:
+ * {
+ *   "category": [...],
+ *   "location": [...],
+ *   "accessibility": [...]
+ * }
+ */
+async function loadFilterOptions(websiteContentsPath = '') {
+  try {
+    const response = await fetch(`${websiteContentsPath}../website_metadata/filter_options.json`);
+    if (!response.ok) throw new Error("Could not load filter_options.json");
+    const filterOptionsDict = await response.json();
+
+    // Load each filter dynamically
+    ["category", "location", "dataType", "researchField"].forEach(filterName => {
+      if (filterOptionsDict[filterName]) {
+        loadFilterOptionsForFilter(filterOptionsDict[filterName], filterName);
+      } else {
+        console.warn(`Filter '${filterName}' not found in JSON.`);
+      }
+    });
+  } catch (error) {
+    console.error("Error loading filter options:", error);
+  }
+}
+
+function prepareSearchFunctionForFilter(filterName) {
+  // Find the filter div and its <select> and <input>
+  const filterDiv = document.querySelector(`.filter[data-filter="${filterName}"]`);
+  if (!filterDiv) return;
+
+  const select = filterDiv.querySelector("select");
+  const input = filterDiv.querySelector("input[type='text']");
+  if (!select || !input) return;
+
+  // Store the original list of options
+  const originalOptions = Array.from(select.options).map(opt => opt.cloneNode(true));
+
+  function updateSelectOptions() {
+    const searchTerm = input.value.toLowerCase().trim();
+
+    // Clear the current options
+    select.innerHTML = "";
+
+    // Decide what to show
+    const filtered = searchTerm
+      ? originalOptions.filter(opt => opt.textContent.toLowerCase().includes(searchTerm))
+      : originalOptions;
+
+    // Append matching (or all) options
+    filtered.forEach(opt => select.appendChild(opt.cloneNode(true)));
+  }
+
+  // Assign the filter function
+  input.addEventListener("keyup", updateSelectOptions);
 }
 
 async function loadSearchBar(websiteContentsPath) {
@@ -193,10 +240,13 @@ async function loadSearchBar(websiteContentsPath) {
   }
 
   // Initialise behaviour now that form exists
-  loadCategories(websiteContentsPath);
-
+  await loadFilterOptions(websiteContentsPath);
   initSelectTags();
   initDateIgnoreToggle();
+
+  ["category", "researchField", "location"].forEach(prepareSearchFunctionForFilter);
+
+
   initSearchLogic(websiteContentsPath);
 
 
