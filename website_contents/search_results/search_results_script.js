@@ -313,7 +313,7 @@ function renderResults(items, container) {
     const title = document.createElement('h2');
     const a = document.createElement('a')
     a.href = `../database_webpages/${item.id}.html`;
-    a.textContent = item.name || `Dataset ${item.id}`;
+    a.innerHTML = item.name || `Dataset ${item.id}`;
     title.appendChild(a);
 
     const meta = document.createElement('p');
