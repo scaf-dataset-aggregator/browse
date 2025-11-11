@@ -135,36 +135,35 @@ function initSearchLogic(websiteContentsPath = '') {
 
 
 function loadFilterOptionsForFilter(json_data, filter_name) {
-  // Find the select element
+  // Find the <select> element
   const selectElement = document.getElementById(filter_name);
   if (!selectElement) {
     console.error(`No element with id='${filter_name}' found.`);
     return;
   }
 
-  // Clear existing options
+  // Clear any previous options
   selectElement.innerHTML = '';
 
-  // Recursive helper to flatten hierarchical data
-  function addOptionsToList(list, items, depth = 0) {
-    items.forEach(item => {
-      const label = `${'&nbsp;&nbsp;'.repeat(depth)}${item.name}`;
-      list.push(label);
-
-      if (item.subcategories) {
-        addOptionsToList(list, item.subcategories, depth + 1);
+  // Recursive helper to flatten the nested object
+  function addOptionsToList(list, obj, depth = 0) {
+    for (const key in obj) {
+      if (Object.hasOwn(obj, key)) {
+        const label = `${'&nbsp;&nbsp;'.repeat(depth)}${key}`;
+        list.push(label);
+        addOptionsToList(list, obj[key], depth + 1);
       }
-    });
+    }
   }
 
   // Build a flat list of entries
   const menuEntries = [];
   addOptionsToList(menuEntries, json_data);
 
-  // Append options to the select element
+  // Add each entry to the <select>
   menuEntries.forEach(entry => {
     const option = document.createElement("option");
-    option.innerHTML = entry; // use innerHTML so &nbsp; is rendered
+    option.innerHTML = entry; // render &nbsp; as indentation
     selectElement.appendChild(option);
   });
 }

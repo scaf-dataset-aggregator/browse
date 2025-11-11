@@ -105,6 +105,14 @@ def strip_leading_symbols(s: str) -> str:
     """
     return re.sub(r'^[^A-Za-z]+', '', s)
 
+
+
+def options_tree_convert_to_dict(option_tree_json: dict):
+    """
+    Given a JSON tree which is a list of objects, where each object is {"name": someStr, "subcategories": object}.
+    I convert it into a dictionary
+    """
+
 def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     row_dict = row.to_dict()
@@ -190,13 +198,6 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["copyright"] = row_dict.get("copyright")
     result_json["usage_instructions"] = row_dict.get("usage_instructions")
     result_json["acknowledgements"] = row_dict.get("acknowledgements")
-
-
-
-
-
-
-
 
 
 
