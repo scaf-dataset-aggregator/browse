@@ -142,8 +142,8 @@ function filterData(data, filters) {
   if (isValidFilter(fLocation)) {
     filteredResults = filteredResults.filter(item => {
       // Note: item.location is a string, not an array
-      const iLocation = normalizeString(item.location);
-      return arrayIntersects([iLocation], fLocation);
+      const iLocation = normalizeArray(item.location);
+      return arrayIntersects(iLocation, fLocation);
     });
   }
 
@@ -233,7 +233,7 @@ function scoreResults(filteredData, tokens) {
     const name = normalizeString(item.name);
     const keywords = normalizeArray(item.keywords);
     const abstract = normalizeString(item.abstract);
-    const location = normalizeString(item.location);
+    const location = normalizeArray(item.location);
     const author = normalizeString(item.author_name);
     const categories = normalizeArray(item.categories_list);
 
@@ -242,7 +242,7 @@ function scoreResults(filteredData, tokens) {
       if (name.includes(t)) score += 7;
       if (keywords.some(k => k.includes(t))) score += 5;
       if (abstract.includes(t)) score += 2;
-      if (location.includes(t)) score += 3;
+      if (location.some(c => c.includes(t))) score += 3;
       if (author.includes(t)) score += 5;
       if (categories.some(c => c.includes(t))) score += 1;
     });
@@ -333,7 +333,7 @@ function renderResults(items, container) {
 
     const footer = document.createElement('p');
     footer.className = 'result-footer';
-    footer.innerHTML = item.location ? ('Location: ' + item.location) : '';
+    footer.innerHTML = item.location ? ('Location: ' + item.location[0]) : '';
 
     card.appendChild(title);
     if (meta.textContent) card.appendChild(meta);

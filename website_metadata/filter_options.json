@@ -73,15 +73,24 @@
   "Other": {}
  },
  "location": {
-  "United Kingdom": {
-   "Scotland": {},
-   "Northern Ireland": {},
-   "Wales": {},
-   "England": {},
-   "UK": {}
+  "Europe": {
+   "United Kingdom": {
+    "Scotland": {},
+    "Northern Ireland": {},
+    "Wales": {},
+    "England": {},
+    "France": {}
+   },
+   "Albania": {},
+   "Austria": {},
+   "Belgium": {},
+   "Bulgaria": {},
+   "Cyprus": {},
+   "Czech Republic": {},
+   "Denmark": {}
   },
   "Afghanistan": {},
-  "Albania": {},
+
   "Algeria": {},
   "Andorra": {},
   "Angola": {},
@@ -89,14 +98,14 @@
   "Argentina": {},
   "Armenia": {},
   "Australia": {},
-  "Austria": {},
+
   "Azerbaijan": {},
   "The Bahamas": {},
   "Bahrain": {},
   "Bangladesh": {},
   "Barbados": {},
   "Belarus": {},
-  "Belgium": {},
+
   "Belize": {},
   "Benin": {},
   "Bhutan": {},
@@ -105,7 +114,7 @@
   "Botswana": {},
   "Brazil": {},
   "Brunei": {},
-  "Bulgaria": {},
+
   "Burkina Faso": {},
   "Burundi": {},
   "Cambodia": {},
@@ -124,9 +133,7 @@
   "Cote d'Ivoire": {},
   "Croatia": {},
   "Cuba": {},
-  "Cyprus": {},
-  "Czech Republic": {},
-  "Denmark": {},
+
   "Djibouti": {},
   "Dominica": {},
   "Dominican Republic": {},
@@ -140,7 +147,7 @@
   "Ethiopia": {},
   "Fiji": {},
   "Finland": {},
-  "France": {},
+
   "Gabon": {},
   "The Gambia": {},
   "Georgia": {},

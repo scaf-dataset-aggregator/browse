@@ -17,7 +17,11 @@
     "publicly_available": true,
     "author_name": "Population Health Directorate",
     "author_contacts": "ceu@gov.scot",
-    "location": "Scotland",
+    "location": [
+      "Scotland",
+      "Europe",
+      "United Kingdom"
+    ],
     "collection_start": "1995-01-01",
     "collection_end": "",
     "categories_list": [
@@ -55,14 +59,18 @@
     "publicly_available": true,
     "author_name": "\nDepartment for Environment Food and Rural Affairs",
     "author_contacts": "familyfood@defra.gov.uk",
-    "location": "United Kingdom",
+    "location": [
+      "United Kingdom",
+      "Europe"
+    ],
     "collection_start": "1974-01-01",
     "collection_end": "",
     "categories_list": [
       "Pricing",
       "Consumer Behaviour",
       "Consumption",
-      "Nutrition"
+      "Nutrition",
+      "Retail"
     ],
     "research_fields": [
       "Nutrition"
@@ -93,7 +101,11 @@
     "publicly_available": true,
     "author_name": "Food Standards Agency",
     "author_contacts": " helpline@food.gov.uk",
-    "location": "Scotland",
+    "location": [
+      "Scotland",
+      "Europe",
+      "United Kingdom"
+    ],
     "collection_start": "2008-01-01",
     "collection_end": "2012-12-30",
     "categories_list": [
@@ -153,7 +165,11 @@
     "publicly_available": true,
     "author_name": "Scottish Government",
     "author_contacts": "agric.stats@gov.scot",
-    "location": "Scotland",
+    "location": [
+      "Scotland",
+      "Europe",
+      "United Kingdom"
+    ],
     "collection_start": "1999-06-01",
     "collection_end": "",
     "categories_list": [
@@ -199,7 +215,11 @@
     "publicly_available": true,
     "author_name": "Scottish Government, Chief Economist Directorate",
     "author_contacts": "ChiefStatistician@gov.scot",
-    "location": "Scotland",
+    "location": [
+      "Scotland",
+      "Europe",
+      "United Kingdom"
+    ],
     "collection_start": "2023-01-01",
     "collection_end": "2024-12-31",
     "categories_list": [
@@ -232,12 +252,17 @@
     "publicly_available": true,
     "author_name": "Food Standards Scotland",
     "author_contacts": "enquiries@fss.scot",
-    "location": "Scotland",
+    "location": [
+      "Scotland",
+      "Europe",
+      "United Kingdom"
+    ],
     "collection_start": "2025-08-28",
     "collection_end": "",
     "categories_list": [
       "Food Safety",
-      "Retail"
+      "Retail",
+      "Processing / Preparation"
     ],
     "research_fields": [
       ""
@@ -273,7 +298,11 @@
     "publicly_available": true,
     "author_name": "Food Standards Scotland",
     "author_contacts": "enquiries@fss.scot",
-    "location": "Scotland",
+    "location": [
+      "Scotland",
+      "Europe",
+      "United Kingdom"
+    ],
     "collection_start": "2016-01-01",
     "collection_end": "2018-12-31",
     "categories_list": [
@@ -281,7 +310,8 @@
       "Land based animals",
       "Disease / Pest Control",
       "Processing / Preparation",
-      "Food Safety"
+      "Food Safety",
+      "Production"
     ],
     "research_fields": [
       ""
@@ -311,7 +341,11 @@
     "publicly_available": true,
     "author_name": "Food Standards Scotland",
     "author_contacts": "enquiries@fss.scot",
-    "location": "Scotland",
+    "location": [
+      "Scotland",
+      "Europe",
+      "United Kingdom"
+    ],
     "collection_start": "2017-01-01",
     "collection_end": "",
     "categories_list": [
@@ -320,7 +354,8 @@
       "Cattle",
       "Poultry",
       "Animal Welfare",
-      "Policy"
+      "Policy",
+      "Production"
     ],
     "research_fields": [
       ""
@@ -358,7 +393,10 @@
     "publicly_available": false,
     "author_name": "UK Biobank",
     "author_contacts": "ukbiobank@ukbiobank.ac.uk",
-    "location": "United Kingdom",
+    "location": [
+      "United Kingdom",
+      "Europe"
+    ],
     "collection_start": "2006-01-01",
     "collection_end": "",
     "categories_list": [
@@ -368,7 +406,9 @@
       "Consumption",
       "Nutrition",
       "Food Availability",
-      "Citizen Science"
+      "Citizen Science",
+      "Retail",
+      "Production"
     ],
     "research_fields": [
       "Biology",

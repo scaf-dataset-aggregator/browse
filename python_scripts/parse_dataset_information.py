@@ -1,7 +1,11 @@
 import html
+import json
 import re
+from collections import defaultdict
 
 import markdown
+
+from python_scripts.paths import FILTER_OPTIONS_FILE
 
 
 # this file will make a little JSON for every row of the cleaned df.
@@ -107,11 +111,45 @@ def strip_leading_symbols(s: str) -> str:
 
 
 
-def options_tree_convert_to_dict(option_tree_json: dict):
+def invert_filter_options_tree(filter_options: dict[str, set[str]]):
+    entire_dict = defaultdict(set)
+
+    def visit_dict(input: dict, accumulator: set[str]):
+        for key, sub_items in input.items():
+            entire_dict[key] = accumulator
+            visit_dict(sub_items, accumulator.union([key]))
+
+    visit_dict(filter_options, set())
+
+    return entire_dict
+
+try:
+    filter_options_dict = json.load(open(FILTER_OPTIONS_FILE, "r"))
+except FileNotFoundError:
+    raise FileNotFoundError("The filter options file could not be found, is it at website_metadata/filter_options.json?")
+except json.JSONDecodeError:
+    raise Exception("The JSON file could not be opened, is the format correct?")
+
+
+inverted_filter_options_dict = {key: invert_filter_options_tree(filter_options_dict[key])
+                                for key in filter_options_dict}
+
+
+def add_missing_supercategories(items_present: list[str], filter_name: str):
     """
-    Given a JSON tree which is a list of objects, where each object is {"name": someStr, "subcategories": object}.
-    I convert it into a dictionary
+    The options for a certain property might be hierachical, for example England is in UK, UK is in EU.
+    Logically, the user should have ticked all of those, but if not this function will add the missing "supercategories".
+    Also note that this will not change the order of the existing items, so that they will still make sense.
     """
+    items_present_set = set(items_present)
+    inverted_dict = inverted_filter_options_dict[filter_name]
+    to_add = set()
+    for item_present in items_present_set:
+        to_add.update(inverted_dict[item_present].difference(items_present_set))
+        # since inverted_dict is a default dict, this is safe
+
+    return items_present+list(to_add)
+
 
 def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
@@ -143,7 +181,8 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     result_json["data_collection_methodology"] = convert_str_in_HTML_with_clickable_links(row_dict.get("data_collection_methodology"))
 
-    result_json["location"] = html.escape(str(row_dict.get("dataset_country", "No location")))
+    locations = [html.escape(str(row_dict.get("dataset_country", "No location")))]
+    result_json["location"] = add_missing_supercategories(locations, "location")
 
     result_json["collection_start"] = date_to_iso(row_dict.get('data_collection_start'))
     result_json["collection_end"] = date_to_iso(row_dict.get('data_collection_end'))
@@ -168,6 +207,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     categories_list_dirty = list(row_dict.get("dataset_categories_from_questionnaire", "").split(", "))
     categories_list_cleaned = [strip_leading_symbols(category_name) for category_name in categories_list_dirty]
+    categories_list_cleaned = add_missing_supercategories(categories_list_cleaned, "category")
     categories_html = ", ".join(categories_list_cleaned)
     result_json["categories_list"] = categories_list_cleaned
     result_json["categories_html"] = categories_html
