@@ -183,6 +183,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     locations = [html.escape(str(row_dict.get("dataset_country", "No location")))]
     result_json["location"] = add_missing_supercategories(locations, "location")
+    result_json["location_html"] = ", ".join(result_json["location"])
 
     result_json["collection_start"] = date_to_iso(row_dict.get('data_collection_start'))
     result_json["collection_end"] = date_to_iso(row_dict.get('data_collection_end'))
