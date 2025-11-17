@@ -25,10 +25,50 @@
 <script>
   const websiteContentsPath = "website_contents/";
 
+  async function insertLastUpdatedTimestamp(websiteContentsPath) {
+  try {
+    const url = `${websiteContentsPath}../website_metadata/website_generation_metadata.json`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      console.error("Could not load metadata JSON.");
+      return;
+    }
+
+    const data = await response.json();
+    const ts = data.last_updated; // "2025-11-17 10:18:43.335521"
+    if (!ts) {
+      console.error("No last_updated field in JSON.");
+      return;
+    }
+
+    // Parse the timestamp (first part only)
+    const [datePart] = ts.split(" ");
+    const [year, month, day] = datePart.split("-");
+
+    const pretty = `Last updated on ${day}/${month}/${year}`;
+
+    // Insert into existing placeholder
+    const placeholder = document.getElementById("last_updated_placeholder");
+    if (placeholder) {
+      placeholder.textContent = pretty;
+    } else {
+      console.warn("Placeholder element #last_updated_placeholder not found.");
+    }
+
+  } catch (err) {
+    console.error("Error fetching last_updated timestamp:", err);
+  }
+}
+
   // Wait until the bar is loaded before continuing
   loadSearchBar(websiteContentsPath).then(() => {
-    console.log("Welcome to SCAF :{)");
+    // place the footer with the "last updated at ..." text
+      insertLastUpdatedTimestamp(websiteContentsPath);
+
   });
+
+
 </script>
 
     <hr>
@@ -40,7 +80,7 @@
     </nav>
 
     <footer>
-      <p>Made by Giancarlo Catalano for SCAF, 2025</p>
+      <p id = "last_updated_placeholder">Last updated: Unknown</p>
     </footer>
   </div>
 </body>

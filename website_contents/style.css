@@ -318,11 +318,9 @@ p.result-footer {
 
 /* --------------- FOOTER --------------- */
 footer, footer.site-footer {
-  padding: 1.25rem;
   text-align: center;
   color: var(--muted);
   font-size: 0.9rem;
-  border-top: 1px solid #f2f6fb;
 }
 
 /* --------------- HORIZONTAL RULE / LINKS --------------- */
@@ -490,3 +488,4 @@ button.selected-filter {
   cursor: pointer;
   font-size: 0.9em;
 }
+

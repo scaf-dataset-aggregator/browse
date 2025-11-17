@@ -227,6 +227,8 @@ function prepareSearchFunctionForFilter(filterName) {
   input.addEventListener("keyup", updateSelectOptions);
 }
 
+
+
 async function loadSearchBar(websiteContentsPath) {
   const response = await fetch(`${websiteContentsPath}shared/search_bar.html`);
   const html = await response.text();
@@ -247,8 +249,6 @@ async function loadSearchBar(websiteContentsPath) {
 
 
   initSearchLogic(websiteContentsPath);
-
-
 
   // Let the caller know the bar is ready
   return true;

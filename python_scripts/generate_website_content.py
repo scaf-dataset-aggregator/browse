@@ -14,12 +14,11 @@ The script is robust to slightly different header punctuation/casing by normalis
 """
 
 import json
-import html
-import re
-from pathlib import Path
+
+import datetime
 
 from parse_dataset_information import dataset_df_row_to_JSON
-from paths import WEBPAGES_FOLDER, INDEX_PATH, TEMPLATE_FILE, get_webpage_path
+from paths import WEBPAGES_FOLDER, INDEX_PATH, TEMPLATE_FILE, get_webpage_path, GENERATION_METADATA_FILE
 from read_csv_safely import get_database_information_df, check_database_allow_column_is_valid
 
 try:
@@ -107,3 +106,10 @@ for index, row in df.iterrows():
 INDEX_PATH.write_text(json.dumps(index_list, ensure_ascii=False, indent=2), encoding='utf-8')
 
 print(f"Generated {len(index_list)} pages in '{WEBPAGES_FOLDER}' and index at '{INDEX_PATH}'")
+
+# Write the current timestamp on the website_generation_metadata.json
+current_time_as_string = str(datetime.datetime.now())
+metadata_json = dict()
+metadata_json["last_updated"] = current_time_as_string
+with open(GENERATION_METADATA_FILE, "w") as file:
+    json.dump(obj=metadata_json, fp = file)
