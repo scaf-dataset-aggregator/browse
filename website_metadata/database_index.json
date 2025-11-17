@@ -19,8 +19,8 @@
     "author_contacts": "ceu@gov.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "1995-01-01",
     "collection_end": "",
@@ -43,7 +43,7 @@
   {
     "id": "00003",
     "allowed_in_database": true,
-    "name": "UK Government Family Food datasets ",
+    "name": "UK Government Family Food datasets  (duplicate)",
     "keywords": [
       "family",
       "purchases",
@@ -103,8 +103,8 @@
     "author_contacts": " helpline@food.gov.uk",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "2008-01-01",
     "collection_end": "2012-12-30",
@@ -167,8 +167,8 @@
     "author_contacts": "agric.stats@gov.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "1999-06-01",
     "collection_end": "",
@@ -217,8 +217,8 @@
     "author_contacts": "ChiefStatistician@gov.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "2023-01-01",
     "collection_end": "2024-12-31",
@@ -254,8 +254,8 @@
     "author_contacts": "enquiries@fss.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "2025-08-28",
     "collection_end": "",
@@ -300,8 +300,8 @@
     "author_contacts": "enquiries@fss.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "2016-01-01",
     "collection_end": "2018-12-31",
@@ -343,8 +343,8 @@
     "author_contacts": "enquiries@fss.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "2017-01-01",
     "collection_end": "",
@@ -407,8 +407,8 @@
       "Nutrition",
       "Food Availability",
       "Citizen Science",
-      "Retail",
-      "Production"
+      "Production",
+      "Retail"
     ],
     "research_fields": [
       "Biology",
@@ -423,6 +423,41 @@
     ],
     "file_extensions": [
       ""
+    ]
+  },
+  {
+    "id": "00011",
+    "allowed_in_database": true,
+    "name": "DEFRA family food data sets",
+    "keywords": [
+      "purchases",
+      "nutrients",
+      "good",
+      "and",
+      "drink",
+      "expenditure"
+    ],
+    "abstract": "These family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.\n\n",
+    "publicly_available": true,
+    "author_name": "DEFRA",
+    "author_contacts": "familyfood@defra.gov.uk",
+    "location": [
+      "United Kingdom",
+      "Europe"
+    ],
+    "collection_start": "",
+    "collection_end": "",
+    "categories_list": [
+      "Consumption"
+    ],
+    "research_fields": [
+      "Nutrition"
+    ],
+    "data_types": [
+      "Numeric / Quantitative"
+    ],
+    "file_extensions": [
+      "ods"
     ]
   }
 ]
