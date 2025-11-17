@@ -113,6 +113,14 @@ def strip_leading_symbols(s: str) -> str:
 
 
 def invert_filter_options_tree(filter_options: dict[str, set[str]]):
+    """ Given a dict that represents a hierarchy of strings, such as
+    {'A': {'B'{}, 'C'{}}, 'D':{}}
+
+    It converts it into a dict where, for every string, we know its ancestors:
+    {'A':['A'], 'B':['A'], 'C':['A', 'D':[]}.
+
+    This is used to manage the "filter categories".
+    """
     entire_dict = defaultdict(set)
 
     def visit_dict(input_dict: dict, accumulator: set[str]):
@@ -125,6 +133,9 @@ def invert_filter_options_tree(filter_options: dict[str, set[str]]):
     return entire_dict
 
 
+
+# prepare the filter options dict, and its inverted form.
+# this will be used later to add missing categories to csv entries
 try:
     filter_options_dict = json.load(open(FILTER_OPTIONS_FILE, "r"))
 except FileNotFoundError:
@@ -155,6 +166,15 @@ def add_missing_supercategories(items_present: list[str], filter_name: str):
 
 
 def dataset_df_row_to_JSON(row, dataset_code) -> dict:
+    """
+    This big method is where all attributes relating to datasets are added.
+    Note that the result (result_json) is initially copied from the original row, so
+    new columns in the csv are automatically added in the json without having to add process them.
+
+    """
+
+
+
     row_dict = row.to_dict()
     result_json = row_dict.copy()
     result_json["dataset_code"] = str(dataset_code)
@@ -164,7 +184,8 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     keywords = [html.escape(str(k.strip())).lower() for k in re.split(r'[;,|\n\s]+', keywords_raw) if
                 k.strip()] if keywords_raw else []
     result_json["keywords_html"] = ", ".join(
-        keywords)  # needs to be separate because we want them separate in the JSON index
+        keywords)
+    # v  needs to be separate because we want them separate in the JSON index, but together elsewhere
     result_json["keywords"] = keywords
     result_json["keywords_schema"] = "[" + ",\n".join(f'"{keyword}"' for keyword in keywords) + "]"
 
@@ -178,6 +199,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["first_link"] = raw_links[0] if len(raw_links) > 0 else "error"
 
     description_md = str(row_dict.get('long_description_from_questionnaire', '') or '')
+    # use the markdown library to convert markdown into HTML
     description_html = markdown.markdown(description_md, extensions=['fenced_code', 'tables'])
     result_json["description"] = description_html
 
