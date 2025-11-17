@@ -5,7 +5,7 @@ from collections import defaultdict
 
 import markdown
 
-from python_scripts.paths import FILTER_OPTIONS_FILE
+from paths import FILTER_OPTIONS_FILE
 
 
 # this file will make a little JSON for every row of the cleaned df.
