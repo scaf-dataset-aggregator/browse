@@ -316,6 +316,21 @@ function renderResults(items, container) {
     a.innerHTML = item.name || `Dataset ${item.id}`;
     title.appendChild(a);
 
+    // Create availability badge
+    const badge = document.createElement('span');
+    badge.className = 'inline_catbadge';
+    if (item.publicly_available === true) {
+      badge.textContent = "Publicly available";
+      badge.dataset.badgeType = "public";
+    } else {
+      badge.textContent = "On request";
+      badge.dataset.badgeType = "request";
+    }
+
+    // Insert badge after the title link
+    title.appendChild(document.createTextNode(" "));
+    title.appendChild(badge);
+
     const meta = document.createElement('p');
     meta.className = 'meta';
     if (item.keywords && item.keywords.length) {
