@@ -19,8 +19,8 @@
     "author_contacts": "ceu@gov.scot",
     "location": [
       "Scotland",
-      "Europe",
-      "United Kingdom"
+      "United Kingdom",
+      "Europe"
     ],
     "collection_start": "1995-01-01",
     "collection_end": "",
@@ -28,49 +28,6 @@
       "Consumption",
       "Nutrition",
       "Food Availability"
-    ],
-    "research_fields": [
-      "Nutrition"
-    ],
-    "data_types": [
-      "Numeric / Quantitative"
-    ],
-    "file_extensions": [
-      "xlsx",
-      "csv"
-    ]
-  },
-  {
-    "id": "00003",
-    "allowed_in_database": true,
-    "name": "UK Government Family Food datasets  (duplicate)",
-    "keywords": [
-      "family",
-      "purchases",
-      "household",
-      "expenditure",
-      "expenses",
-      "nutrient",
-      "intake",
-      "eating",
-      "out"
-    ],
-    "abstract": "Reports produced by the UK government about the consumption of food in UK families.\nThese family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.",
-    "publicly_available": true,
-    "author_name": "\nDepartment for Environment Food and Rural Affairs",
-    "author_contacts": "familyfood@defra.gov.uk",
-    "location": [
-      "United Kingdom",
-      "Europe"
-    ],
-    "collection_start": "1974-01-01",
-    "collection_end": "",
-    "categories_list": [
-      "Pricing",
-      "Consumer Behaviour",
-      "Consumption",
-      "Nutrition",
-      "Retail"
     ],
     "research_fields": [
       "Nutrition"
@@ -103,8 +60,8 @@
     "author_contacts": " helpline@food.gov.uk",
     "location": [
       "Scotland",
-      "Europe",
-      "United Kingdom"
+      "United Kingdom",
+      "Europe"
     ],
     "collection_start": "2008-01-01",
     "collection_end": "2012-12-30",
@@ -167,8 +124,8 @@
     "author_contacts": "agric.stats@gov.scot",
     "location": [
       "Scotland",
-      "Europe",
-      "United Kingdom"
+      "United Kingdom",
+      "Europe"
     ],
     "collection_start": "1999-06-01",
     "collection_end": "",
@@ -217,8 +174,8 @@
     "author_contacts": "ChiefStatistician@gov.scot",
     "location": [
       "Scotland",
-      "Europe",
-      "United Kingdom"
+      "United Kingdom",
+      "Europe"
     ],
     "collection_start": "2023-01-01",
     "collection_end": "2024-12-31",
@@ -254,8 +211,8 @@
     "author_contacts": "enquiries@fss.scot",
     "location": [
       "Scotland",
-      "Europe",
-      "United Kingdom"
+      "United Kingdom",
+      "Europe"
     ],
     "collection_start": "2025-08-28",
     "collection_end": "",
@@ -300,8 +257,8 @@
     "author_contacts": "enquiries@fss.scot",
     "location": [
       "Scotland",
-      "Europe",
-      "United Kingdom"
+      "United Kingdom",
+      "Europe"
     ],
     "collection_start": "2016-01-01",
     "collection_end": "2018-12-31",
@@ -343,8 +300,8 @@
     "author_contacts": "enquiries@fss.scot",
     "location": [
       "Scotland",
-      "Europe",
-      "United Kingdom"
+      "United Kingdom",
+      "Europe"
     ],
     "collection_start": "2017-01-01",
     "collection_end": "",
