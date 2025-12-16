@@ -1,5 +1,5 @@
-Timestamp,allow,Consent to share,Permission of removal,Do you know whether your data contains any personal or sensitive information?,Is the data in digital format?,Share-ability,Is the data already publicly available on the internet? ,Please provide the links to the data,Are you aware of the protocols you might need to follow as part of data transfers?,What should the dataset title be?,What are the keywords for the dataset?,What category does the dataset fit best into?,Does the data fall into any of these research fields?,Who is the author/maker of the dataset?,What kind of data is present in the dataset?,Abstract,In what country was the data collected?,Start of data collection,End of data collection,At what lifecycle stage is the data?,Long description,Does this data have a copyright?,Are there any usage instructions?,Do you need to acknowledge anything?,What file extensions does your data use?,"Please write the contact information of the author above, if available",Other contributors/responsible parties,What was the data collection methodology?
-submission_timestamp,allow,consent_to_share,permission_of_removal,contains_sensitive,is_digital,shareability,publicly_available,dataset_links_from_questionnaire,protocols_awareness,dataset_title,dataset_keywords_from_questionnaire,dataset_categories_from_questionnaire,research_fields,author_name,dataset_datatypes,abstract,dataset_country,data_collection_start,data_collection_end,dataset_lifecycle_stage,long_description_from_questionnaire,copyright,usage_instructions,acknowledgemenents,file_extensions,author_contacts,other_contributors,data_collection_methodology
+Timestamp,allow,Consent to share,Permission of removal,Do you know whether your data contains any personal or sensitive information?,Is the data in digital format?,Share-ability,Is the data already publicly available on the internet? ,Please provide the links to the data,Are you aware of the protocols you might need to follow as part of data transfers?,What should the dataset title be?,What are the keywords for the dataset?,What category does the dataset fit best into?,Does the data fall into any of these research fields?,Who is the author/maker of the dataset?,What kind of data is present in the dataset?,Abstract,For what country is this data relevant?,Start of data collection,End of data collection,At what lifecycle stage is the data?,Long description,Does this data have a copyright?,Are there any usage instructions?,Do you need to acknowledge anything?,What file extensions does your data use?,"Please write the contact information of the author above, if available",Other contributors/responsible parties,What was the data collection methodology?,Have you checked if the website already contains that data? 
+submission_timestamp,allow,consent_to_share,permission_of_removal,contains_sensitive,is_digital,shareability,publicly_available,dataset_links_from_questionnaire,protocols_awareness,dataset_title,dataset_keywords_from_questionnaire,dataset_categories_from_questionnaire,research_fields,author_name,dataset_datatypes,abstract,dataset_country,data_collection_start,data_collection_end,dataset_lifecycle_stage,long_description_from_questionnaire,copyright,usage_instructions,acknowledgemenents,file_extensions,author_contacts,other_contributors,data_collection_methodology,present_in_dataset_already
 13/10/2025 14:41:32,do not allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,"google.com
 wikipedia.org",,First dataset,"Alpha, Beta, Gamma","├──  Plants & Crops, │       └──  Soil Science / Fertilisers, │       ├──  Fish / Marine, ├──  Water Quality, ├──  Storage, ├──  Transport, ├──  Supply Chain","Nutrition, Economy and Business",Giancarlo Catalano,"Numeric / Quantitative, Maps / Spatial, Markup","This is the abstract of the dataset. It should not have markdown, and even if it does it will be ignored. There is a character limit of 500 words. In theory, this dataset is open access but it's all placeholder. This is a test 2!",Scotland,29/09/2025,07/11/2025,Incomplete,"# Features of markdown
 Experience the **fastest**, *most intuitive*, and ~~hassle-free~~ Markdown editor online!  
@@ -68,7 +68,7 @@ Create and preview Markdown instantly with **GitHub Flavored Markdown (GFM)** su
 <img src=""https://upload.wikimedia.org/wikipedia/commons/5/53/Snail-wiki-120-Zachi-Evenor.jpg"" alt=""Alt text"" width=""300"" height=""200"">
 
 
-",Unspecified,Say thanks,No fruits were harmed,,,"Rachel Norman, Maintainer, rachel.norman@stir.ac.uk",Missing methodology
+",Unspecified,Say thanks,No fruits were harmed,,,"Rachel Norman, Maintainer, rachel.norman@stir.ac.uk",Missing methodology,
 13/10/2025 16:27:28,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://www.gov.scot/collections/scottish-health-survey/,,SHeS: Scottish Health Survey,"Health, Government, mental health, diet, food insecurity, obesity","Consumption, ├──  Nutrition, └──  Food Availability",Nutrition,Population Health Directorate,Numeric / Quantitative,This survey provides a detailed picture of the health of the Scottish population in private households and is designed to make a major contribution to the monitoring of health in Scotland.,Scotland,01/01/1995,,Continuously updated,"The main topics included in the survey are:
 -------------------------------------------
 
@@ -93,7 +93,7 @@ Scottish Health Survey dashboard
 This dashboard summarises key indicators for Scotland (2008-2023) and NHS health board and local authority areas for combined years 2012-2015, 2013-2016, 2014-2017, 2015-2018, 2016-2019, 2017-2021, 2018-2022 and 2019-2023.  [Scottish Health Survey dashboard](https://scotland.shinyapps.io/sg-scottish-health-survey/)
     
 
-",(UK) Open Government Licence,Cite the Original Source,,"xlsx, csv",ceu@gov.scot,"Scottish Health Survey, , scottishhealthsurvey@gov.scot",https://www.gov.scot/publications/scottish-health-survey-2024-volume-2-technical-report/pages/1-1-introduction/
+",(UK) Open Government Licence,Cite the Original Source,,"xlsx, csv",ceu@gov.scot,"Scottish Health Survey, , scottishhealthsurvey@gov.scot",https://www.gov.scot/publications/scottish-health-survey-2024-volume-2-technical-report/pages/1-1-introduction/,
 14/10/2025 10:29:56,removed,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://www.gov.uk/government/statistical-data-sets/family-food-datasets,,UK Government Family Food datasets  (duplicate),"family, purchases, household expenditure, expenses, nutrient intake, eating out","├──  Pricing, └──  Consumer Behaviour, Consumption, ├──  Nutrition",Nutrition,"
 Department for Environment Food and Rural Affairs",Numeric / Quantitative,"Reports produced by the UK government about the consumption of food in UK families.
 These family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.",United Kingdom,01/01/1974,,Continuously updated,"*   The ‘**purchases** spreadsheets give the average quantity of food and drink purchased per person per week for each food and drink category.
@@ -107,7 +107,7 @@ Several different breakdowns are provided in addition to the UK averages includi
 
 The data is available for every year between 1974 and 2023, with the new updates to be published.
 
-This data is part of the [Food and Farming Industry](https://www.gov.uk/environment/food-and-farming-industry) collection.",(UK) Open Government Licence,,,"xlsx, csv",familyfood@defra.gov.uk,,https://www.gov.uk/government/publications/family-food-methodology
+This data is part of the [Food and Farming Industry](https://www.gov.uk/environment/food-and-farming-industry) collection.",(UK) Open Government Licence,,,"xlsx, csv",familyfood@defra.gov.uk,,https://www.gov.uk/government/publications/family-food-methodology,
 14/10/2025 12:19:53,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,"https://data.food.gov.uk/catalog/datasets/15a7c88d-10d5-4652-ac78-449e296dc4be
 http://www.food.gov.uk/scotland/researchscot/scotlandresearch/ScotlandProjectList/n10036
 https://www.data.gov.uk/dataset/c7180071-3ee3-4d41-ad67-7120768ab61e/national_diet_and_nutrition_survey_scotland",,National Diet and Nutrition Survey (Scotland),"scotland, nutrient intakes, nutritional status, adult, children, ndns","Consumption, ├──  Nutrition",Nutrition,Food Standards Agency,Numeric / Quantitative,"Dataset produced by the UK/Scottish government.
@@ -141,7 +141,7 @@ The files contain **descriptive statistics** for many nutrients and other chemic
   * 65+
 
 There are also several **reference tables** explaining the meaning of each term used in the dataset.
-",(UK) Open Government Licence,,,"xlsx, csv", helpline@food.gov.uk,,https://www.gov.uk/government/collections/national-diet-and-nutrition-survey#methods-reports (under method reports)
+",(UK) Open Government Licence,,,"xlsx, csv", helpline@food.gov.uk,,https://www.gov.uk/government/collections/national-diet-and-nutrition-survey#methods-reports (under method reports),
 20/10/2025 11:40:07,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,"https://www.gov.scot/collections/economic-report-on-scottish-agriculture/
 https://www.gov.scot/collections/june-scottish-agricultural-census/",,Scottish Agricultural Census,"ERSA, Land Use, Farm, Employees, Occupiers, Ownership, legal responsibility, emissions, nitrogen, manure, soil testing, fertiliser, livestock, cattle, sheet, pigs, poultry, crops, cereals, oilseed, potatoes, beans, stock feeding, vegetables, fruits, machinery, fuel, income","Production, ├──  Plants & Crops, │       └──  Soil Science / Fertilisers, ├──  Animals, │       ├──  Animal Feed, │       ├──  Land based animals, ├──  Machinery",,Scottish Government,"Numeric / Quantitative, Maps / Spatial","A census and report carried by the Scottish Government on farms. It contains estimates relating to almost all aspects relating to farms, from Land Use, Ownership, emissions, soil, livestock, crops, machinery and income. The data can be found on the Scottish Government website for every year.",Scotland,01/06/1999,,Continuously updated,"Provides Scotland totals from the published results of the annual June Scottish Agricultural Census.
 
@@ -169,7 +169,7 @@ No agricultural census took place in 2022. Estimates have been published as part
     
 
 ## Methodology reports
-*   [Results from the Scottish Agricultural Census: June 2023 Methodology Report](https://www.gov.scot/publications/results-from-the-scottish-agricultural-census-june-2023-methodology-report/)",(UK) Open Government Licence,,,"xlsx, ods",agric.stats@gov.scot,RESAS (Rural & Environment Science and Analytical Services),"Depends on the components in the datasets, but in general it follows https://www.gov.scot/publications/results-from-the-scottish-agricultural-census-june-2023-methodology-report/"
+*   [Results from the Scottish Agricultural Census: June 2023 Methodology Report](https://www.gov.scot/publications/results-from-the-scottish-agricultural-census-june-2023-methodology-report/)",(UK) Open Government Licence,,,"xlsx, ods",agric.stats@gov.scot,RESAS (Rural & Environment Science and Analytical Services),"Depends on the components in the datasets, but in general it follows https://www.gov.scot/publications/results-from-the-scottish-agricultural-census-june-2023-methodology-report/",
 04/11/2025 12:55:26,allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information, or that there is none.",Yes,Publicly shareable,Yes it is available,https://data.gov.scot/scottish-agriculture-greenhouse-gas-emissions-nitrogen-use-2023-24/,,Scottish agriculture greenhouse gas emissions and nitrogen use: 2023-24,"Scotland, agriculture, greenhouse, gas, emissions, nitrogen, GHG, SGGS, farm business survey, FBS",Sustainability,Biology,"Scottish Government, Chief Economist Directorate",Numeric / Quantitative,"This report is based on estimates of total greenhouse gas (GHG) emissions for Scottish agriculture, as reported in the Scottish Greenhouse Gas Statistics 2023 and average emission and nitrogen use estimates from the Farm Business Survey (FBS). ",Scotland,01/01/2023,31/12/2024,Complete,"The report includes:
 
 *   Results for total Scottish agriculture GHG emissions split by **agricultural subsector** (e.g. suckler beef, arable, dairy etc). These subsectors align more closely with agricultural activity and provide a different breakdown to the categories used in the Scottish Greenhouse Gas Statistics.
@@ -180,7 +180,7 @@ No agricultural census took place in 2022. Estimates have been published as part
     
 *   **Average farm level nitrogen use across different farm types.** Estimates are weighted using the same methodology described above.
     
-*   Analysis of whole farm emissions, emission intensity of agricultural outputs and nitrogen use are based on farms in the FBS. This is a survey of around 400 commercial farms (whose standard output exceeds around £20,000). The sample excludes farm types not in receipt of support payments (such as pigs, poultry and horticulture). Some results are weighted to better reflect the wider population. Some results are presented unweighted because they are based on sub-samples of data. Where the sample sizes are small, data can be more highly variable and have a wider margin of uncertainty.",(UK) Open Government Licence,,,xlsx,ChiefStatistician@gov.scot,Energy and Climate Directorate,https://data.gov.scot/scottish-agriculture-greenhouse-gas-emissions-nitrogen-use-2023-24/methodology.html
+*   Analysis of whole farm emissions, emission intensity of agricultural outputs and nitrogen use are based on farms in the FBS. This is a survey of around 400 commercial farms (whose standard output exceeds around £20,000). The sample excludes farm types not in receipt of support payments (such as pigs, poultry and horticulture). Some results are weighted to better reflect the wider population. Some results are presented unweighted because they are based on sub-samples of data. Where the sample sizes are small, data can be more highly variable and have a wider margin of uncertainty.",(UK) Open Government Licence,,,xlsx,ChiefStatistician@gov.scot,Energy and Climate Directorate,https://data.gov.scot/scottish-agriculture-greenhouse-gas-emissions-nitrogen-use-2023-24/methodology.html,
 04/11/2025 14:35:52,allow,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://www.foodstandards.gov.scot/open-data-portal/food-hygiene-information-scheme,,Food Hygiene Information Scheme (Food Standards Scotland),"food, hygiene, rating, inspection, restaurants, FSS, enforcement","└──  Food Safety, Retail",,Food Standards Scotland,"Numeric / Quantitative, Markup","Food hygiene rating or inspection results given to a business and date of inspection or visit by the local authority. Businesses include: restaurants, pubs, cafés, takeaways, hotels and other places consumers eat, as well as in supermarkets and other food shops. The data is held on behalf of Scottish local authorities participating in the FSS' national food hygiene information scheme",Scotland,28/08/2025,,Continuously updated,"Food Standards Scotland carries out various inspections and ratings for businesses. The data provided is in XML, and contains the detail of each business. The main field is ""RatingValue"", which can have values:
 
 *   Pass
@@ -194,7 +194,7 @@ No agricultural census took place in 2022. Estimates have been published as part
 
 Note that each XML file is in a single line, and is not in human-readable format.
 
-The data is available for every county in Scotland",(UK) Open Government Licence,,,xml,enquiries@fss.scot,,Inspectors for every area follow this manual: https://bryantresearch.co.uk/foodlaw/pdf/uk-11010-training-manual-scotland.pdf
+The data is available for every county in Scotland",(UK) Open Government Licence,,,xml,enquiries@fss.scot,,Inspectors for every area follow this manual: https://bryantresearch.co.uk/foodlaw/pdf/uk-11010-training-manual-scotland.pdf,
 04/11/2025 16:32:14,allow,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://www.foodstandards.gov.scot/open-data-portal/multi-species-ante-mortem-post-mortem-conditions,,Multi-Species Ante Mortem & Post Mortem Conditions (2016-2018),"Data, Inspection, Monitoring, Processing, conditions, ante-mortem, post-mortem, disease, cattle, poultry, pig, goat, sheep","├──  Animals, │       ├──  Land based animals, ├──  Disease / Pest Control, Processing / Preparation, └──  Food Safety",,Food Standards Scotland,"Numeric / Quantitative, Textual","Data relating to diseases found in animals being processed for food, both before and after death. Data collected by Food Standards Scotland staff at approved Scottish Meat establishments. Each species is reported on an individual tab and reported by month.",Scotland,01/01/2016,31/12/2018,Complete,"The dataset contains information for sheep, goat, poultry, pig. For each animal kind, the diseases are recorded with the following columns:
 
 *   **Date**
@@ -213,7 +213,7 @@ The data is available for every county in Scotland",(UK) Open Government Licence
     
 *   **Post-mortem conditions identified** (if any)
     
-*   **Number of conditions** (of post-mortem)",(UK) Open Government Licence,,,xlsx,enquiries@fss.scot,,"Methodology was not provided, it appears to be reported by processors."
+*   **Number of conditions** (of post-mortem)",(UK) Open Government Licence,,,xlsx,enquiries@fss.scot,,"Methodology was not provided, it appears to be reported by processors.",
 10/11/2025 14:32:19,Allow,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://www.foodstandards.gov.scot/open-data-portal/animal-welfare-data,,Food Standards Scotland - Animal Welfare Data,"Enforcement, inspection, food standards Scotland, cattle, welfare","├──  Animals, │       ├──  Land based animals, │       │             ├──  Cattle, │       │             └── Poultry, │       └──  Animal Welfare, Policy",,Food Standards Scotland,Textual,"This dataset provided by the FSS includes various reports relating to violations of Animal Welfare regulations, specifically those which scores 3 or 4. It records the species, the ""violation score"", the type of non-compliance, detailed descriptions and the actions taken. It even includes *anonymised* emails from the offending parties. The spreadsheets are also split by where the accident took place: ""on farm & transport"" vs ""In plant"".",Scotland,01/01/2017,,Continuously updated,"This dataset is made available by FSS thanks to the Freedom of Information Act. The dataset is a listing of various welfare violations relating to farm animals, with each month being its own spreadsheet. Each spreadsheet has 2 sheets: _On Farm & Transport,_ and _In Plant._
 
 Each sheet contains the following columns:
@@ -258,7 +258,7 @@ Each sheet contains the following columns:
     
 *   **Feedback text:** Format of reply, usually “email”
     
-*   **Feedback**: the reply from the farm / plant, usually with plenty of detail.",(UK) Open Government Licence,,,xlsx,enquiries@fss.scot,,"Recorded by FSS, but methodology could not be found."
+*   **Feedback**: the reply from the farm / plant, usually with plenty of detail.",(UK) Open Government Licence,,,xlsx,enquiries@fss.scot,,"Recorded by FSS, but methodology could not be found.",
 10/11/2025 15:31:36,Allow,"Yes, I consent","Yes, I consent","Yes, I know that my data contains personal information",Yes,Shared upon request (following protocols),,,"Yes, I am aware of the transfer protocols",UK Biobank dataset,"UK, biobank, health, disease, illness, biomedical, imaging, biomarker, genetic, healthcare, lifestyle, environmental, sociodemographic, repeated samples, longitudinal","├──  Genetics & Characteristics, ├──  Geography & Range, └──  Consumer Behaviour, Consumption, ├──  Nutrition, └──  Food Availability, Citizen Science","Biology, Nutrition",UK Biobank,"Numeric / Quantitative, Textual, Images, Maps / Spatial, Markup","The UK Biobank is an extremely large dataset of healthcare information relating to half a million volunteer participants, thanks to a project where many individuals from the UK agreed to be studied for 30 years. The dataset also has many fields, ranging from blood samples to lifestyle. 
 The data is accessible for health-care related researchers, after making a formal request.",United Kingdom,01/01/2006,,Continuously updated,"## UK Biobank
 
@@ -326,9 +326,227 @@ At that time, participants had collectively recorded approximately **1.3 million
 | **Data types**         | Biological, physical, imaging, lifestyle, genetic, proteomic            |
 | **Access**             | Open to approved researchers (data only; participants remain anonymous) |
 
-",Restricted / Proprietary (All Rights Reserved),"There are some caveats relating to how the data should be used responsibly. The reasoning given when applying to receive the data should be maintained, and the data itself should not be shared and it should be stored in secure places. The data is anonymised, and you are not allowed to attempt to re-identify participants. When you obtain data, you need to send it (along with code) to BioBank within 6 or 12 months. There are annual reports to be made, relating to how the data is used. The research produced should be ethically sound, and any publications are to be notified to biobank. An introduction video can be found at https://www.youtube.com/watch?v=rvm6olcElcM&t=686s","Funding comes from many places, mainly Wellcome, MRC, Cancer Research UK, British Heart foundation and Care Research. Additionally, Amazon Web services has contributed to the infrastructure. A UKRI infrastructure fund was also awarded.",,ukbiobank@ukbiobank.ac.uk,,"The volunteers answer questionnaires and do visits in which various samples are collected. The methodology varies based on the data being collected, but a summary page is found here: https://www.ukbiobank.ac.uk/about-our-data/our-participants/"
+",Restricted / Proprietary (All Rights Reserved),"There are some caveats relating to how the data should be used responsibly. The reasoning given when applying to receive the data should be maintained, and the data itself should not be shared and it should be stored in secure places. The data is anonymised, and you are not allowed to attempt to re-identify participants. When you obtain data, you need to send it (along with code) to BioBank within 6 or 12 months. There are annual reports to be made, relating to how the data is used. The research produced should be ethically sound, and any publications are to be notified to biobank. An introduction video can be found at https://www.youtube.com/watch?v=rvm6olcElcM&t=686s","Funding comes from many places, mainly Wellcome, MRC, Cancer Research UK, British Heart foundation and Care Research. Additionally, Amazon Web services has contributed to the infrastructure. A UKRI infrastructure fund was also awarded.",,ukbiobank@ukbiobank.ac.uk,,"The volunteers answer questionnaires and do visits in which various samples are collected. The methodology varies based on the data being collected, but a summary page is found here: https://www.ukbiobank.ac.uk/about-our-data/our-participants/",
 17/11/2025 13:26:54,allow,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://www.gov.uk/government/statistical-data-sets/family-food-datasets,,DEFRA family food data sets,"purchases, nutrients, good and drink, expenditure",Consumption,Nutrition,DEFRA,Numeric / Quantitative,"These family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.
 
 ",United Kingdom,,,Continuously updated,"These family food datasets contain more detailed information than the ‘Family Food’ report and mainly provide statistics from 2001 onwards. The UK household purchases and the UK household expenditure spreadsheets include statistics from 1974 onwards. These spreadsheets are updated annually when a new edition of the ‘Family Food’ report is published.
 
-The ‘purchases’ spreadsheets give the average quantity of food and drink purchased per person per week for each food and drink category. The ‘nutrient intake’ spreadsheets give the average nutrient intake (e.g. energy, carbohydrates, protein, fat, fibre, minerals and vitamins) from food and drink per person per day. The ‘expenditure’ spreadsheets give the average amount spent in pence per person per week on each type of food and drink. Several different breakdowns are provided in addition to the UK averages including figures by region, income, household composition and characteristics of the household reference person.",Unspecified,,,ods,familyfood@defra.gov.uk,,"Data is collected for a sample of households in the United Kingdom using self-reported diaries supported by till receipts of all purchases, including food eaten out, over a two week period. Where possible quantities are recorded in the diaries but otherwise estimated. Current estimates are based on data collected in the Family Food Module of the Living Costs and Food Survey and on adjusted data collected in the National Food Survey."
+The ‘purchases’ spreadsheets give the average quantity of food and drink purchased per person per week for each food and drink category. The ‘nutrient intake’ spreadsheets give the average nutrient intake (e.g. energy, carbohydrates, protein, fat, fibre, minerals and vitamins) from food and drink per person per day. The ‘expenditure’ spreadsheets give the average amount spent in pence per person per week on each type of food and drink. Several different breakdowns are provided in addition to the UK averages including figures by region, income, household composition and characteristics of the household reference person.",Unspecified,,,ods,familyfood@defra.gov.uk,,"Data is collected for a sample of households in the United Kingdom using self-reported diaries supported by till receipts of all purchases, including food eaten out, over a two week period. Where possible quantities are recorded in the diaries but otherwise estimated. Current estimates are based on data collected in the Family Food Module of the Living Costs and Food Survey and on adjusted data collected in the National Food Survey.",
+19/11/2025 14:21:00,,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://doi.pangaea.de/10.1594/PANGAEA.921846?format=html,,HILDA+ Global Land Use Change from 1960,"Land use, land use change","├──  Plants & Crops, │       └──  Soil Science / Fertilisers",,Karina Winkler,Numeric / Quantitative," HILDA+ (HIstoric Land Dynamics Assessment+) is a global dataset on annual land use/cover change between 1960 and 2019 at 1 km spatial resolution. It is based on a data-driven reconstruction approach and integrates multiple open data streams (from high-resolution remote sensing, long-term land use reconstructions and statistics). It covers six generic land use/cover categories: 1: Urban areas, 2: Cropland, 3: Pasture/rangeland, 4: Forest, 5: Unmanaged grass/shrubland, 6: Sparse/no vegetation.",Not Relevant,20/08/2020,,Continuously updated,"HILDA+ is provided in different spatial dataset types and version, which can be accessed as ZIP folders:
+
+    vGLOB-1.0_geotiff: Land use/cover states and transition layers as multiple single geotiffs from 1960 to 2019.
+    vGLOB-1.0-f_netcdf: Land use/cover states and transition layers as two large netCDF files with extended time span from 1899 to 2019. This dataset includes forest class sub-division and dynamics. Because its temporal extension, the dataset is a suitable input for global climate, earth system as well as biodiversity models, which may need a longer spin-up phase.
+    hildap_vGLOB-1.0_change-layers: HILDA+ change layers (change frequency; forest, cropland and pasture/rangeland change between 1960 and 2019) are provided as geotiffs.
+    hildap_vGLOB-1.0_uncertainty: Uncertainty layers are provided as geotiffs in three different ZIP folders (part1-3), containing annual datasets of uncertainty information: Number of input datasets, deviation and average area fraction per land use/cover category.","Open with Attribution (CC by attribution, ODC-By)",,,,,,"LUC change dynamics for six LUC categories (urban, cropland, pasture/rangeland, forest, unmanaged grass/shrubland, sparse/no vegetation) were reconstructed based on multiple sources of observational data, from which country-scale change extents and mean fractional area were derived per 1 × 1 km grid cell from 1960 to 2019. Country- and year-specific areas of change for each land transition between these categories were calculated. A base map for the year 2015 served as a starting point for the change allocation procedure, which, at first, runs backward in time (2015–1960) and, subsequently, forward in time (2015–2019). For each time step and country, LUC change was allocated to selected candidate pixels by using ranked gridded class fractions and the data-derived change extents. Each of these iterative procedures yielded a global LUC map, which served as the new base map for the next time step. The following methodological steps were included in the data development:
+
+    Pre-processing and harmonisation of land use/cover maps: Reclassifying with a common generalised classification scheme• Probability maps for land use/cover categories: Annual maps of the average area fractions of each land use/cover category. Based on this, probability maps for the final LUC categories were derived, which were the basis of the change allocation procedure.
+    Probability maps for land use/cover categories: Annual maps of the average area fractions of each land use/cover category. Based on this, probability maps for the final LUC categories were derived, which were the basis of the change allocation procedure.
+    Base map calibration (calibrating the Copernicus LC100 Global Land Cover map for the reference year 2015 to FAO land use statistics).
+    Preparing datasets for national LUC change matrices based on FAO statistics (annual net changes per country) and remote sensing products (annual gross changes per country).
+    Change allocation: Based on the recalculated country- and year-specific transition matrices, the magnitude of LUC change was distributed over the grid by means of corresponding probability maps for each LUC category. This procedure was undertaken iteratively for each year (in a back- and forward mode starting from the base year 2015, respectively), for each individual country and for each land transition between two LUC categories. The output of each change allocation step of the annual loop was a new global map of LUC, which served as the base map for the next processing step.",It is not present already
+24/11/2025 15:52:56,allow,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://www.sepa.org.uk/environment/waste/waste-data/waste-data-reporting/waste-data-for-scotland/,,SEPA Waste data for Scotland,"SEPA, household, waste, Scotland",Waste Management,Environmental science,Scottish Environment Protection Agency (SEPA),"Numeric / Quantitative, Textual, Maps / Spatial","Data and information on the types and quantities of waste generated and managed across Scotland, reported by the Scottish Enviroment Protection Agency (SEPA)",Scotland,,,Continuously updated,"## Waste Data
+SEPA is responsible for reporting national waste statistics to the Scottish Government and European Union among others. As regulator, SEPA also has a duty to assess whether waste management sites comply with the conditions of their licence or permit.
+
+To do this, SEPA collects and verifies data from a number of sources, mainly:
+
+- Operators of all licensed and most permitted waste management sites
+- Operators of certain activities exempt from full waste management licensing
+- Local authorities
+
+A strategy for improving waste data in Scotland, also known as the Waste data strategy 2017, aims to deliver Scotland's current and future waste data needs as we move towards a more resource-focused future. Written in partnership by SEPA, Zero Waste Scotland and Scottish Government, it outlines what we will achieve and how we are going to co-ordinate and deliver a plan that will support Scotland's transition to a more circular economy, where products and materials are kept in high value use for as long as possible.
+
+Most of the data are presented as interactive tools with tables and charts that can be filtered to suit. All the data are available in Excel format.
+
+SEPA also collects and reports on offsite transfers of waste from industrial sites through the Scottish Pollutant Release Inventory (SPRI)
+
+## Waste data for Scotland
+The Scotland’s Environment Waste Discover Data tool presents waste from all sources, i.e. from households, the construction and demolition sector, and from commerce and industry. The tool shows a break-down of waste types from 2011 onwards and the trend for Scottish waste landfilled since 2005. All data can be exported to Excel if required. 
+
+The Scotland’s Environment Household Waste Discover Data tool shows waste from household sources only. The tool shows a break-down of household waste generated and managed by waste type from 2011 onwards and the trends for household waste generated, recycled and managed since 2004. All data can be exported to Excel if required.
+
+As well as the Discover tools, the table below shows:
+
+Excel summaries of waste data generated and managed across Scotland;
+Excel summaries of the types and quantities of waste landfilled and incinerated in Scotland each year;
+commentary and quality reports to accompany the data.
+All the waste data reported on this page are now published as Official Statistics. You can find out more about this from the Official Statistics webpage.
+
+The publication schedule for all the data on this page is set out on our Waste data reporting page.
+
+Available information: Commentary documents, Excel data tables and quality reports",(UK) Open Government Licence,You must ensure that You use it accurately and that You do not use it in a manner that is or may be misleading to others.,,xlsx,"0300 099 6699, https://www2.sepa.org.uk/contactus",,"Data was collected and verified from a number of sources, mainly from operators of all licensed and most permitted waste management sites, operators of certain activities exempt from full waste management licensing, and local authorities",It is not present already
+01/12/2025 10:49:34,,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,https://data.food.gov.uk/catalog/datasets/1ff09840-1203-4b3c-86a8-51226230ef34,,Food Shortages Survey - (Food Standards Agency),"CO2, FSA, shortages, availability, bank","└──  Food Safety, Retail, ├──  Pricing, └──  Consumer Behaviour, Consumption, └──  Food Availability, Policy",,Food Standards Agency,"Numeric / Quantitative, Textual","This weekly tracking survey from the FSA was established at the end of September 2021 to track consumer perceptions, awareness, and concerns in relation to shortages in the food industry in addition to other topical issues (such as labour shortages). This survey was commissioned for 6 waves, each one week apart. The original report is called ""CO2 shortages weekly consumer survey"", but this is not a good description of the files present.",United Kingdom,24/09/2021,25/11/2021,Complete,"This data was collected by the FSA to document perceptions of food shortages. A summary of the findinds from this study is available from [this report.](https://www.food.gov.uk/sites/default/files/media/document/Consumer%20insights%20publication%20report.pdf)
+
+
+There are 15 questions (with some variations), each with ordinal answers (`Very worried` to `Not at all worried` for example).
+
+-----
+The responses are separated by **Gender**, **Age**, **Social Grade**, **Region** (of the UK), **Rurality** (Urban or rural).
+
+## The questions
+Here are the questions present in the dataset:
+
+* Q1.To what extent, if at all, are you worried about there not being enough food available for you/your household to buy this week?
+
+* Q2.To what extent, if at all, are you worried you/your household will not be able to afford food this week?
+
+* Q3. Thinking about each of the following types of food, in the last week, have any of your preferred products been unavailable where you usually buy them when doing your food shopping?
+
+* Q3(a). In the last month, how often, if at all, have you used a food charity or food bank?
+
+* Q4.Thinking about the following types of food products you said were unavailable, were you able to find a suitable substitute when doing your food shopping? 
+
+
+* Q4.(a) You said that some food or drink items were unavailable this week when doing your food shopping. To what extent, if at all, did shortages of each of the following impact your household?  
+
+
+* Q5.Thinking about when you’ve eaten out in the past week, for example in a restaurant or café, were any food or drink items unavailable?
+
+* Q6.In the past week, have you, personally, noticed that the price of your food shopping has changed?
+
+
+* Q7.In the last week, have you or anyone in your household done any of the following?
+
+
+* Q8.In the last week, have you personally noticed any of the following about the use-by dates on your food?
+
+
+* Q9.Thinking about this Christmas (2021) and New Year (2022). How concerned, if at all, are you personally about the following, when doing your food shopping? - The availability of food
+
+
+* Q10.How much, if anything, would you say you know about… - Summary
+
+
+* Q10.(a) Have you seen, read or heard about any of the following in the last week? - Summary
+
+
+* Q10.How much, if anything, would you say you know about… - Summary
+
+
+* Q11.At the moment, how concerned, if at all, do you personally feel about each of the following topics?  - Summary
+
+
+* Q12.In the last week, have you eaten food past the use-by date?
+
+
+* Q13.How confident are you in the food supply chain? That is all the processes involved in bringing food to your table
+
+
+* Q14.How confident are you that Farmers in the UK [and Ireland] ensure the food you buy is safe to eat?
+
+
+* Q15.How confident are you that takeaways in the UK [and Ireland] ensure the food you buy is safe to eat?
+
+
+
+
+",(UK) Open Government Licence,,,xlsx,Contacts available here: https://www.food.gov.uk/contact/consumers/find-details/contact-food-standards-agency,,"The data captured within this report is drawn from various tracking surveys 
+commissioned by the FSA, via Ipsos MORI, from April 2020 until November 2021.
+(this is taken from the November 2021 report). The data consists of 6 ""Waves"" of collection, where each wave is a week. ",It is not present already
+01/12/2025 11:19:38,,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,"https://data.food.gov.uk/catalog/datasets/0bfd916a-4e01-4cb8-ba16-763f0b36b50c
+https://data.food.gov.uk/catalog/datasets/ed0b4411-ee3d-452c-97b4-f3f1f1146ff1",,Consumer Insights Tracker - Food Standards Agency,"affordability, FSA, YouGov, money, saving, consumer, concern, poverty, opinions, survey, affordability, confidence","├──  Pricing, Consumption, └──  Food Availability",Nutrition,Food Standards Agency,"Numeric / Quantitative, Textual","The Consumer Insights Tracker is an online monthly tracking survey commissioned by the Food Standards Agency (FSA) and administered by YouGov. It monitors the behaviour and attitudes of adult consumers aged 16+ in England, Wales and Northern Ireland in relation to food. The survey includes core topics of food availability, food affordability, consumer concerns in relation to food, confidence in the food supply chain and in the FSA as a regulator. A report covering these core topics is published on science.food.gov.uk every three months.  For more information about these questions, please refer to the 'Background and methodological information' section of each quarterly report. ",United Kingdom,01/11/2023,,Continuously updated,"The Consumer Insights Tracker is the Food Standards Agency’s (FSA) tracking survey that monitors changes in consumers’ behaviour and attitudes in relation to food. Fieldwork is conducted on a monthly basis.
+
+## Report, with methodology and summary
+More detailed information about this data is available on `science.food.gov`, where a report of this data is produced every 3 months, such as [this one](https://science.food.gov.uk/article/122773-consumer-insights-tracker-technical-report-2024).
+
+
+## Note about data collection
+The data was collected by **YouGov** and **Ipsos** on behalf of the FSA, in 2 different time frames. Due to differences in methodology, the two datasets should not be directly compared. 
+
+## Example questions asked:
+* How worried that you will not be able to afford food in the next month?
+* Have you done any of the following to redice cost of food or bills? Eaten food past its use-by date, cooked food for less time, lowered the cooking temperature for food, turned off a fridge or freezer...
+* How concerned about food shortages, food inequality, animal welfare, food prices ... in the UK?
+
+* Do you trust the FSA?
+* Which of these food safety topics have you read, seen or heard lately?
+
+etc...
+
+
+
+
+
+
+
+",(UK) Open Government Licence,,,xlsx,Contact links are found here: https://www.food.gov.uk/contact/consumers/find-details/contact-food-standards-agency,Data was gathered by YouGov and Ipsos,"(taken from https://science.food.gov.uk/article/122773-consumer-insights-tracker-technical-report-2024 , applies to the YouGov collected data)
+
+The Consumer Insights Tracker is conducted using a bespoke online survey approach, administered to members of the YouGov Plc UK panel. Fieldwork takes place monthly, typically during the first week of the month and lasting around 5 days in total. Approximately 2,000 adults (aged 16 years and older) across England, Wales and Northern Ireland participate in the survey each month. This includes a pilot of around 100 responses for each wave. Respondents are excluded from taking the survey again for 6 months. The questionnaire completion time is approximately 10 minutes. The questions remain broadly consistent for each wave, although questions can be added/ removed as needed. Respondents are provided an incentive, in the form of points credited to their YouGov account, upon completion of the survey",It is not present already
+01/12/2025 11:54:24,,"Yes, I consent","Yes, I consent",My data contains no personal information,Yes,Publicly shareable,Yes it is available,"https://www.food.gov.uk/research/food-and-you
+https://www.food.gov.uk/research/food-and-you-2",,"Food and You Survey (1 and 2, from the Food Standards Agency)","survey, consumer, behaviour, food, household, safety, attitudes, hygiene, habits, eating, shopping, security, insecurity, hypersensitivity, allergies, eating out, meat alternatives, trust, public, cross-sectional, ","└──  Food Safety, ├──  Supply Chain, └──  Distribution Chain, Retail, ├──  Pricing, ├──  Marketing, └──  Consumer Behaviour, Consumption, ├──  Nutrition, └──  Food Availability, Policy","Nutrition, Education, Sociology and Psychology",Food Standards Agency,"Numeric / Quantitative, Textual, Markup","Food and You (1 and 2) is a large-scale, repeated cross-sectional survey of adults (aged 16+) in private households across the UK (England, Wales and Northern Ireland, and from Wave 8 onwards Scotland). It collects self-reported data on people’s food-related knowledge, attitudes and behaviours. Core areas include household demographics, food hypersensitivities and dietary preferences, perceptions of food safety and trust in the food supply chain, food concerns, food security, food shopping behaviour, domestic food practices (storage, cooking, hygiene), eating out and takeaway habits, and other emerging food-related issues (such as sustainable diets or novel food interest).",United Kingdom,01/01/2010,31/12/2014,Continuously updated,"## What this dataset is
+
+**Food and You** was the main consumer survey by the Food Standards Agency (FSA), first carried out in 2010, with further waves in 2012 and 2014. The survey collected self-reported data from UK adults (aged 16+) living in private households about their food-related behaviours, attitudes, knowledge and practices. This includes data on food purchasing, storage, preparation, consumption, eating habits, where people eat out or get takeaways, and experiences of food poisoning or food-safety concerns.  [data.gov.uk](https://www.data.gov.uk/dataset/843d1a1e-c80b-4c55-89eb-5cf1185dbe3c/food-and-you)
+
+In 2020 the FSA replaced that survey with **Food and You 2**, commissioned in September 2019. Fieldwork began in July 2020. Food and You 2 uses a different methodology (a “push-to-web” mixed-mode survey rather than face-to-face) and is designed as a repeated cross-sectional survey to monitor changing patterns of consumer behaviour, attitudes and food-related issues over time.  [food.gov.uk](https://www.food.gov.uk/research/food-and-you-2-technical-report-introduction)
+
+The “2” in the name indicates this new version (post-2019), reflecting the change from the earlier biennial face-to-face survey to a more efficient, flexible design that allows more frequent waves, broader topic coverage and adaptation to emerging issues.  [food.gov.uk, technical report](https://www.food.gov.uk/research/food-and-you-2-technical-report-introduction)
+
+**Note**: From **Wave 8** of Food and You 2, the survey **for the first time included a sample of respondents in Scotland**, with support from Food Standards Scotland (FSS).  [food.gov.uk, technical report](https://www.food.gov.uk/research/food-and-you-2-technical-report-introduction)
+
+### Sample sizes and response context  
+
+- In Wave 1 of Food and You 2 (July–October 2020), there were 9,319 individual returns.  [acmsf.food.gov.uk](https://acmsf.food.gov.uk/committeeworkin2021)  
+- The largest issued sample size was in Wave 1 (21,053 addresses), then dropped to 13,922 in Wave 2, and remained 14,115 in Waves 3 and 4.  [Report on all waves](https://doc.ukdataservice.ac.uk/doc/8815/mrdoc/pdf/8815_fy2_all_waves_technical_report.pdf)  
+- For Wave 5, with inclusion of reserve addresses, the issued sample size was 16,115 addresses.  [doc.ukdataservice.ac.uk](https://doc.ukdataservice.ac.uk/doc/8815/mrdoc/pdf/8815_fy2_all_waves_technical_report.pdf)  
+- For Wave 6 and Wave 7, the issued sample size was 14,500.  [doc.ukdataservice.ac.uk](https://doc.ukdataservice.ac.uk/doc/8814/mrdoc/pdf/8814_fy2_wave_6_technical_report.pdf)  
+- For Wave 8 (when Scotland was included), the total issued sample size was 18,850 (15,000 for England/Wales/Northern Ireland + 3,850 for Scotland).  [doc.ukdataservice.ac.uk](https://doc.ukdataservice.ac.uk/doc/8815/mrdoc/pdf/8815_fy2_all_waves_technical_report_2024.pdf)  
+- In Scotland for Wave 8, 1,377 adults from 954 households responded (response rate ~ 24.8%) — of these, 68.4% completed online and 31.6% via the postal questionnaire.  [Food Standards Scotland](https://www.foodstandards.gov.scot/publications-and-research/publications/food-and-you-2-survey-scotland-wave-8-key-findings)
+
+Because up to two adults per household can participate, the number of individual returns is typically higher than the number of households.  [Food Standards Agency](https://www.food.gov.uk/research/food-and-you-2-technical-report-introduction)
+
+The survey uses stratified random probability sampling from the Royal Mail Postcode Address File (PAF), stratified by local authority and deprivation, to ensure broad geographic and socio-economic representativity.  [Food Standards Agency](https://www.food.gov.uk/research/food-and-you-2-technical-report-introduction)
+
+---
+
+## Topic areas / Modules
+
+Food and You 2 uses a modular questionnaire design. Some modules are asked **every wave** (core modules), others rotate and are asked less frequently (e.g. every 6 months, 12 months, or 24 months), depending on the wave schedule and content.  [Food Standards Agency](https://www.food.gov.uk/research/fy2-wave-6-technical-report-appendices)
+
+| Module / Topic Area | What it covers |
+|---------------------|----------------|
+| Demographics & household info; dietary preferences; food hypersensitivities | Age, household composition, which household member does cooking/shopping, reported allergies or intolerances, diet preferences |
+| Food you can trust (core) | Confidence in food safety, food authenticity, trust in the supply chain and food industry, trust in FSA |
+| Food concerns (core) | Worries about food safety, quality, origin, packaging and broader food concerns |
+| Household food security (core) | Food insecurity, changes in food access or consumption due to financial or other constraints, use of food banks or social supermarkets |
+| Eating at Home (domestic food practices) | Food storage, cooking, reheating, chilling, hygiene behaviours (cleaning, hand-washing, cross-contamination etc.) |
+| Food shopping behaviours | Shopping habits, confidence in allergen information, reactions to allergen/food alerts, attitudes toward provenance, sustainability, meat alternatives |
+| Eating Out & Takeaways | Behaviour and attitudes when eating out or ordering takeaways; awareness/use of hygiene ratings schemes, convenience, dietary choice outside home |
+| Food hypersensitivities / allergies (in-depth) | Detailed information about self-reported allergies/intolerances, whether diagnosed, management, avoidance behaviours, reaction experiences |
+| Emerging issues / Sustainable / Healthy / Novel diets | Attitudes toward sustainable diets, consumption of meat alternatives, interest in novel/genetic food technologies, ethical or environmental food considerations |
+
+\* Core modules such as “Food you can trust”, “Food concerns”, “Household food security”, and Demographics/household info are typically asked in every wave. Other modules rotate between waves depending on the survey schedule and priorities.  [Food Standards Agency](https://www.food.gov.uk/research/fy2-wave-6-technical-report-appendices)
+
+---
+
+## Files available
+
+### For **Food and You (2010–2014)**
+
+- Combined dataset for all waves (2010, 2012, 2014) in **CSV** format.  [Data.gov.uk](https://www.data.gov.uk/dataset/843d1a1e-c80b-4c55-89eb-5cf1185dbe3c/food-and-you)  
+- Data user guide (in XLS) describing variables, coding, weights, and how to interpret the data.  [Data.gov.uk](https://www.data.gov.uk/dataset/843d1a1e-c80b-4c55-89eb-5cf1185dbe3c/food-and-you)  
+- Executive summaries, bulletins, analysis reports and other documentation in HTML (though some may not remain accessible).  [Data.gov.uk](https://www.data.gov.uk/dataset/843d1a1e-c80b-4c55-89eb-5cf1185dbe3c/food-and-you)
+
+### For **Food and You 2 (2020 onward)**
+
+For each wave there are publicly available:
+
+- **Key Findings Report** (PDF) summarising main results for that wave.  [Food Standards Agency](https://www.food.gov.uk/research/food-and-you-2)  
+- **Technical Report** (PDF) including methodological details: sampling, fieldwork dates, response rates, weighting, questionnaire design, description of modules.  [Food Standards Agency](https://www.food.gov.uk/research/food-and-you-2-technical-report-introduction)  
+- **Data tables**: summary tables of responses, for combined UK (or UK except Scotland) and, when available, country-level breakdowns (England, Wales, Northern Ireland, and Scotland from Wave 8).  [UK Data Service](https://ukdataservice.ac.uk/case-study/food-and-you-2/)  
+- **Full microdata and survey materials**: for deeper analysis, dataset versions (e.g. SPSS), questionnaire versions (online and postal), invitation/ reminder letters, etc., accessible via the UK Data Service under their access agreement.  [UK Data Service](https://ukdataservice.ac.uk/case-study/food-and-you-2/)
+
+---
+
+## Important notes 
+
+- Because of the **methodological change** between the original Food and You (face-to-face, biennial) and Food and You 2 (push-to-web mixed mode, biannual), **data from the two surveys should not be directly compared**. Food and You 2 constitutes a new time series.  [Food Standards Agency](https://www.food.gov.uk/research/food-and-you-2-technical-report-introduction)  
+- Not all modules are asked every wave. For longitudinal or trend analysis on certain topics (e.g. food shopping, sustainable diets, detailed hypersensitivity questions), it is important to check which wave(s) include the module.  [Food Standards Agency](https://www.food.gov.uk/research/fy2-wave-6-technical-report-appendices)  
+- Survey responses are **self-reported**. As in all social surveys, what respondents say they do (attitudes, behaviours) may differ from actual behaviour — especially for sensitive questions like hygiene or food-security.  
+- Use of full microdata (e.g. SPSS datasets) or country-level breakdowns may require compliance with licensing terms (e.g. via UK Data Service).  
+- When citing the dataset in publications or reports, you should clearly reference the wave (or waves) used, the technical report, and (if relevant) country coverage (e.g. noting inclusion of Scotland from Wave 8).  
+
+---
+
+### Suggested citation format
+
+> Food Standards Agency. Food and You 2, Waves 1–8 (2020–2024). UK Data Service.  
+",(UK) Open Government Licence,Usage of this dataset is subject to the conditions of UK Data Service: https://ukdataservice.ac.uk/terms-and-conditions/,,"csv, xlsx, xml, pdf",Contact links are here: https://www.food.gov.uk/contact/consumers/find-details/contact-food-standards-agency,UK Government,"The methodology changed between 1 and 2. In Food and You 2,  random addresses are picked, and those households are invited to participate (a letter is sent, to invite them to participate online). Some reminder letters are sent in case of non-participation, and a paper option is given. In Food and You 1, the collection was face-to-face. A summary of Wave 6 is present here: https://www.food.gov.uk/research/fy2-wave-6-technical-report-introduction?utm_source=chatgpt.com",It is not present already
