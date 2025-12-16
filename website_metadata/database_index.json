@@ -416,5 +416,41 @@
     "file_extensions": [
       "ods"
     ]
+  },
+  {
+    "id": "00013",
+    "allowed_in_database": true,
+    "name": "SEPA Waste data for Scotland",
+    "keywords": [
+      "sepa",
+      "household",
+      "waste",
+      "scotland"
+    ],
+    "abstract": "Data and information on the types and quantities of waste generated and managed across Scotland, reported by the Scottish Enviroment Protection Agency (SEPA)",
+    "publicly_available": true,
+    "author_name": "Scottish Environment Protection Agency (SEPA)",
+    "author_contacts": "0300 099 6699, https://www2.sepa.org.uk/contactus",
+    "location": [
+      "Scotland",
+      "Europe",
+      "United Kingdom"
+    ],
+    "collection_start": "",
+    "collection_end": "",
+    "categories_list": [
+      "Waste Management"
+    ],
+    "research_fields": [
+      "Environmental science"
+    ],
+    "data_types": [
+      "Numeric / Quantitative",
+      "Textual",
+      "Maps / Spatial"
+    ],
+    "file_extensions": [
+      "xlsx"
+    ]
   }
 ]
