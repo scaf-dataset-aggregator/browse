@@ -192,9 +192,22 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["abstract"] = html.escape(str(row_dict.get("abstract", "Missing abstract")))
     result_json["allowed?"] = bool(row_dict.get("allow", "Missing").lower() in {"yes", "y", "allow", "allowed"})
 
+    result_json["shareability"] = row_dict.get("shareability")
+    result_json["is_accessible_for_free"] = "true" if (
+            "publicly shareable" == result_json["shareability"].lower()) else "false"
+
+
     raw_links = row_dict.get("dataset_links_from_questionnaire").split("\n")
     html_links = [f'<a href="{link}">{link}</a>' for link in raw_links]
     result_json["links"] = make_html_bullet_list(html_links)
+
+    result_json["links_html_section"] = None
+    if (result_json["is_accessible_for_free"]=="true"):
+        result_json["links_html_section"] = "<h2>Downloads / Links</h2> <p>"+result_json["links"]+"</p>"
+    elif (result_json["is_accessible_for_free"]=="false"):
+        result_json["links_html_section"] = "<h2> This data is only available on request</h2>"
+    else:
+        result_json["links_html_section"] = "<h2> Download links are not available for this data </h2>"
 
     result_json["first_link"] = raw_links[0] if len(raw_links) > 0 else "error"
 
@@ -225,9 +238,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["collection_start_html"] = format_date_for_human(row_dict.get("data_collection_start"))
     result_json["collection_end_html"] = format_date_for_human(row_dict.get("data_collection_end"))
 
-    result_json["shareability"] = row_dict.get("shareability")
-    result_json["is_accessible_for_free"] = "true" if (
-                "publicly shareable" == result_json["shareability"].lower()) else "false"
+
 
     categories_list_dirty = list(row_dict.get("dataset_categories_from_questionnaire", "").split(", "))
     categories_list_cleaned = [strip_leading_symbols(category_name) for category_name in categories_list_dirty]
