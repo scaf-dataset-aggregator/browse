@@ -190,6 +190,7 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["keywords_schema"] = "[" + ",\n".join(f'"{keyword}"' for keyword in keywords) + "]"
 
     result_json["abstract"] = html.escape(str(row_dict.get("abstract", "Missing abstract")))
+    result_json["abstract_escaped_for_schema"] = repr(result_json["abstract"])
     result_json["allowed?"] = bool(row_dict.get("allow", "Missing").lower() in {"yes", "y", "allow", "allowed"})
 
     result_json["shareability"] = row_dict.get("shareability")
