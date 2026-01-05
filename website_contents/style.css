@@ -164,7 +164,7 @@ body.home {
 
 .nav-links {
   /*margin-top: 0.8rem;*/
-  display: inline-flex;
+  /*display: inline-flex;*/
   gap: 0.75rem;
   align-items: center;
   flex-wrap: wrap;
