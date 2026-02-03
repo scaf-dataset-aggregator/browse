@@ -269,6 +269,10 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     result_json["copyright"] = row_dict.get("copyright")
     result_json["usage_instructions"] = row_dict.get("usage_instructions")
+    if len(result_json["usage_instructions"].strip()) < 1:
+        result_json["usage_instructions"] = "None"
+
+
     result_json["acknowledgements"] = row_dict.get("acknowledgements")
 
     # remove dangerous tags anywhere
