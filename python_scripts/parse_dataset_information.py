@@ -57,6 +57,7 @@ def get_cleaned_categories(input_string):
     cleaned = [_non_alpha_trim.sub('', term.strip()) for term in terms]
     return [t for t in cleaned if t]
 
+
 # Matches dd/mm/yyyy where dd=01–31, mm=01–12, yyyy=0000–9999
 date_regex = re.compile(r"^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$")
 
@@ -133,7 +134,6 @@ def invert_filter_options_tree(filter_options: dict[str, set[str]]):
     return entire_dict
 
 
-
 # prepare the filter options dict, and its inverted form.
 # this will be used later to add missing categories to csv entries
 try:
@@ -173,8 +173,6 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
     """
 
-
-
     row_dict = row.to_dict()
     result_json = row_dict.copy()
     result_json["dataset_code"] = str(dataset_code)
@@ -197,15 +195,14 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["is_accessible_for_free"] = "true" if (
             "publicly shareable" == result_json["shareability"].lower()) else "false"
 
-
     raw_links = row_dict.get("dataset_links_from_questionnaire").split("\n")
     html_links = [f'<a href="{link}">{link}</a>' for link in raw_links]
     result_json["links"] = make_html_bullet_list(html_links)
 
     result_json["links_html_section"] = None
-    if (result_json["is_accessible_for_free"]=="true"):
-        result_json["links_html_section"] = "<h2>Downloads / Links</h2> <p>"+result_json["links"]+"</p>"
-    elif (result_json["is_accessible_for_free"]=="false"):
+    if (result_json["is_accessible_for_free"] == "true"):
+        result_json["links_html_section"] = "<h2>Downloads / Links</h2> <p>" + result_json["links"] + "</p>"
+    elif (result_json["is_accessible_for_free"] == "false"):
         result_json["links_html_section"] = "<h2> This data is only available on request</h2>"
     else:
         result_json["links_html_section"] = "<h2> Download links are not available for this data </h2>"
@@ -239,8 +236,6 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     result_json["collection_start_html"] = format_date_for_human(row_dict.get("data_collection_start"))
     result_json["collection_end_html"] = format_date_for_human(row_dict.get("data_collection_end"))
 
-
-
     categories_list_dirty = list(row_dict.get("dataset_categories_from_questionnaire", "").split(", "))
     categories_list_cleaned = [strip_leading_symbols(category_name) for category_name in categories_list_dirty]
     categories_list_cleaned = add_missing_supercategories(categories_list_cleaned, "category")
@@ -272,8 +267,9 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     if len(result_json["usage_instructions"].strip()) < 1:
         result_json["usage_instructions"] = "None"
 
-
     result_json["acknowledgements"] = row_dict.get("acknowledgements")
+
+    result_json["open_for_collaboration"] = "collaboration" in result_json["dataset_lifecycle_stage"]
 
     # remove dangerous tags anywhere
     for key in result_json:
@@ -284,5 +280,10 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
 
             if old_content != new_content:
                 print("WARNING: the page contained dangerous HTML!!!")
+
+    # Just in case there is a column without a name in the second row.
+    if float("NaN") in result_json:
+        print("WARNING: you might have recently added a question to the form, which would have added a column in the spreadsheet. Remember to put a name for it in the second row!")
+    del result_json[float("NaN")]
 
     return result_json
