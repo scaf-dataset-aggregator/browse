@@ -510,3 +510,8 @@ button.selected-filter {
   background-color: #ffe0b3;
   color: #8a4b00;
 }
+
+.inline_catbadge[data-badge-type="collaboration"] {
+  background-color: #ffa3fb;
+  color: #7e247b;
+}

@@ -49,6 +49,8 @@ def fill_in_gaps(template_str: str, variables_dict: dict) -> str:
     result = template_str
     for key, value in variables_dict.items():
         # Replace all occurrences of {key} with its value converted to string
+        if not isinstance(value, str):
+            continue
         placeholder = "{" + key + "}"
         result = result.replace(placeholder, str(value))
     return result
@@ -70,7 +72,8 @@ def make_index_entry_from_dataset_variables(dataset_code: str, dataset_variables
         'categories_list': dataset_variables["categories_list"],
         'research_fields': dataset_variables["research_fields_list"],
         'data_types': dataset_variables["datatypes_list"],
-        'file_extensions': dataset_variables["file_extensions_list"]
+        'file_extensions': dataset_variables["file_extensions_list"],
+        'open_for_collaboration': dataset_variables["open_for_collaboration"]
     }
     return index_entry
 

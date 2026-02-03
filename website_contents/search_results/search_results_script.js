@@ -17,7 +17,7 @@ async function loadIndex() {
 
 // --- Top-Level Helper Functions ---
 
-let LOG_DEBUG = true;
+let LOG_DEBUG = false;
 
 const dbg = (msg) => {if (LOG_DEBUG) {console.log(msg);}}
 
@@ -327,9 +327,19 @@ function renderResults(items, container) {
       badge.dataset.badgeType = "request";
     }
 
+
     // Insert badge after the title link
     title.appendChild(document.createTextNode(" "));
     title.appendChild(badge);
+
+    if (item.open_for_collaboration === true) {
+      const collab_badge = document.createElement('span');
+      collab_badge.className = 'inline_catbadge';
+      collab_badge.textContent = "Open for collaboration";
+      collab_badge.dataset.badgeType = "collaboration";
+      title.appendChild(document.createTextNode(" "));
+      title.appendChild(collab_badge)
+    }
 
     const meta = document.createElement('p');
     meta.className = 'meta';

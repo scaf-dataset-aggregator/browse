@@ -19,8 +19,8 @@
     "author_contacts": "ceu@gov.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "1995-01-01",
     "collection_end": "",
@@ -38,7 +38,8 @@
     "file_extensions": [
       "xlsx",
       "csv"
-    ]
+    ],
+    "open_for_collaboration": false
   },
   {
     "id": "00004",
@@ -60,8 +61,8 @@
     "author_contacts": " helpline@food.gov.uk",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "2008-01-01",
     "collection_end": "2012-12-30",
@@ -78,7 +79,8 @@
     "file_extensions": [
       "xlsx",
       "csv"
-    ]
+    ],
+    "open_for_collaboration": false
   },
   {
     "id": "00005",
@@ -124,8 +126,8 @@
     "author_contacts": "agric.stats@gov.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "1999-06-01",
     "collection_end": "",
@@ -148,7 +150,8 @@
     "file_extensions": [
       "xlsx",
       "ods"
-    ]
+    ],
+    "open_for_collaboration": false
   },
   {
     "id": "00006",
@@ -174,8 +177,8 @@
     "author_contacts": "ChiefStatistician@gov.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "2023-01-01",
     "collection_end": "2024-12-31",
@@ -190,7 +193,8 @@
     ],
     "file_extensions": [
       "xlsx"
-    ]
+    ],
+    "open_for_collaboration": false
   },
   {
     "id": "00007",
@@ -211,8 +215,8 @@
     "author_contacts": "enquiries@fss.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "2025-08-28",
     "collection_end": "",
@@ -230,7 +234,8 @@
     ],
     "file_extensions": [
       "xml"
-    ]
+    ],
+    "open_for_collaboration": false
   },
   {
     "id": "00008",
@@ -257,8 +262,8 @@
     "author_contacts": "enquiries@fss.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "2016-01-01",
     "collection_end": "2018-12-31",
@@ -279,7 +284,8 @@
     ],
     "file_extensions": [
       "xlsx"
-    ]
+    ],
+    "open_for_collaboration": false
   },
   {
     "id": "00009",
@@ -300,8 +306,8 @@
     "author_contacts": "enquiries@fss.scot",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "2017-01-01",
     "collection_end": "",
@@ -322,7 +328,8 @@
     ],
     "file_extensions": [
       "xlsx"
-    ]
+    ],
+    "open_for_collaboration": false
   },
   {
     "id": "00010",
@@ -380,7 +387,8 @@
     ],
     "file_extensions": [
       ""
-    ]
+    ],
+    "open_for_collaboration": false
   },
   {
     "id": "00011",
@@ -415,7 +423,8 @@
     ],
     "file_extensions": [
       "ods"
-    ]
+    ],
+    "open_for_collaboration": false
   },
   {
     "id": "00013",
@@ -433,8 +442,8 @@
     "author_contacts": "0300 099 6699, https://www2.sepa.org.uk/contactus",
     "location": [
       "Scotland",
-      "United Kingdom",
-      "Europe"
+      "Europe",
+      "United Kingdom"
     ],
     "collection_start": "",
     "collection_end": "",
@@ -451,6 +460,40 @@
     ],
     "file_extensions": [
       "xlsx"
-    ]
+    ],
+    "open_for_collaboration": false
+  },
+  {
+    "id": "00017",
+    "allowed_in_database": true,
+    "name": "Test_collab",
+    "keywords": [
+      "no",
+      "keywords"
+    ],
+    "abstract": "This is a test dataset, used to view the &quot;open for collaboration&quot; tag.",
+    "publicly_available": true,
+    "author_name": "Myself",
+    "author_contacts": "",
+    "location": [
+      "Wales",
+      "Europe",
+      "United Kingdom"
+    ],
+    "collection_start": "2008-01-01",
+    "collection_end": "2012-12-31",
+    "categories_list": [
+      "Citizen Science"
+    ],
+    "research_fields": [
+      "Law"
+    ],
+    "data_types": [
+      "Markup"
+    ],
+    "file_extensions": [
+      "txt"
+    ],
+    "open_for_collaboration": true
   }
 ]
