@@ -284,6 +284,6 @@ def dataset_df_row_to_JSON(row, dataset_code) -> dict:
     # Just in case there is a column without a name in the second row.
     if float("NaN") in result_json:
         print("WARNING: you might have recently added a question to the form, which would have added a column in the spreadsheet. Remember to put a name for it in the second row!")
-    del result_json[float("NaN")]
+        del result_json[float("NaN")]
 
     return result_json
