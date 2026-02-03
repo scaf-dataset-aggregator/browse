@@ -93,6 +93,8 @@ function getFilterJSONFromGUI() {
     filters["publiclyAvailable"] = "";
   }
 
+  filters["openForCollaboration"] = document.getElementById('openForCollaboration').checked;
+
   // file extensions
   filters["fileExtensions"] = document.getElementById("fileExtensions").value.trim();
 
@@ -178,6 +180,7 @@ function loadFilterOptionsForFilter(json_data, filter_name) {
  * }
  */
 async function loadFilterOptions(websiteContentsPath = '') {
+  // loads the filter_options file and populates the options for various filters
   try {
     const response = await fetch(`${websiteContentsPath}../website_metadata/filter_options.json`);
     if (!response.ok) throw new Error("Could not load filter_options.json");

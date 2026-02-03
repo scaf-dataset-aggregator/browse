@@ -515,3 +515,13 @@ button.selected-filter {
   background-color: #ffa3fb;
   color: #7e247b;
 }
+
+
+#openForCollaboration {
+    width: 1.2em;      /* Adjust width as needed */
+    height: 1.2em;     /* Adjust height as needed */
+    transform: scale(1.2); /* Scale up the checkbox */
+    border-radius: 4px; /* Optional, for rounded corners */
+}
+
+

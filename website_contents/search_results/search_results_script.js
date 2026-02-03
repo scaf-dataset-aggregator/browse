@@ -88,6 +88,12 @@ function filterData(data, filters) {
     );
   }
 
+  if (filters.openForCollaboration){
+    filteredResults = filteredResults.filter(item =>
+      item.open_for_collaboration === true
+    );
+  }
+
   dbg_lenFilteredResults("after_public");
 
   const fMandatoryKeywords = (filters.mandatoryKeywords || '')
@@ -375,6 +381,7 @@ function getFiltersFromParams(params) {
   const filters = {
     mandatoryKeywords: params.get("mandatoryKeywords"),
     publiclyAvailable: publiclyAvailable === "" ? "" : publiclyAvailable === "true",
+    openForCollaboration: params.get("openForCollaboration") === "true",
     dataType: (params.get('dataType') || '').split(',').filter(Boolean),
     category: (params.get('category') || '').split(',').filter(Boolean),
     researchField: (params.get('researchField') || '').split(',').filter(Boolean),
@@ -456,6 +463,10 @@ function updateGUIToMatchPreviousState(searchQuery, filters) {
     } else if (filters.publiclyAvailable === false) {
       fakeClickOnOption("availability", "Shareable on request");
     }
+  }
+
+  if (filters.hasOwnProperty("openForCollaboration") && filters.openForCollaboration === true) {
+    document.getElementById("openForCollaboration").checked = true;
   }
 
   // --- Main multi-select filters ---
